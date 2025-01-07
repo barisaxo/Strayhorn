@@ -1,0 +1,11 @@
+/Users/pino/Documents/DEV/CSharp/AuralTechGames/Strayhorn/Strayhorn.Model/bin/Debug/net9.0/Strayhorn.Model.deps.json
+/Users/pino/Documents/DEV/CSharp/AuralTechGames/Strayhorn/Strayhorn.Model/bin/Debug/net9.0/Strayhorn.Model.dll
+/Users/pino/Documents/DEV/CSharp/AuralTechGames/Strayhorn/Strayhorn.Model/bin/Debug/net9.0/Strayhorn.Model.pdb
+/Users/pino/Documents/DEV/CSharp/AuralTechGames/Strayhorn/Strayhorn.Model/obj/Debug/net9.0/Strayhorn.Model.GeneratedMSBuildEditorConfig.editorconfig
+/Users/pino/Documents/DEV/CSharp/AuralTechGames/Strayhorn/Strayhorn.Model/obj/Debug/net9.0/Strayhorn.Model.AssemblyInfoInputs.cache
+/Users/pino/Documents/DEV/CSharp/AuralTechGames/Strayhorn/Strayhorn.Model/obj/Debug/net9.0/Strayhorn.Model.AssemblyInfo.cs
+/Users/pino/Documents/DEV/CSharp/AuralTechGames/Strayhorn/Strayhorn.Model/obj/Debug/net9.0/Strayhorn.Model.csproj.CoreCompileInputs.cache
+/Users/pino/Documents/DEV/CSharp/AuralTechGames/Strayhorn/Strayhorn.Model/obj/Debug/net9.0/Strayhorn.Model.dll
+/Users/pino/Documents/DEV/CSharp/AuralTechGames/Strayhorn/Strayhorn.Model/obj/Debug/net9.0/refint/Strayhorn.Model.dll
+/Users/pino/Documents/DEV/CSharp/AuralTechGames/Strayhorn/Strayhorn.Model/obj/Debug/net9.0/Strayhorn.Model.pdb
+/Users/pino/Documents/DEV/CSharp/AuralTechGames/Strayhorn/Strayhorn.Model/obj/Debug/net9.0/ref/Strayhorn.Model.dll
