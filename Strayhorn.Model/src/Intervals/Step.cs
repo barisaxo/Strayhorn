@@ -4,9 +4,8 @@ using MusicTheory.Letters;
 namespace MusicTheory.Intervals;
 
 /// <summary>https://barisaxo.github.io/pages/arithmetic/steps.html </summary>
-public interface IStep
+public interface IStep : IMusicalElement
 {
-    public string Name { get; }
     public string Abbrev { get; }
     public Chromatic Chromatic { get; }
 

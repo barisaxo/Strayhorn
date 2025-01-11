@@ -114,9 +114,9 @@ public readonly struct Blues : IMode
     public readonly ModeDegree ModeDegree => ModeDegree.Prime;
 }
 
-public readonly struct MajorBlues : IMode
+public readonly struct BluesMajor : IMode
 {
-    public readonly string Name => nameof(MajorBlues);
+    public readonly string Name => nameof(BluesMajor);
     public readonly IScale Parent => new Scales.Blues();
     public readonly ModeDegree ModeDegree => ModeDegree.Second;
 }

@@ -43,8 +43,8 @@ public interface IPitchClass
 
     public static IEnumerable<IPitchClass> GetAll() => [
         new A(), new B(), new C(), new D(), new E(), new F(), new G(),
-        new As(), new Bs(), new Cs(), new Ds(), new Es(), new Fs(), new Gs(),
         new Ab(), new Bb(), new Cb(), new Db(), new Eb(), new Fb(), new Gb(),
+        new As(), new Bs(), new Cs(), new Ds(), new Es(), new Fs(), new Gs(),
         new Ax(), new Bx(), new Cx(), new Dx(), new Ex(), new Fx(), new Gx(),
         new Abb(), new Bbb(), new Cbb(), new Dbb(), new Ebb(), new Fbb(), new Gbb()
     ];
@@ -52,7 +52,7 @@ public interface IPitchClass
     public static IPitchClass Get(ILetter letter, IAccidental accidental) =>
         GetAll().Single(pc => pc.Letter.Equals(letter) && pc.Accidental.Equals(accidental));
 
-    public static IPitchClass GetStepAbove(IPitchClass pitchClass, IStep step)
+    public static IPitchClass GetPitchClassAbove(IPitchClass pitchClass, IStep step, bool AllowEnharmonicWhite = false, bool preferDoubles = false)
     {
         var letter = ILetter.GetNextLetter(pitchClass.Letter);
 
@@ -60,11 +60,53 @@ public interface IPitchClass
 
         try
         {
-            return GetAll().Single(pc => pc.Letter.Equals(letter) && pc.Chromatic.Value == chromaticSum);
+            var getPC = GetAll().Single(pc => pc.Letter.Equals(letter) && pc.Chromatic.Value == chromaticSum);
+            if (!preferDoubles && getPC.Accidental is DoubleFlat or DoubleSharp) throw new Exception();
+            if (!AllowEnharmonicWhite && (getPC is Cb or Fb or Bs or Es)) throw new Exception();
+            else return getPC;
         }
         catch
         {
-            return GetAll().Single(pc => pc.Accidental is Sharp or Flat or Natural && pc.Chromatic.Value == chromaticSum);
+            try
+            {
+                return GetAll().First(pc => pc.Accidental is Natural && pc.Chromatic.Value == chromaticSum);
+            }
+            catch
+            {
+                return GetAll().First(pc => pc.Accidental is Sharp or Flat && pc.Chromatic.Value == chromaticSum);
+            }
+        }
+    }
+
+    public static IPitchClass GetPitchClassAbove(IPitchClass pitchClass, IInterval interval, bool allowEnharmonicWhite = false, bool preferDoubles = false)
+    {
+        var letter = ILetter.GetLetterAbove(pitchClass.Letter, interval);
+        int chromaticSum = (pitchClass.Chromatic.Value + interval.Chromatic.Value) % Chromatic.Gamut;
+        var all = GetAll();
+        try
+        {
+            var get = all.Single(pc => pc.Letter.Equals(letter) && pc.Chromatic.Value == chromaticSum);
+            if (!preferDoubles && get.Accidental is DoubleFlat or DoubleSharp) { throw new Exception("Double Accidental"); }
+            if (!allowEnharmonicWhite && (get is Cb or Fb or Bs or Es)) { throw new Exception("Enharmonic White"); }
+            else return get;
+        }
+        catch
+        {
+            try
+            {
+                return all.Single(pc => pc.Accidental is Natural && pc.Chromatic.Value == chromaticSum);
+            }
+            catch
+            {
+                try
+                {
+                    return all.Single(pc => pc.Letter == letter && pc.Chromatic.Value == chromaticSum);
+                }
+                catch
+                {
+                    return all.First(pc => pc.Accidental is Sharp or Flat && pc.Chromatic.Value == chromaticSum);
+                }
+            }
         }
     }
 }
@@ -76,6 +118,7 @@ public readonly struct D : IPitchClass { public ILetter Letter => new Letters.D(
 public readonly struct E : IPitchClass { public ILetter Letter => new Letters.E(); public IAccidental Accidental => new Natural(); }
 public readonly struct F : IPitchClass { public ILetter Letter => new Letters.F(); public IAccidental Accidental => new Natural(); }
 public readonly struct G : IPitchClass { public ILetter Letter => new Letters.G(); public IAccidental Accidental => new Natural(); }
+
 public readonly struct As : IPitchClass { public ILetter Letter => new Letters.A(); public IAccidental Accidental => new Sharp(); }
 public readonly struct Bs : IPitchClass { public ILetter Letter => new Letters.B(); public IAccidental Accidental => new Sharp(); }
 public readonly struct Cs : IPitchClass { public ILetter Letter => new Letters.C(); public IAccidental Accidental => new Sharp(); }
@@ -83,6 +126,7 @@ public readonly struct Ds : IPitchClass { public ILetter Letter => new Letters.D
 public readonly struct Es : IPitchClass { public ILetter Letter => new Letters.E(); public IAccidental Accidental => new Sharp(); }
 public readonly struct Fs : IPitchClass { public ILetter Letter => new Letters.F(); public IAccidental Accidental => new Sharp(); }
 public readonly struct Gs : IPitchClass { public ILetter Letter => new Letters.G(); public IAccidental Accidental => new Sharp(); }
+
 public readonly struct Ab : IPitchClass { public ILetter Letter => new Letters.A(); public IAccidental Accidental => new Flat(); }
 public readonly struct Bb : IPitchClass { public ILetter Letter => new Letters.B(); public IAccidental Accidental => new Flat(); }
 public readonly struct Cb : IPitchClass { public ILetter Letter => new Letters.C(); public IAccidental Accidental => new Flat(); }
@@ -90,6 +134,7 @@ public readonly struct Db : IPitchClass { public ILetter Letter => new Letters.D
 public readonly struct Eb : IPitchClass { public ILetter Letter => new Letters.E(); public IAccidental Accidental => new Flat(); }
 public readonly struct Fb : IPitchClass { public ILetter Letter => new Letters.F(); public IAccidental Accidental => new Flat(); }
 public readonly struct Gb : IPitchClass { public ILetter Letter => new Letters.G(); public IAccidental Accidental => new Flat(); }
+
 public readonly struct Ax : IPitchClass { public ILetter Letter => new Letters.A(); public IAccidental Accidental => new DoubleSharp(); }
 public readonly struct Bx : IPitchClass { public ILetter Letter => new Letters.B(); public IAccidental Accidental => new DoubleSharp(); }
 public readonly struct Cx : IPitchClass { public ILetter Letter => new Letters.C(); public IAccidental Accidental => new DoubleSharp(); }
@@ -97,6 +142,7 @@ public readonly struct Dx : IPitchClass { public ILetter Letter => new Letters.D
 public readonly struct Ex : IPitchClass { public ILetter Letter => new Letters.E(); public IAccidental Accidental => new DoubleSharp(); }
 public readonly struct Fx : IPitchClass { public ILetter Letter => new Letters.F(); public IAccidental Accidental => new DoubleSharp(); }
 public readonly struct Gx : IPitchClass { public ILetter Letter => new Letters.G(); public IAccidental Accidental => new DoubleSharp(); }
+
 public readonly struct Abb : IPitchClass { public ILetter Letter => new Letters.A(); public IAccidental Accidental => new DoubleFlat(); }
 public readonly struct Bbb : IPitchClass { public ILetter Letter => new Letters.B(); public IAccidental Accidental => new DoubleFlat(); }
 public readonly struct Cbb : IPitchClass { public ILetter Letter => new Letters.C(); public IAccidental Accidental => new DoubleFlat(); }

@@ -168,3 +168,4 @@
 /Users/pino/Documents/DEV/CSharp/AuralTechGames/Strayhorn/Strayhorn.Tests/obj/Debug/net9.0/Strayhorn.Tests.pdb
 /Users/pino/Documents/DEV/CSharp/AuralTechGames/Strayhorn/Strayhorn.Tests/obj/Debug/net9.0/Strayhorn.Tests.genruntimeconfig.cache
 /Users/pino/Documents/DEV/CSharp/AuralTechGames/Strayhorn/Strayhorn.Tests/obj/Debug/net9.0/ref/Strayhorn.Tests.dll
+/Users/pino/Documents/DEV/CSharp/AuralTechGames/Strayhorn/Strayhorn.Tests/obj/Debug/net9.0/Strayhorn.Tests.sourcelink.json

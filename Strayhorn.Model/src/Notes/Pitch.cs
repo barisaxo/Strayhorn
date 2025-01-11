@@ -6,7 +6,7 @@ namespace MusicTheory.Notes;
 /// 88key piano range: A0 - C8. Pitch is a PitchClass with an Octave designation.
 /// https://barisaxo.github.io/pages/arithmetic/notes.html
 /// </summary>
-public readonly struct Pitch : IComparable<Pitch>, IEquatable<Pitch>, IMusicalElement
+public readonly struct Pitch : IComparable<Pitch>, IComparer<Pitch>, IEquatable<Pitch>, IMusicalElement
 {
     /// <summary> 88 key piano range: A0 - C8. </summary>
     public const int MinPitchID = 0;
@@ -18,12 +18,15 @@ public readonly struct Pitch : IComparable<Pitch>, IEquatable<Pitch>, IMusicalEl
     /// <summary> ISO octave designations, middle C = C4 </summary>
     public const int MaxOctave = 8;
 
+    public double Frequency => this.GetFrequency();//Frequencies.NoteFrequencies.GetValueOrDefault(Chromatic.Value) * Math.Pow(2, Octave);
     /// <summary> PitchID = (Octave * Gamut) + 
     /// pitchClass.Chromatic.Value + Chromatic.LetterOffset; </summary>
     public readonly int PitchID;
 
     public static int GetPitchID(IPitchClass pitchClass, int octave) =>
-        (octave * Chromatic.Gamut) + pitchClass.Chromatic.Value + Chromatic.LetterOffset;
+        pitchClass.Chromatic.Value + Chromatic.LetterOffset +
+        ((octave + (pitchClass is Cb or Cbb ? -1 : pitchClass is Bs or Bx ? 1 : 0)) * Chromatic.Gamut);
+
 
     /// <summary> ISO octave designation. </summary> 
     public readonly int Octave;
@@ -38,7 +41,7 @@ public readonly struct Pitch : IComparable<Pitch>, IEquatable<Pitch>, IMusicalEl
         if (octave < MinOctave || octave > MaxOctave)
             throw new ArgumentOutOfRangeException(octave + " is out of octave range");
 
-        PitchID = (octave * Chromatic.Gamut) + pitchClass.Chromatic.Value + Chromatic.LetterOffset;
+        PitchID = GetPitchID(pitchClass, octave);
 
         if (PitchID < MinPitchID || PitchID > MaxPitchID)
             throw new ArgumentOutOfRangeException(PitchID + " is out of pitch range");
@@ -50,7 +53,7 @@ public readonly struct Pitch : IComparable<Pitch>, IEquatable<Pitch>, IMusicalEl
     /// <summary>Checks enharmonic equivalency, ignoring octave designation.</summary>
     /// <returns> left.PitchClass.ChromaticValue == right.PitchClass.ChromaticValue; </returns>
     public static bool IsEnharmonic(Pitch left, Pitch right) =>
-        left.PitchClass.Chromatic.Value == right.PitchClass.Chromatic.Value;
+        left.PitchClass.Chromatic == right.PitchClass.Chromatic;
 
     /// <summary> Evaluates PitchClass and octave designation (enharmonic equivalents are NOT equal) </summary>
     public static bool operator ==(Pitch left, Pitch right) => Equals(left, right);
@@ -59,7 +62,7 @@ public readonly struct Pitch : IComparable<Pitch>, IEquatable<Pitch>, IMusicalEl
     public static bool operator !=(Pitch left, Pitch right) => !Equals(left, right);
 
     /// <summary> Compares pitches by PitchID (enharmonic equivalents are equal, different octaves are not) </summary>
-    public readonly int CompareTo(Pitch other) => PitchID.CompareTo(other.PitchID);
+    public readonly int CompareTo(Pitch other) => PitchID - other.PitchID;
 
     /// <summary> Evaluates PitchClass and octave designation (enharmonic equivalents are NOT equal) </summary>
     public readonly bool Equals(Pitch other) => Name == other.Name;
@@ -70,4 +73,6 @@ public readonly struct Pitch : IComparable<Pitch>, IEquatable<Pitch>, IMusicalEl
     /// <summary> returns NoteName.GetHashCode() </summary>
     public readonly override int GetHashCode() => Name.GetHashCode();
 
+    /// <summary> Compares pitches by PitchID (enharmonic equivalents are equal, different octaves are not) </summary>
+    public int Compare(Pitch x, Pitch y) => x.PitchID - y.PitchID;
 }

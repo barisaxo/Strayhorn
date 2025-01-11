@@ -9,3 +9,4 @@
 /Users/pino/Documents/DEV/CSharp/AuralTechGames/Strayhorn/Strayhorn.Model/obj/Debug/net9.0/refint/Strayhorn.Model.dll
 /Users/pino/Documents/DEV/CSharp/AuralTechGames/Strayhorn/Strayhorn.Model/obj/Debug/net9.0/Strayhorn.Model.pdb
 /Users/pino/Documents/DEV/CSharp/AuralTechGames/Strayhorn/Strayhorn.Model/obj/Debug/net9.0/ref/Strayhorn.Model.dll
+/Users/pino/Documents/DEV/CSharp/AuralTechGames/Strayhorn/Strayhorn.Model/obj/Debug/net9.0/Strayhorn.Model.sourcelink.json

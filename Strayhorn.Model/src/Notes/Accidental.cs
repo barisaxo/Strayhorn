@@ -11,7 +11,7 @@ public interface IAccidental
     public string Ascii { get; }
 
     public static IEnumerable<IAccidental> GetAll() =>
-        [new DoubleSharp(), new Sharp(), new Natural(), new Flat(), new DoubleFlat()];
+        [new DoubleFlat(), new Flat(), new Natural(), new Sharp(), new DoubleSharp(),];
 }
 
 [System.Serializable]

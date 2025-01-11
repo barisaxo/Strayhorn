@@ -21,7 +21,7 @@ public sealed class IntervalTests
                 var pitchClass = IPitchClass.Get(letter, accidental);
                 foreach (IStep step in steps)
                 {
-                    var nextPitchClass = IPitchClass.GetStepAbove(pitchClass, step);
+                    var nextPitchClass = IPitchClass.GetPitchClassAbove(pitchClass, step);
                     Assert.IsTrue(nextPitchClass.Chromatic.Value - pitchClass.Chromatic.Value
                         + (pitchClass.Chromatic.Value > nextPitchClass.Chromatic.Value ? Chromatic.Gamut : 0)
                      == step.Chromatic.Value);
@@ -30,6 +30,20 @@ public sealed class IntervalTests
         }
     }
 
+    [TestMethod]
+    public void GetLetterAboveTest()
+    {
+        // IInterval[] intervals = IInterval.GetAll().ToArray();
+        foreach (ILetter letter in ILetter.GetAll())
+        {
+            foreach (IInterval interval in IInterval.GetAll())
+            {
+                var nextLetter = ILetter.GetLetterAbove(letter, interval);
+                Assert.IsTrue(nextLetter.Diatonic.Value ==
+                ((letter.Diatonic.Value - 2 + interval.Quantity.ChordTone.Value) % Diatonic.Gamut) + 1);
+            }
+        }
+    }
 
     [TestMethod]
     public void StepAsIntervalTest()

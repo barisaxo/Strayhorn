@@ -3,9 +3,8 @@ using MusicTheory.Modes;
 namespace MusicTheory.Scales;
 
 /// <summary> https://barisaxo.github.io/pages/arithmetic/scales.html  </summary>
-public interface IScale
+public interface IScale : IMusicalElement
 {
-    public string Name { get; }
     public IStep[] Steps { get; }
     public IMode[] Modes { get; }
     public IInterval[] ScaleDegrees { get; }
@@ -26,6 +25,19 @@ public readonly struct Major : IScale
         [new P1(), new M2(), new M3(), new P4(), new P5(), new M6(), new M7()];
     public readonly IStep[] Steps =>
         [new W(), new W(), new H(), new W(), new W(), new W(), new H()];
+}
+
+public readonly struct Minor : IScale
+{
+    public readonly string Name => nameof(Major);
+    public readonly IMode[] Modes =>
+        [new Aeolian(), new Locrian(),new Ionian(), new Dorian(), new Phrygian(), new Lydian(),
+         new Mixolydian(),];
+
+    public readonly IInterval[] ScaleDegrees =>
+        [new P1(), new M2(), new mi3(), new P4(), new P5(), new mi6(), new mi7()];
+    public readonly IStep[] Steps =>
+        [new W(), new H(), new W(), new W(), new H(), new W(), new W(),];
 }
 
 public readonly struct JazzMinor : IScale
@@ -78,7 +90,7 @@ public readonly struct SixthDiminished : IScale
 {
     public readonly string Name => nameof(SixthDiminished);
     public readonly IInterval[] ScaleDegrees =>
-        [new P1(), new M2(), new mi3(), new P4(), new P5(), new mi6(), new M6(), new M7()];
+        [new P1(), new M2(), new M3(), new P4(), new P5(), new mi6(), new M6(), new M7()];
     public readonly IStep[] Steps =>
         [new W(), new W(), new H(), new W(), new H(), new H(), new W(), new H()];
     public readonly IMode[] Modes =>
@@ -110,6 +122,18 @@ public readonly struct Pentatonic : IScale
          new PentatonicIV(), new PentatonicMinor()];
 }
 
+public readonly struct MinorPentatonic : IScale
+{
+    public readonly string Name => nameof(Pentatonic);
+    public readonly IInterval[] ScaleDegrees =>
+        [new P1(), new mi3(), new P4(), new P5(), new mi7(),];
+    public readonly IStep[] Steps =>
+       [new S(), new W(), new W(), new S(), new W(),];
+    public readonly IMode[] Modes =>
+        [new PentatonicMinor(), new Modes.Pentatonic(), new PentatonicII(), new PentatonicIII(),
+         new PentatonicIV(), ];
+}
+
 public readonly struct Blues : IScale
 {
     public readonly string Name => nameof(Blues);
@@ -118,6 +142,16 @@ public readonly struct Blues : IScale
     public readonly IStep[] Steps =>
         [new S(), new W(), new H(), new H(), new S(), new W()];
     public readonly IMode[] Modes =>
-        [new Modes.Blues(), new MajorBlues()];
+        [new Modes.Blues(), new BluesMajor()];
 }
 
+public readonly struct MajorBlues : IScale
+{
+    public readonly string Name => nameof(Blues);
+    public readonly IInterval[] ScaleDegrees =>
+        [new P1(), new M2(), new mi3(), new M3(), new P5(), new M6()];
+    public readonly IStep[] Steps =>
+        [new W(), new H(), new H(), new S(), new W(), new S(),];
+    public readonly IMode[] Modes =>
+        [new Modes.Blues(), new BluesMajor()];
+}

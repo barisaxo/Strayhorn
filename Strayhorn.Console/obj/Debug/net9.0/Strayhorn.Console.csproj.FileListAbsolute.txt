@@ -22,3 +22,4 @@
 /Users/pino/Documents/DEV/CSharp/AuralTechGames/Strayhorn/Strayhorn.Console/bin/Debug/net9.0/NAudio.Midi.dll
 /Users/pino/Documents/DEV/CSharp/AuralTechGames/Strayhorn/Strayhorn.Console/bin/Debug/net9.0/NAudio.Wasapi.dll
 /Users/pino/Documents/DEV/CSharp/AuralTechGames/Strayhorn/Strayhorn.Console/bin/Debug/net9.0/NAudio.WinMM.dll
+/Users/pino/Documents/DEV/CSharp/AuralTechGames/Strayhorn/Strayhorn.Console/obj/Debug/net9.0/Strayhorn.Console.sourcelink.json

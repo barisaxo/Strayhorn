@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using MusicTheory.Intervals;
 
 namespace MusicTheory.Letters;
 
@@ -14,6 +15,11 @@ public interface ILetter : IMusicalElement
 
     public static ILetter GetNextLetter(ILetter letter) =>
         GetAll().Single(l => l.Diatonic.Value == (letter.Diatonic.Value % Diatonic.Gamut) + 1);
+
+    public static ILetter GetLetterAbove(ILetter letter, IInterval interval)
+    {
+        return GetAll().Single(l => l.Diatonic.Value == ((letter.Diatonic.Value - 2 + interval.Quantity.ChordTone.Value) % Diatonic.Gamut) + 1);
+    }
     // GetAll().ToList()[letter.Diatonic.Value % Diatonic.Gamut]; //just a different way to do it
 }
 
