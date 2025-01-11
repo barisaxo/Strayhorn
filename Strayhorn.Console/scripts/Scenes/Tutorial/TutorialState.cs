@@ -17,6 +17,7 @@ public class TutorialState(ITutorial tutorial, Func<IState> getState) : IState
         Console.WriteLine("\nuse ← → keys to navigate pages\npress 'space' to return to menu");
         Console.ResetColor();
     }
+
     void PrintPageNo()
     {
         Console.ForegroundColor = ConsoleColor.DarkGray;
@@ -34,11 +35,11 @@ public class TutorialState(ITutorial tutorial, Func<IState> getState) : IState
         switch (Console.ReadKey(true).Key)
         {
             case ConsoleKey.LeftArrow:
-                index = (index - 1 + Length) % Length;
+                index -= index == 0 ? 0 : 1;
                 break;
 
             case ConsoleKey.RightArrow:
-                index = (index + 1) % Length;
+                index += index + 1 == Length ? 0 : 1;
                 break;
 
             case ConsoleKey.Spacebar:

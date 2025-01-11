@@ -39,8 +39,8 @@ public class NotesTutorial : ITutorial
 
     static TutorialPageDisplay P3 => new(() =>
     {
-        Console.WriteLine("\nENHARMONIC EQUIVALENCE: (Overlap in note names)");
         PianoScroll.Draw(PianoScroll.OneOctaveWithEnharmonicBlack);
+        Console.WriteLine("\nENHARMONIC EQUIVALENCE: (Overlap in note names)");
         Console.WriteLine($"Black keys are always {s} or {b}:");
         Console.WriteLine($"\nC{s} = D{b}, D{s} = E{b}, F{s} = G{b}, G{s} = A{b}, A{s} = B{b} ");
     });
@@ -50,8 +50,7 @@ public class NotesTutorial : ITutorial
 
         PianoScroll.Draw(PianoScroll.OneOctaveWithEnharmonicWhite);
         Console.WriteLine($"\nSome white keys can also be {s} or {b}.");
-        Console.WriteLine("\nThis is because the keys B & C, and E & F are adjacent,");
-        Console.WriteLine("there are no black keys separating them.");
+        Console.WriteLine("\nThis is because the keys B & C, and E & F are adjacent, there are no black keys separating them.");
         Console.WriteLine($"\nB{s} = C, C{b} = B, E{s} = F, F{b} = E");
     });
 }
