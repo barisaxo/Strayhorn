@@ -2,21 +2,12 @@ using Strayhorn.Systems.Display;
 
 namespace Strayhorn.Tutorials;
 
-public class StepsTutorialP1 : ITutorial
+public class StepsTutorial : ITutorial
 {
-    public ITutorial? PrevPage() => null;
-    public ITutorial? NextPage() => new StepsTutorialP2();
-    public IDisplay Display { get; }
+    public IDisplay[] Displays => [P1, P2];
 
-    public StepsTutorialP1()
+    static TutorialPageDisplay P1 => new(() =>
     {
-        Display = new Display(PrintTutorial);
-    }
-
-    static void PrintTutorial()
-    {
-        Console.Clear();
-        Console.WriteLine("(p1 of 2)");
         Console.WriteLine();
         PianoScroll.DrawTwoOctavePiano();
         Console.WriteLine();
@@ -32,24 +23,11 @@ public class StepsTutorialP1 : ITutorial
         Console.WriteLine();
         Console.WriteLine("To abbreviate, we use 'H', 'W', and 'S' - respectively.");
         Console.WriteLine();
-    }
-}
-public class StepsTutorialP2 : ITutorial
-{
-    public ITutorial? PrevPage() => new StepsTutorialP1();
-    public ITutorial? NextPage() => null;
-    public IDisplay Display { get; }
+    });
 
-    public StepsTutorialP2()
+
+    static TutorialPageDisplay P2 => new(() =>
     {
-        Display = new Display(PrintTutorial);
-    }
-
-    static void PrintTutorial()
-    {
-        Console.Clear();
-        Console.WriteLine("(p2 of 2)");
-
         Console.WriteLine();
         PianoScroll.DrawTwoOctavePiano();
         Console.WriteLine();
@@ -63,5 +41,6 @@ public class StepsTutorialP2 : ITutorial
         Console.WriteLine();
         Console.WriteLine("Skips are used with Pentatonic scales, and some other scales like Harmonic Minor.");
         Console.WriteLine();
-    }
+    });
+
 }

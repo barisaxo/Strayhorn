@@ -8,6 +8,7 @@ public interface IScale : IMusicalElement
     public IStep[] Steps { get; }
     public IMode[] Modes { get; }
     public IInterval[] ScaleDegrees { get; }
+    public string[] Drawing { get; }
 
     public static IEnumerable<IScale> GetAll() =>
         [new Major(), new JazzMinor(), new HarmonicMinor(), new WholeTone(), new Diminished(),
@@ -25,6 +26,8 @@ public readonly struct Major : IScale
         [new P1(), new M2(), new M3(), new P4(), new P5(), new M6(), new M7()];
     public readonly IStep[] Steps =>
         [new W(), new W(), new H(), new W(), new W(), new W(), new H()];
+
+    public string[] Drawing => throw new NotImplementedException();
 }
 
 public readonly struct Minor : IScale
@@ -38,6 +41,8 @@ public readonly struct Minor : IScale
         [new P1(), new M2(), new mi3(), new P4(), new P5(), new mi6(), new mi7()];
     public readonly IStep[] Steps =>
         [new W(), new H(), new W(), new W(), new H(), new W(), new W(),];
+
+    public string[] Drawing => throw new NotImplementedException();
 }
 
 public readonly struct JazzMinor : IScale
@@ -50,6 +55,8 @@ public readonly struct JazzMinor : IScale
     public readonly IMode[] Modes =>
         [new Modes.JazzMinor(), new PhrygianS6(), new LydianS5(), new LydianDom(),
          new Mixolydianb6(), new LocrianS9(), new Altered()];
+
+    public string[] Drawing => throw new NotImplementedException();
 }
 
 public readonly struct HarmonicMinor : IScale
@@ -62,6 +69,8 @@ public readonly struct HarmonicMinor : IScale
     public readonly IMode[] Modes =>
         [new Modes.HarmonicMinor(), new LocrianS6(), new IonianS5(), new DorianS11(),
          new PhrygianDominant(), new LydianDom(), new SuperLocrian()];
+
+    public string[] Drawing => throw new NotImplementedException();
 }
 
 public readonly struct WholeTone : IScale
@@ -73,6 +82,8 @@ public readonly struct WholeTone : IScale
         [new W(), new W(), new W(), new W(), new W(), new W()];
     public readonly IMode[] Modes =>
         [new Modes.WholeTone()];
+
+    public string[] Drawing => throw new NotImplementedException();
 }
 
 public readonly struct Diminished : IScale
@@ -84,6 +95,8 @@ public readonly struct Diminished : IScale
         [new W(), new H(), new W(), new H(), new W(), new H(), new W(), new H()];
     public readonly IMode[] Modes =>
         [new WholeHalf(), new HalfWhole()];
+
+    public string[] Drawing => throw new NotImplementedException();
 }
 
 public readonly struct SixthDiminished : IScale
@@ -95,6 +108,8 @@ public readonly struct SixthDiminished : IScale
         [new W(), new W(), new H(), new W(), new H(), new H(), new W(), new H()];
     public readonly IMode[] Modes =>
         [new Modes.SixthDiminished(), new Modes.SixthDiminished()];
+
+    public string[] Drawing => throw new NotImplementedException();
 }
 
 public readonly struct Chromatic : IScale
@@ -108,6 +123,11 @@ public readonly struct Chromatic : IScale
        new H(), new H(), new H(), new H(), new H(), new H()];
     public readonly IMode[] Modes =>
      [new Modes.Chromatic()];
+    public readonly string[] Drawing =>
+       [@"C Db E Eb E F Gb G Ab A Bb B C",
+        @"1 b2 2 b3 3 4 b5 5 b6 6 b7 7 1",
+        @" ‾  ‾ ‾  ‾ ‾ ‾  ‾ ‾  ‾ ‾  ‾ ‾ ",
+        @" H  H H  H H H  H H  H H  H H ",];
 }
 
 public readonly struct Pentatonic : IScale
@@ -120,6 +140,8 @@ public readonly struct Pentatonic : IScale
     public readonly IMode[] Modes =>
         [new Modes.Pentatonic(), new PentatonicII(), new PentatonicIII(),
          new PentatonicIV(), new PentatonicMinor()];
+
+    public string[] Drawing => throw new NotImplementedException();
 }
 
 public readonly struct MinorPentatonic : IScale
@@ -132,6 +154,8 @@ public readonly struct MinorPentatonic : IScale
     public readonly IMode[] Modes =>
         [new PentatonicMinor(), new Modes.Pentatonic(), new PentatonicII(), new PentatonicIII(),
          new PentatonicIV(), ];
+
+    public string[] Drawing => throw new NotImplementedException();
 }
 
 public readonly struct Blues : IScale
@@ -143,6 +167,8 @@ public readonly struct Blues : IScale
         [new S(), new W(), new H(), new H(), new S(), new W()];
     public readonly IMode[] Modes =>
         [new Modes.Blues(), new BluesMajor()];
+
+    public string[] Drawing => throw new NotImplementedException();
 }
 
 public readonly struct MajorBlues : IScale
@@ -154,4 +180,6 @@ public readonly struct MajorBlues : IScale
         [new W(), new H(), new H(), new S(), new W(), new S(),];
     public readonly IMode[] Modes =>
         [new Modes.Blues(), new BluesMajor()];
+
+    public string[] Drawing => throw new NotImplementedException();
 }

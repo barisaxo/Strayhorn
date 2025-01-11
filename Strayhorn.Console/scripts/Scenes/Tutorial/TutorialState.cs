@@ -4,37 +4,41 @@ using Strayhorn.Systems.Display;
 
 namespace Strayhorn;
 
-public class TutorialState : IState
+public class TutorialState(ITutorial tutorial, Func<IState> getState) : IState
 {
-    public ITutorial Tutorial;
-    readonly Func<IState> GetState;
-
-    public TutorialState(ITutorial tutorial, Func<IState> getState)
-    {
-        Tutorial = tutorial;
-        GetState = getState;
-    }
+    public ITutorial Tutorial = tutorial;
+    readonly Func<IState> GetState = getState;
+    int index = 0;
+    int Length => Tutorial.Displays.Length;
 
     static void PrintCommands()
     {
         Console.ForegroundColor = ConsoleColor.DarkGray;
-        Console.WriteLine("\nuse ← → keys to navigate pages, press 'space' to return to menu");
+        Console.WriteLine("\nuse ← → keys to navigate pages\npress 'space' to return to menu");
+        Console.ResetColor();
+    }
+    void PrintPageNo()
+    {
+        Console.ForegroundColor = ConsoleColor.DarkGray;
+        Console.WriteLine($"(page {index + 1} of {Length})");
         Console.ResetColor();
     }
 
     public IState Engage()
     {
-        Tutorial.Display.ExecuteDisplay();
+        Console.Clear();
+        PrintPageNo();
+        Tutorial.Displays[index].DisplayPage();
         PrintCommands();
 
         switch (Console.ReadKey(true).Key)
         {
             case ConsoleKey.LeftArrow:
-                Tutorial = Tutorial.PrevPage() ?? Tutorial;
+                index = (index - 1 + Length) % Length;
                 break;
 
             case ConsoleKey.RightArrow:
-                Tutorial = Tutorial.NextPage() ?? Tutorial;
+                index = (index + 1) % Length;
                 break;
 
             case ConsoleKey.Spacebar:
