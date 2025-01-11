@@ -1,6 +1,3 @@
-using System;
-using System.IO;
-using System.Linq;
 using MusicTheory.Notes;
 
 enum WaveformType { Sine, Square, Triangle, Sawtooth }
@@ -19,7 +16,7 @@ static class AudioGenerator
         foreach (var (notes, duration, amp) in noteStacks)
         {
             int noteSamples = (int)(duration * sampleRate / 1000.0);
-            int fadeDurationSamples = (int)(sampleRate * 0.05); // 20 milliseconds fade-in/fade-out to prevent loud popping
+            int fadeDurationSamples = (int)(sampleRate * 0.05); // 50 milliseconds fade-in/fade-out to prevent loud popping
             double volume = maxAmp * Math.Clamp(amp, 0, 1);
 
             // Generate waveform for this homophone (simultaneously for all notes in the stack)
@@ -89,10 +86,9 @@ static class AudioGenerator
         }
     }
 
-    public static bool PlayAudio((Pitch[] notes, int durationMS, float amp)[] noteStacks, Action callback, WaveformType waveform = WaveformType.Sine)
+    public static bool PlayAudio(this (Pitch[] notes, int durationMS, float amp)[] noteStacks, Action callback, WaveformType waveform = WaveformType.Sine)
     {
         string filePath = noteStacks.GetHashCode() + "_audio.wav";
-        // Console.WriteLine(filePath);
         string player = "afplay"; // Default player for macOS (Unix)
 
         if (Environment.OSVersion.Platform == PlatformID.Win32NT)
@@ -119,7 +115,7 @@ static class AudioGenerator
 
         CreateAudioFile(filePath, noteStacks, waveform);
         playerProcess.Start();
-        callback();
+        callback();//used in this project for playback animation
         playerProcess.WaitForExit();
         File.Delete(filePath);
         return true;

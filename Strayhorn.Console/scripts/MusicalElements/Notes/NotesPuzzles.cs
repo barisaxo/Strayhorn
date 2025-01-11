@@ -8,7 +8,6 @@ public class NotePuzzle1 : IPuzzle
 {
     public IMusicalElement Gamut { get; }
     public Pitch Note => Gamut is Pitch note ? note : throw new System.ArgumentNullException();
-
     public int NumOfNotes => 1;
     public List<Pitch> Selected { get; set; } = [];
     public Pitch Bottom { get; }
@@ -25,8 +24,7 @@ public class NotePuzzle1 : IPuzzle
         foreach (var n in Notes) notes.Add(([n], 750, .7f));
         return [.. notes];
     }
-
-    public Pitch Carat { get; set; } = new(new MusicTheory.Notes.C(), 4);
+    public Pitch Caret { get; set; } = new(new MusicTheory.Notes.C(), 4);
     public Pitch[]? Playing { get; set; } = null;
     public Pitch[] Notes { get; }
     public string Desc => $"Identify the {Note.PitchClass.Name} note";
@@ -55,13 +53,13 @@ public class NotePuzzle1 : IPuzzle
 
     public void DrawQuestion()
     {
-        PianoScroll.DrawTwoOctavePianoQuestionWithCarat(Bottom, [.. Selected], Carat, Playing);
+        PianoScroll.DrawTwoOctavePianoQuestionWithCarat(Bottom, [.. Selected], Caret, Playing);
     }
 
     public bool CheckAnswer()
     {
         if (Selected.Count == 1) return Selected[0].Chromatic == Note.Chromatic;
-        return Carat.Chromatic == Note.Chromatic;
+        return Caret.Chromatic == Note.Chromatic;
     }
 }
 
@@ -74,7 +72,7 @@ public class NotePuzzle2 : IPuzzle
     public List<Pitch> Selected { get; set; } = [];
     public Pitch Bottom { get; }
     public Pitch[]? Playing { get; set; } = null;
-    public Pitch Carat { get; set; } = new(new MusicTheory.Notes.C(), 4);
+    public Pitch Caret { get; set; } = new(new MusicTheory.Notes.C(), 4);
     public (Pitch[] pitches, int durationMS, float amp)[] GetSelectedNotesToPlay()
     {
         List<(Pitch[], int, float)> notes = [];
@@ -118,7 +116,7 @@ public class NotePuzzle2 : IPuzzle
 
     public void DrawQuestion()
     {
-        PianoScroll.DrawTwoOctavePianoQuestionWithCarat(Bottom, [.. Selected], Carat, Playing);
+        PianoScroll.DrawTwoOctavePianoQuestionWithCarat(Bottom, [.. Selected], Caret, Playing);
     }
 
     public bool CheckAnswer()
@@ -126,6 +124,7 @@ public class NotePuzzle2 : IPuzzle
         return Selected[0].Chromatic == Note.Chromatic;
     }
 }
+
 
 public class NotePuzzle3 : IPuzzle
 {
@@ -149,7 +148,7 @@ public class NotePuzzle3 : IPuzzle
         return [.. notes];
     }
 
-    public Pitch Carat { get; set; } = new(new MusicTheory.Notes.C(), 4);
+    public Pitch Caret { get; set; } = new(new MusicTheory.Notes.C(), 4);
     public Pitch[] Notes { get; }
     public string Desc => $"Identify the {Note.PitchClass.Name} note";
     public string Answer => Note.PitchClass.Name;
@@ -181,7 +180,7 @@ public class NotePuzzle3 : IPuzzle
 
     public void DrawQuestion()
     {
-        PianoScroll.DrawTwoOctavePianoQuestionWithCarat(Bottom, [.. Selected], Carat, Playing);
+        PianoScroll.DrawTwoOctavePianoQuestionWithCarat(Bottom, [.. Selected], Caret, Playing);
     }
 
     public bool CheckAnswer()
@@ -214,7 +213,7 @@ public class NotePuzzle4 : IPuzzle
         return [.. notes];
     }
 
-    public Pitch Carat { get; set; } = new(new MusicTheory.Notes.C(), 4);
+    public Pitch Caret { get; set; } = new(new MusicTheory.Notes.C(), 4);
     public Pitch[]? Playing { get; set; }
     public Pitch[] Notes { get; }
     public string Desc => $"Identify the {Note.PitchClass.Name} note";
@@ -245,7 +244,7 @@ public class NotePuzzle4 : IPuzzle
 
     public void DrawQuestion()
     {
-        PianoScroll.DrawTwoOctavePianoQuestionWithCarat(Bottom, [.. Selected], Carat, Playing);
+        PianoScroll.DrawTwoOctavePianoQuestionWithCarat(Bottom, [.. Selected], Caret, Playing);
     }
 
     public bool CheckAnswer(string arg)

@@ -1,11 +1,9 @@
 namespace Strayhorn.Systems.State;
-using Strayhorn.Systems.Display;
+
 using System.Threading;
 
 public interface IState
 {
-    // public IUpdate InputHandler { get; }
-    // public IDisplay Display { get; }
     public IState Engage();
 }
 
@@ -21,8 +19,7 @@ public class StateMachine(IState state)
             _blockInput = value;
             if (_blockInput)
             {
-                new Thread(
-                    () =>
+                new Thread(() =>
                     {
                         while (_blockInput)
                             while (Console.KeyAvailable) Console.ReadKey(true);

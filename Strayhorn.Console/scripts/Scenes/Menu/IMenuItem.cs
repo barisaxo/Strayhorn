@@ -10,7 +10,6 @@ public interface IMenuItem
 public class MenuItem(string desc, Func<IState?> getState) : IMenuItem, IEquatable<MenuItem>
 {
     public string Desc { get; } = desc;
-
     public IState? GetState() => getState();
 
     public bool Equals(MenuItem? other) => other is not null && GetHashCode() == other.GetHashCode();

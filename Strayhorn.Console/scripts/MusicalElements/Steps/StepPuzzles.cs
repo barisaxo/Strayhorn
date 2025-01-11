@@ -14,7 +14,7 @@ public class StepPuzzle1 : IPuzzle
     public List<Pitch> Selected { get; set; } = [];
     public Pitch Bottom { get; }
     public Pitch[]? Playing { get; set; }
-    public Pitch Carat { get; set; } = new(new MusicTheory.Notes.C(), 4);
+    public Pitch Caret { get; set; } = new(new MusicTheory.Notes.C(), 4);
 
     public (Pitch[] pitches, int durationMS, float amp)[] GetSelectedNotesToPlay()
     {
@@ -58,7 +58,7 @@ public class StepPuzzle1 : IPuzzle
 
     public void DrawQuestion()
     {
-        PianoScroll.DrawTwoOctavePianoQuestionWithCarat(Bottom, [.. Selected], Carat, Playing);
+        PianoScroll.DrawTwoOctavePianoQuestionWithCarat(Bottom, [.. Selected], Caret, Playing);
     }
 
     public bool CheckAnswer()
@@ -79,7 +79,7 @@ public class StepPuzzle2 : IPuzzle
     public List<Pitch> Selected { get; } = [];
     public Pitch Bottom { get; }
     public Pitch[]? Playing { get; set; }
-    public Pitch Carat { get; set; } = new(new MusicTheory.Notes.C(), 4);
+    public Pitch Caret { get; set; } = new(new MusicTheory.Notes.C(), 4);
 
     public (Pitch[] pitches, int durationMS, float amp)[] GetSelectedNotesToPlay()
     {
@@ -129,7 +129,7 @@ public class StepPuzzle2 : IPuzzle
 
     public void DrawQuestion()
     {
-        PianoScroll.DrawTwoOctavePianoQuestionWithCarat(Bottom, [.. Selected], Carat, Playing);
+        PianoScroll.DrawTwoOctavePianoQuestionWithCarat(Bottom, [.. Selected], Caret, Playing);
     }
 
     public bool CheckAnswer()
@@ -149,7 +149,7 @@ public class StepPuzzle3 : IPuzzle
     public List<Pitch> Selected { get; set; } = [];
     public Pitch Bottom { get; }
     public Pitch[]? Playing { get; set; }
-    public Pitch Carat { get; set; } = new(new MusicTheory.Notes.C(), 4);
+    public Pitch Caret { get; set; } = new(new MusicTheory.Notes.C(), 4);
 
     public (Pitch[] pitches, int durationMS, float amp)[] GetSelectedNotesToPlay()
     {
@@ -197,7 +197,7 @@ public class StepPuzzle3 : IPuzzle
 
     public void DrawQuestion()
     {
-        PianoScroll.DrawTwoOctavePianoQuestionWithCarat(Bottom, [.. Selected], Carat, Playing);
+        PianoScroll.DrawTwoOctavePianoQuestionWithCarat(Bottom, [.. Selected], Caret, Playing);
     }
 
     public bool CheckAnswer()

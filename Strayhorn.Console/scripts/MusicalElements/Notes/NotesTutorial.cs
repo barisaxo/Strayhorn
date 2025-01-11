@@ -64,9 +64,6 @@ public class NotesTutorialP3 : ITutorial
 {
     const string b = "♭";
     const string s = "♯";
-    const string x = "𝄪";
-    const string n = "♮";
-    const string d = "𝄫";
 
     public ITutorial? PrevPage() => new NotesTutorialP2();
     public ITutorial? NextPage() => new NotesTutorialP4();
@@ -93,9 +90,6 @@ public class NotesTutorialP4 : ITutorial
 {
     const string b = "♭";
     const string s = "♯";
-    const string x = "𝄪";
-    const string n = "♮";
-    const string d = "𝄫";
 
     public ITutorial? PrevPage() => new NotesTutorialP3();
     public ITutorial? NextPage() => null;

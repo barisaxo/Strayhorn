@@ -1,6 +1,4 @@
 namespace Strayhorn.Menus;
-using Strayhorn.Systems.Display;
-using Strayhorn.Systems.State;
 
 public interface IMenu
 {

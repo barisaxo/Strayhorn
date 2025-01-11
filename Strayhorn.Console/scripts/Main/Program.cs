@@ -13,9 +13,10 @@ class Program
 {
     static void Main()
     {
-        // TestPitchID(); return;//
+        // TestPitchID(); return;
         Console.Title = "Strayhorn";
         Console.CursorVisible = false;
+        Console.ResetColor();
         Console.Clear();
 
         if (Console.WindowWidth < PianoScroll.TwoOctaveBlank[0].Length + 4)
@@ -52,7 +53,7 @@ class Program
         Environment.Exit(0);
     }
 
-    static void Test()
+    static void TestPianoAnimation()
     {
         Pitch bottom = new(new Cs(), 3);
         List<Pitch> selected = [new(new E(), 3), new(new Gs(), 3)];
