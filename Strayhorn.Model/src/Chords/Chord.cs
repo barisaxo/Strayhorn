@@ -7,9 +7,8 @@ namespace MusicTheory.Chords;
 /// https://barisaxo.github.io/pages/chords/voicings.html  \n          
 /// https://barisaxo.github.io/pages/chords/tonalities.html
 /// </summary>
-public interface IChord
+public interface IChord : IMusicalElement
 {
-    public string Name { get; }
     public string ChordSymbol { get; }
     public IInterval[] ChordTones { get; }
     public IInterval[] AvailableTensions { get; }

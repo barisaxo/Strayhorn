@@ -61,7 +61,7 @@ public readonly struct Augmented : IQuality
 [System.Serializable]
 public readonly struct Diminished : IQuality
 {
-    public string Name => nameof(Major);
+    public string Name => nameof(Diminished);
     public string Abbrev => "d";
     public string ChordTone => "º";
     public string ScaleDegree => "b";

@@ -18,10 +18,10 @@ public class NotesMenu : IMenu
     public NotesMenu()
     {
         About = new("Notes Tutorial", () => new TutorialState(new NotesTutorial(), () => new MenuState(this)));
-        Level1 = new("Note puzzle level 1: White Keys", () => new PuzzleState(() => new NotePuzzle1(), () => new MenuState(this)));
-        Level2 = new("Note puzzle level 2: Black Keys", () => new PuzzleState(() => new NotePuzzle2(), () => new MenuState(this)));
-        Level3 = new("Note puzzle level 3: Enharmonic White Keys", () => new PuzzleState(() => new NotePuzzle3(), () => new MenuState(this)));
-        Level4 = new("Note puzzle level 4: All Keys", () => new PuzzleState(() => new NotePuzzle4(), () => new MenuState(this)));
+        Level1 = new("Note practice: White Keys", () => new PuzzleState(() => new NotePuzzle1(), () => new MenuState(this)));
+        Level2 = new("Note practice: Black Keys", () => new PuzzleState(() => new NotePuzzle2(), () => new MenuState(this)));
+        Level3 = new("Note practice: Enharmonic White Keys", () => new PuzzleState(() => new NotePuzzle3(), () => new MenuState(this)));
+        Level4 = new("Note practice: All Keys", () => new PuzzleState(() => new NotePuzzle4(), () => new MenuState(this)));
         Selection = About;
         MenuItems = [About, Level1, Level2, Level3, Level4, Back];
     }

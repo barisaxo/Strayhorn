@@ -47,9 +47,8 @@ public class ScalePuzzle1 : IPuzzle
         int octave = 3;
         Pitch[] notes = new Pitch[Scale.ScaleDegrees.Length + 1];
         notes[0] = new(keys[new Random().Next(0, keys.Length)], octave);
-        notes[^1] = new(notes[0].PitchClass, octave + 1);
 
-        for (int i = 1; i < notes.Length - 1; i++)
+        for (int i = 1; i < notes.Length; i++)
         {
             IPitchClass pc = IPitchClass.GetPitchClassAbove(notes[0].PitchClass, Scale.ScaleDegrees[i], allowEnharmonicWhite: true);
             notes[i] = new Pitch(pc, octave + (pc.Chromatic.Value < notes[0].Chromatic.Value ? 1 : 0));

@@ -2,10 +2,12 @@ namespace Strayhorn.Menus;
 
 public class MainMenu : IMenu
 {
-    public IMenuItem Selection { get; set; } = Test1;
-    public IMenuItem[] MenuItems { get; } = [Test1, Test2, Test3, Test4];
-    readonly static MenuItem Test1 = new("Notes", () => new MenuState(new NotesMenu()));
-    readonly static MenuItem Test2 = new("Steps", () => new MenuState(new StepsMenu()));
-    readonly static MenuItem Test3 = new("Scales", () => new MenuState(new ScalesMenu()));
-    readonly static MenuItem Test4 = new("Quit", () => new QuitState());
+    public IMenuItem Selection { get; set; } = Item1;
+    public IMenuItem[] MenuItems { get; } = [Item1, Item2, Item3, Item4, Item5, ItemX];
+    readonly static MenuItem Item1 = new("Notes", () => new MenuState(new NotesMenu()));
+    readonly static MenuItem Item2 = new("Steps", () => new MenuState(new StepsMenu()));
+    readonly static MenuItem Item3 = new("Scales", () => new MenuState(new ScalesMenu()));
+    readonly static MenuItem Item4 = new("Intervals", () => new MenuState(new IntervalsMenu()));
+    readonly static MenuItem Item5 = new("Triads", () => new MenuState(new TriadsMenu()));
+    readonly static MenuItem ItemX = new("Quit", () => new QuitState());
 }

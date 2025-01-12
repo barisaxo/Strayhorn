@@ -7,6 +7,9 @@ public interface ITriad : IChord
 {
     public IInterval Third { get; }
     public IInterval Fifth { get; }
+
+    public static IEnumerable<ITriad> GetAll() =>
+    [new MajorTriad(), new MinorTriad(), new AugmentedTriad(), new DiminishedTriad()];
 }
 
 public readonly struct MajorTriad : ITriad

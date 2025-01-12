@@ -16,10 +16,10 @@ public class ScalesMenu : IMenu
 
     public ScalesMenu()
     {
-        Tutorial = new("Scales Tutorial", () => new TutorialState(new ScalesTutorial(), () => new MenuState(this)));
+        Tutorial = new("About Scales", () => new TutorialState(new ScalesTutorial(), () => new MenuState(this)));
         MoreScales = new("More Common Scales", () => new TutorialState(new MoreScalesTutorial(), () => new MenuState(this)));
-        Level1 = new("Scale puzzle level 1: Major Scales", () => new PuzzleState(() => new ScalePuzzle1(), () => new MenuState(this)));
-        Level2 = new("Scale puzzle level 2: All Scales", () => new PuzzleState(() => new ScalePuzzle2(), () => new MenuState(this)));
+        Level1 = new("Scale practice: Major Scales", () => new PuzzleState(() => new ScalePuzzle1(), () => new MenuState(this)));
+        Level2 = new("Scale practice: All Scales", () => new PuzzleState(() => new ScalePuzzle2(), () => new MenuState(this)));
         Selection = Tutorial;
         MenuItems = [Tutorial, MoreScales, Level1, Level2, Back];
     }

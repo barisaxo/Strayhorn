@@ -644,7 +644,7 @@ public static class PianoScroll
 }
 
 /*
- ╔  ╗  ║  ╚  ╝  ╦  ╩  ╠  ╣  ╬
+ ╔  ╗  ║  ╚  ╝ ═ ╦  ╩  ╠  ╣  ╬
  ╔═╦═╗  
  ║ ║ ║
  ╠═╬═╣ 

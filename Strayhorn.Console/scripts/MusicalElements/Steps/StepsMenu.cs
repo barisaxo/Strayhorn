@@ -16,10 +16,10 @@ public class StepsMenu : IMenu
 
     public StepsMenu()
     {
-        Tutorial = new("Steps Tutorial", () => new TutorialState(new StepsTutorial(), () => new MenuState(this)));
-        Level1 = new("Step puzzle level 1: H & W, White Keys", () => new PuzzleState(() => new StepPuzzle1(), () => new MenuState(this)));
-        Level2 = new("Step puzzle level 2: H & W, All Keys", () => new PuzzleState(() => new StepPuzzle2(), () => new MenuState(this)));
-        Level3 = new("Step puzzle level 3: H, W, & S, All Keys", () => new PuzzleState(() => new StepPuzzle3(), () => new MenuState(this)));
+        Tutorial = new("About Steps", () => new TutorialState(new StepsTutorial(), () => new MenuState(this)));
+        Level1 = new("Step practice: H & W, White Keys", () => new PuzzleState(() => new StepPuzzle1(), () => new MenuState(this)));
+        Level2 = new("Step practice: H & W, All Keys", () => new PuzzleState(() => new StepPuzzle2(), () => new MenuState(this)));
+        Level3 = new("Step practice: H, W, & S, All Keys", () => new PuzzleState(() => new StepPuzzle3(), () => new MenuState(this)));
         Selection = Tutorial;
         MenuItems = [Tutorial, Level1, Level2, Level3, Back];
     }
