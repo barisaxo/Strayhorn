@@ -4,11 +4,11 @@ namespace Strayhorn.Tutorials;
 
 public class SeventhChordsTutorial : ITutorial
 {
-    public IDisplay[] Displays => [P1];
+    public IDisplay[] Displays => [P1, P2];
 
     static TutorialPageDisplay P1 => new(() =>
     {
-        Console.WriteLine("A 7th chord is an extension of triads by adding another 3rd onto the stack.");
+        Console.WriteLine("A 7th chord is an extension of a triad by adding another 3rd onto the stack.");
         Console.WriteLine("With the additional note there are many more tonalities of 7th chords than there are with triads. ");
         Console.WriteLine("All contain some kind of Root, 3rd, 5th, and 7th.");
         Console.WriteLine("This chapter will also include 6th chords, as they are very similar.");

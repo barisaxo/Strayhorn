@@ -6,6 +6,12 @@ using MusicTheory;
 
 namespace Strayhorn.Practice;
 
+// ? 
+//TODO fix F-7(b5) ... Cb goes in the wrong octave
+// ? 
+//TODO fix the text in the question from 'a {name}' to 'the {chord symbol}'
+// ? 
+
 public class SeventhChordPractice1 : IPractice
 {
     public IMusicalElement Gamut { get; }
@@ -25,6 +31,7 @@ public class SeventhChordPractice1 : IPractice
         notes.Add(([.. Selected], 1250, .5f));
         return [.. notes];
     }
+
     public (Pitch[] pitches, int durationMS, float amp)[] GetAnswerNotesToPlay()
     {
         List<(Pitch[], int, float)> notes = [];
@@ -33,8 +40,8 @@ public class SeventhChordPractice1 : IPractice
         return [.. notes];
     }
 
-    public string Desc => $"Build a {SeventhChord.Name} {nameof(SeventhChord)}";
-    public string Answer => SeventhChord.Name;
+    public string Desc => $"Build the {SeventhChord.ChordSymbol} Chord";
+    // public string Answer => SeventhChord.ChordSymbol;
     public bool PracticeComplete { get; set; }
     public bool HintFlag { get; set; }
     string GetHint()

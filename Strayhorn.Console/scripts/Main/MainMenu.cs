@@ -9,6 +9,6 @@ public class MainMenu : IMenu
     readonly static MenuItem Item3 = new("Scales", () => new MenuState(new ScalesMenu()));
     readonly static MenuItem Item4 = new("Intervals", () => new MenuState(new IntervalsMenu()));
     readonly static MenuItem Item5 = new("Triads", () => new MenuState(new TriadsMenu()));
-    readonly static MenuItem Item6 = new("Triads", () => new MenuState(new SeventhChordsMenu()));
+    readonly static MenuItem Item6 = new("7th Chords", () => new MenuState(new SeventhChordsMenu()));
     readonly static MenuItem ItemX = new("Quit", () => new QuitState());
 }
