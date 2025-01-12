@@ -107,7 +107,7 @@ public readonly struct SixthDiminished : IScale
     public readonly IStep[] Steps =>
         [new W(), new W(), new H(), new W(), new H(), new H(), new W(), new H()];
     public readonly IMode[] Modes =>
-        [new Modes.SixthDiminished(), new Modes.SixthDiminished()];
+        [new Modes.SixthDiminished(), new Modes.SixthDiminishedII()];
 
     public string[] Drawing => throw new NotImplementedException();
 }

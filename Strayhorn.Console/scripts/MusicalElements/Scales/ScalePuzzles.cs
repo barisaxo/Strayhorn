@@ -104,7 +104,7 @@ public class ScalePractice2 : IPractice
     string GetHint()
     {
         string temp = "";
-        foreach (IStep step in Scale.Steps) temp += $"{step.Abbrev} ";
+        foreach (var sd in Scale.ScaleDegrees) temp += $"{sd.IntervalAbbrev} ";
         return temp;
     }
     public string Hint => GetHint();

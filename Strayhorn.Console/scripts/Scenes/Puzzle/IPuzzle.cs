@@ -33,11 +33,10 @@ public interface IPractice
         Console.WriteLine();
         Console.WriteLine(Desc);
 
-        Console.WriteLine("\n\n");
+        Console.WriteLine("\n");
         Console.ResetColor();
         DrawQuestion();
 
-        Console.WriteLine("\n\n");
         Console.ForegroundColor = ConsoleColor.DarkGray;
         Console.WriteLine("use ← → to navigate caret");
         Console.WriteLine("press ↑ to play caret note");
@@ -46,7 +45,11 @@ public interface IPractice
         Console.WriteLine("press 'tab' to listen to the question");
         Console.WriteLine("press 'h' for a hint");
         Console.WriteLine("press 'q' to quit Practice");
-        if (ValidateAnswer()) Console.WriteLine("press 'enter' to submit answer");
+        if (ValidateAnswer())
+        {
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            Console.WriteLine("press 'enter' to submit answer");
+        }
 
         if (HintFlag)
         {

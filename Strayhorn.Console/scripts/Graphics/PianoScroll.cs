@@ -594,11 +594,7 @@ public static class PianoScroll
                 bool match = false;
                 foreach (var note in notes)
                 {
-                    if (note.PitchID == kvp.Key)
-                    {
-                        match = true;
-                    }
-                    if (match)
+                    if (match = note.PitchID == kvp.Key)
                     {
                         newString = newString.Replace(kvp.Value,
                             note.PitchClass.Name + (note.PitchClass.Name.Length == 1 ? " " : ""));

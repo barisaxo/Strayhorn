@@ -44,7 +44,7 @@ public readonly struct Minor : IQuality
     public string Name => nameof(Minor);
     public string Abbrev => "mi";
     public string ChordTone => "-";
-    public string ScaleDegree => "b";
+    public string ScaleDegree => "♭";
     public Chromatic Chromatic(IQuantity quantity) => new(-1);
 }
 
@@ -54,7 +54,7 @@ public readonly struct Augmented : IQuality
     public string Name => nameof(Augmented);
     public string Abbrev => "A";
     public string ChordTone => "+";
-    public string ScaleDegree => "#";
+    public string ScaleDegree => "♯";
     public Chromatic Chromatic(IQuantity quantity) => new(1);
 }
 
@@ -64,7 +64,7 @@ public readonly struct Diminished : IQuality
     public string Name => nameof(Diminished);
     public string Abbrev => "d";
     public string ChordTone => "º";
-    public string ScaleDegree => "b";
+    public string ScaleDegree => "♭";
     public Chromatic Chromatic(IQuantity quantity) => quantity switch
     {
         Fourth or Fifth => new(-1),

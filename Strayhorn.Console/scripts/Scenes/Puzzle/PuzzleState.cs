@@ -69,7 +69,7 @@ public class PracticeState(Func<IPractice> getPractice, Func<IState> getState) :
                     Console.Beep();
                     return this;
                 }
-
+                Practice.HintFlag = true;
                 Practice.PracticeComplete = true;
                 PlayAnswer();
                 Practice.PrintDesc();

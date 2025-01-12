@@ -23,6 +23,11 @@ public interface IQuantity
              Diatonic.InversionSum - quantity.ScaleDegree.Value);
     }
 
+    public static IQuantity GetQuantity(IInterval left, IInterval right) =>
+       GetAll().First(q => q.ScaleDegree.Value ==
+       ((right.Quantity.ScaleDegree.Value - left.Quantity.ScaleDegree.Value + Diatonic.Gamut)
+        % Diatonic.Gamut) + 1);
+
     public static IEnumerable<IQuantity> GetAll() =>
         [new Unison(), new Second(), new Third(), new Fourth(),
          new Fifth(), new Sixth(), new Seventh(), new Octave()];

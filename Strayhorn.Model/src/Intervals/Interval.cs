@@ -14,7 +14,7 @@ public interface IInterval : IMusicalElement
     public string ChordTone => Quality.ChordTone + Quantity.ChordTone;
     public string RomanNumeral => Quality.ScaleDegree + Quantity.Roman;
     public string ScaleDegree => ((Quality is Diminished && Quantity is Seventh)
-        ? "bb" : Quality.ScaleDegree) + Quantity.ScaleDegree;
+        ? "𝄫" : Quality.ScaleDegree) + Quantity.ScaleDegree.Value;
 
     public IQuality Quality { get; }
     public IQuantity Quantity { get; }
@@ -26,6 +26,23 @@ public interface IInterval : IMusicalElement
     public static IInterval Invert(IInterval interval) => GetAll().Single(r =>
         r.Quality.Equals(IQuality.Invert(interval.Quality)) &&
         r.Quantity.Equals(IQuantity.Invert(interval.Quantity)));
+
+    public static IInterval GetInterval(IInterval left, IInterval right)
+    {
+        IInterval newInterval = new P1();
+        IQuantity quantity = IQuantity.GetQuantity(left, right);
+        int chromaticValue = (right.Chromatic.Value + Chromatic.Gamut - left.Chromatic.Value) % Chromatic.Gamut;
+
+        foreach (var interval in GetAll())
+        {
+            if (interval.Chromatic.Value.Equals(chromaticValue) &&
+                MathF.Abs(interval.Quantity.ScaleDegree.Value - quantity.ScaleDegree.Value) <
+                MathF.Abs(newInterval.Quantity.ScaleDegree.Value - quantity.ScaleDegree.Value))
+                newInterval = interval;
+        }
+
+        return newInterval;
+    }
 
     public static IEnumerable<IInterval> GetAll() =>
         [new P1(), new mi2(), new M2(), new A2(), new mi3(), new M3(),
