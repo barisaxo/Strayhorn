@@ -14,7 +14,7 @@ public class StepPractice1 : IPractice
     public List<Pitch> Selected { get; set; } = [];
     public Pitch Bottom { get; }
     public Pitch[]? Playing { get; set; }
-    public Pitch Caret { get; set; } = new(new MusicTheory.Notes.C(), 4);
+    public Pitch Caret { get; set; } = new(new MusicTheory.Notes.D(), 4);
 
     public (Pitch[] pitches, int durationMS, float amp)[] GetSelectedNotesToPlay()
     {
@@ -79,7 +79,7 @@ public class StepPractice2 : IPractice
     public List<Pitch> Selected { get; } = [];
     public Pitch Bottom { get; }
     public Pitch[]? Playing { get; set; }
-    public Pitch Caret { get; set; } = new(new MusicTheory.Notes.C(), 4);
+    public Pitch Caret { get; set; } = new(new MusicTheory.Notes.D(), 4);
 
     public (Pitch[] pitches, int durationMS, float amp)[] GetSelectedNotesToPlay()
     {
@@ -149,7 +149,7 @@ public class StepPractice3 : IPractice
     public List<Pitch> Selected { get; set; } = [];
     public Pitch Bottom { get; }
     public Pitch[]? Playing { get; set; }
-    public Pitch Caret { get; set; } = new(new MusicTheory.Notes.C(), 4);
+    public Pitch Caret { get; set; } = new(new MusicTheory.Notes.D(), 4);
 
     public (Pitch[] pitches, int durationMS, float amp)[] GetSelectedNotesToPlay()
     {

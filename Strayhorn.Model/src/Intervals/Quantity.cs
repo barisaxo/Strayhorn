@@ -14,8 +14,14 @@ public interface IQuantity
     public string Roman { get; }
     public string Ordinal { get; }
 
-    public static IQuantity Invert(IQuantity quantity) =>
-        GetAll().Single(r => r.ScaleDegree.Value == 9 - quantity.ScaleDegree.Value);
+    public static IQuantity Invert(IQuantity quantity)
+    {
+        if (quantity is Unison) return new Octave();
+        if (quantity is Octave) return new Unison();
+
+        return GetAll().Single(r => r.ScaleDegree.Value ==
+             Diatonic.InversionSum - quantity.ScaleDegree.Value);
+    }
 
     public static IEnumerable<IQuantity> GetAll() =>
         [new Unison(), new Second(), new Third(), new Fourth(),

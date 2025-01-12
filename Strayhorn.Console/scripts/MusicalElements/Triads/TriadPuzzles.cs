@@ -16,7 +16,7 @@ public class TriadPractice1 : IPractice
     public List<Pitch> Selected { get; set; } = [];
     public Pitch Bottom { get; }
     public Pitch[]? Playing { get; set; }
-    public Pitch Caret { get; set; } = new(new MusicTheory.Notes.C(), 4);
+    public Pitch Caret { get; set; } = new(new MusicTheory.Notes.D(), 4);
     public (Pitch[] pitches, int durationMS, float amp)[] GetSelectedNotesToPlay()
     {
         List<(Pitch[], int, float)> notes = [];
@@ -55,21 +55,19 @@ public class TriadPractice1 : IPractice
             pitchClass: IPitchClass.Get(letter, accidental),
             octave: letter is MusicTheory.Letters.C && accidental is Flat ? 4 : 3);
 
+        Selected.Add(Bottom);
         ITriad[] standard = [new MajorTriad(), new MinorTriad()];
         Gamut = standard[random.Next(0, standard.Length)];
 
-        int octave = 3;
         Pitch[] notes = new Pitch[Triad.ChordTones.Length];
         notes[0] = Bottom;
         for (int i = 1; i < notes.Length; i++)
         {
             IPitchClass pc = IPitchClass.GetPitchClassAbove(notes[0].PitchClass, Triad.ChordTones[i], allowEnharmonicWhite: true);
-            notes[i] = new Pitch(pc, octave + (pc.Chromatic.Value < notes[0].Chromatic.Value ? 1 : 0));
+            notes[i] = new Pitch(pc, octave: Bottom.Octave + (Pitch.GetPitchID(pc, Bottom.Octave) < Bottom.PitchID ? 1 : 0));
         }
 
         Notes = notes;
-        Bottom = Notes[0];
-        Selected.Add(Bottom);
     }
 
     public void DrawQuestion()
@@ -97,7 +95,7 @@ public class TriadPractice2 : IPractice
     public List<Pitch> Selected { get; set; } = [];
     public Pitch Bottom { get; }
     public Pitch[]? Playing { get; set; }
-    public Pitch Caret { get; set; } = new(new MusicTheory.Notes.C(), 4);
+    public Pitch Caret { get; set; } = new(new MusicTheory.Notes.D(), 4);
     public (Pitch[] pitches, int durationMS, float amp)[] GetSelectedNotesToPlay()
     {
         List<(Pitch[], int, float)> notes = [];
@@ -136,21 +134,19 @@ public class TriadPractice2 : IPractice
             pitchClass: IPitchClass.Get(letter, accidental),
             octave: letter is MusicTheory.Letters.C && accidental is Flat ? 4 : 3);
 
+        Selected.Add(Bottom);
         ITriad[] standard = [new AugmentedTriad(), new DiminishedTriad()];
         Gamut = standard[random.Next(0, standard.Length)];
 
-        int octave = 3;
         Pitch[] notes = new Pitch[Triad.ChordTones.Length];
         notes[0] = Bottom;
         for (int i = 1; i < notes.Length; i++)
         {
             IPitchClass pc = IPitchClass.GetPitchClassAbove(notes[0].PitchClass, Triad.ChordTones[i], allowEnharmonicWhite: true);
-            notes[i] = new Pitch(pc, octave + (pc.Chromatic.Value < notes[0].Chromatic.Value ? 1 : 0));
+            notes[i] = new Pitch(pc, octave: Bottom.Octave + (Pitch.GetPitchID(pc, Bottom.Octave) < Bottom.PitchID ? 1 : 0));
         }
 
         Notes = notes;
-        Bottom = Notes[0];
-        Selected.Add(Bottom);
     }
 
     public void DrawQuestion()
@@ -178,7 +174,7 @@ public class TriadPractice3 : IPractice
     public List<Pitch> Selected { get; set; } = [];
     public Pitch Bottom { get; }
     public Pitch[]? Playing { get; set; }
-    public Pitch Caret { get; set; } = new(new MusicTheory.Notes.C(), 4);
+    public Pitch Caret { get; set; } = new(new MusicTheory.Notes.D(), 4);
     public (Pitch[] pitches, int durationMS, float amp)[] GetSelectedNotesToPlay()
     {
         List<(Pitch[], int, float)> notes = [];

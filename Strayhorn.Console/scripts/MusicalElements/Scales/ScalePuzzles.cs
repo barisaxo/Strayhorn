@@ -14,7 +14,7 @@ public class ScalePractice1 : IPractice
     public List<Pitch> Selected { get; set; } = [];
     public Pitch Bottom { get; }
     public Pitch[]? Playing { get; set; }
-    public Pitch Caret { get; set; } = new(new MusicTheory.Notes.C(), 4);
+    public Pitch Caret { get; set; } = new(new MusicTheory.Notes.D(), 4);
     public (Pitch[] pitches, int durationMS, float amp)[] GetSelectedNotesToPlay()
     {
         List<(Pitch[], int, float)> notes = [];
@@ -46,17 +46,18 @@ public class ScalePractice1 : IPractice
 
         int octave = 3;
         Pitch[] notes = new Pitch[Scale.ScaleDegrees.Length + 1];
-        notes[0] = new(keys[new Random().Next(0, keys.Length)], octave);
+        Bottom = new(keys[new Random().Next(0, keys.Length)], octave);
+        Selected.Add(Bottom);
+        notes[0] = Bottom;
+        notes[^1] = new(notes[0].PitchClass, octave + 1);
 
-        for (int i = 1; i < notes.Length; i++)
+        for (int i = 1; i < notes.Length - 1; i++)
         {
             IPitchClass pc = IPitchClass.GetPitchClassAbove(notes[0].PitchClass, Scale.ScaleDegrees[i], allowEnharmonicWhite: true);
-            notes[i] = new Pitch(pc, octave + (pc.Chromatic.Value < notes[0].Chromatic.Value ? 1 : 0));
+            notes[i] = new Pitch(pc, octave: Bottom.Octave + (Pitch.GetPitchID(pc, Bottom.Octave) < Bottom.PitchID ? 1 : 0));
         }
 
         Notes = notes;
-        Bottom = Notes[0];
-        Selected.Add(Bottom);
     }
 
     public void DrawQuestion()
@@ -83,7 +84,7 @@ public class ScalePractice2 : IPractice
     public List<Pitch> Selected { get; set; } = [];
     public Pitch Bottom { get; }
     public Pitch[]? Playing { get; set; }
-    public Pitch Caret { get; set; } = new(new MusicTheory.Notes.C(), 4);
+    public Pitch Caret { get; set; } = new(new MusicTheory.Notes.D(), 4);
     public (Pitch[] pitches, int durationMS, float amp)[] GetSelectedNotesToPlay()
     {
         List<(Pitch[], int, float)> notes = [];
@@ -121,18 +122,18 @@ public class ScalePractice2 : IPractice
 
         int octave = 3;
         Pitch[] notes = new Pitch[Scale.ScaleDegrees.Length + 1];
-        notes[0] = new(keys[rand.Next(0, keys.Length)], octave);
+        Bottom = new(keys[rand.Next(0, keys.Length)], octave);
+        Selected.Add(Bottom);
+        notes[0] = Bottom;
         notes[^1] = new(notes[0].PitchClass, octave + 1);
 
         for (int i = 1; i < notes.Length - 1; i++)
         {
             IPitchClass pc = IPitchClass.GetPitchClassAbove(notes[0].PitchClass, Scale.ScaleDegrees[i], allowEnharmonicWhite: true);
-            notes[i] = new Pitch(pc, octave + (pc.Chromatic.Value < notes[0].Chromatic.Value ? 1 : 0));
+            notes[i] = new Pitch(pc, octave: Bottom.Octave + (Pitch.GetPitchID(pc, Bottom.Octave) < Bottom.PitchID ? 1 : 0));
         }
 
         Notes = notes;
-        Bottom = Notes[0];
-        Selected.Add(Bottom);
     }
 
     public void DrawQuestion()

@@ -7,9 +7,7 @@ using MusicTheory;
 namespace Strayhorn.Practice;
 
 // ? 
-//TODO fix F-7(b5) ... Cb goes in the wrong octave
-// ? 
-//TODO fix the text in the question from 'a {name}' to 'the {chord symbol}'
+//TODO weird bug with B# chord and wanting a 5th note...
 // ? 
 
 public class SeventhChordPractice1 : IPractice
@@ -22,7 +20,7 @@ public class SeventhChordPractice1 : IPractice
     public List<Pitch> Selected { get; set; } = [];
     public Pitch Bottom { get; }
     public Pitch[]? Playing { get; set; }
-    public Pitch Caret { get; set; } = new(new MusicTheory.Notes.C(), 4);
+    public Pitch Caret { get; set; } = new(new MusicTheory.Notes.D(), 4);
     public (Pitch[] pitches, int durationMS, float amp)[] GetSelectedNotesToPlay()
     {
         List<(Pitch[], int, float)> notes = [];
@@ -41,7 +39,6 @@ public class SeventhChordPractice1 : IPractice
     }
 
     public string Desc => $"Build the {SeventhChord.ChordSymbol} Chord";
-    // public string Answer => SeventhChord.ChordSymbol;
     public bool PracticeComplete { get; set; }
     public bool HintFlag { get; set; }
     string GetHint()
@@ -62,21 +59,19 @@ public class SeventhChordPractice1 : IPractice
             pitchClass: IPitchClass.Get(letter, accidental),
             octave: letter is MusicTheory.Letters.C && accidental is Flat ? 4 : 3);
 
+        Selected.Add(Bottom);
         I7Chord[] standard = I7Chord.MajorTonality().ToArray();
         Gamut = standard[random.Next(0, standard.Length)];
 
-        int octave = 3;
         Pitch[] notes = new Pitch[SeventhChord.ChordTones.Length];
         notes[0] = Bottom;
         for (int i = 1; i < notes.Length; i++)
         {
             IPitchClass pc = IPitchClass.GetPitchClassAbove(notes[0].PitchClass, SeventhChord.ChordTones[i], allowEnharmonicWhite: true);
-            notes[i] = new Pitch(pc, octave + (pc.Chromatic.Value < notes[0].Chromatic.Value ? 1 : 0));
+            notes[i] = new Pitch(pc, octave: Bottom.Octave + (Pitch.GetPitchID(pc, Bottom.Octave) < Bottom.PitchID ? 1 : 0));
         }
 
         Notes = notes;
-        Bottom = Notes[0];
-        Selected.Add(Bottom);
     }
 
     public void DrawQuestion()
@@ -104,7 +99,7 @@ public class SeventhChordPractice2 : IPractice
     public List<Pitch> Selected { get; set; } = [];
     public Pitch Bottom { get; }
     public Pitch[]? Playing { get; set; }
-    public Pitch Caret { get; set; } = new(new MusicTheory.Notes.C(), 4);
+    public Pitch Caret { get; set; } = new(new MusicTheory.Notes.D(), 4);
     public (Pitch[] pitches, int durationMS, float amp)[] GetSelectedNotesToPlay()
     {
         List<(Pitch[], int, float)> notes = [];
@@ -121,8 +116,7 @@ public class SeventhChordPractice2 : IPractice
         return [.. notes];
     }
 
-    public string Desc => $"Build a {SeventhChord.Name} {nameof(SeventhChord)}";
-    public string Answer => SeventhChord.Name;
+    public string Desc => $"Build the {SeventhChord.ChordSymbol} Chord";
     public bool PracticeComplete { get; set; }
     public bool HintFlag { get; set; }
     string GetHint()
@@ -143,21 +137,19 @@ public class SeventhChordPractice2 : IPractice
             pitchClass: IPitchClass.Get(letter, accidental),
             octave: letter is MusicTheory.Letters.C && accidental is Flat ? 4 : 3);
 
+        Selected.Add(Bottom);
         I7Chord[] standard = I7Chord.MinorTonality().ToArray();
         Gamut = standard[random.Next(0, standard.Length)];
 
-        int octave = 3;
         Pitch[] notes = new Pitch[SeventhChord.ChordTones.Length];
         notes[0] = Bottom;
         for (int i = 1; i < notes.Length; i++)
         {
             IPitchClass pc = IPitchClass.GetPitchClassAbove(notes[0].PitchClass, SeventhChord.ChordTones[i], allowEnharmonicWhite: true);
-            notes[i] = new Pitch(pc, octave + (pc.Chromatic.Value < notes[0].Chromatic.Value ? 1 : 0));
+            notes[i] = new Pitch(pc, octave: Bottom.Octave + (Pitch.GetPitchID(pc, Bottom.Octave) < Bottom.PitchID ? 1 : 0));
         }
 
         Notes = notes;
-        Bottom = Notes[0];
-        Selected.Add(Bottom);
     }
 
     public void DrawQuestion()
@@ -185,7 +177,7 @@ public class SeventhChordPractice3 : IPractice
     public List<Pitch> Selected { get; set; } = [];
     public Pitch Bottom { get; }
     public Pitch[]? Playing { get; set; }
-    public Pitch Caret { get; set; } = new(new MusicTheory.Notes.C(), 4);
+    public Pitch Caret { get; set; } = new(new MusicTheory.Notes.D(), 4);
     public (Pitch[] pitches, int durationMS, float amp)[] GetSelectedNotesToPlay()
     {
         List<(Pitch[], int, float)> notes = [];
@@ -202,8 +194,7 @@ public class SeventhChordPractice3 : IPractice
         return [.. notes];
     }
 
-    public string Desc => $"Build a {SeventhChord.Name} {nameof(SeventhChord)}";
-    public string Answer => SeventhChord.Name;
+    public string Desc => $"Build the {SeventhChord.ChordSymbol} Chord";
     public bool PracticeComplete { get; set; }
     public bool HintFlag { get; set; }
     string GetHint()
@@ -223,22 +214,20 @@ public class SeventhChordPractice3 : IPractice
         Bottom = new(
             pitchClass: IPitchClass.Get(letter, accidental),
             octave: letter is MusicTheory.Letters.C && accidental is Flat ? 4 : 3);
+        Selected.Add(Bottom);
 
         I7Chord[] standard = I7Chord.PassingChordDominant().ToArray();
         Gamut = standard[random.Next(0, standard.Length)];
 
-        int octave = 3;
         Pitch[] notes = new Pitch[SeventhChord.ChordTones.Length];
         notes[0] = Bottom;
         for (int i = 1; i < notes.Length; i++)
         {
             IPitchClass pc = IPitchClass.GetPitchClassAbove(notes[0].PitchClass, SeventhChord.ChordTones[i], allowEnharmonicWhite: true);
-            notes[i] = new Pitch(pc, octave + (pc.Chromatic.Value < notes[0].Chromatic.Value ? 1 : 0));
+            notes[i] = new Pitch(pc, octave: Bottom.Octave + (Pitch.GetPitchID(pc, Bottom.Octave) < Bottom.PitchID ? 1 : 0));
         }
 
         Notes = notes;
-        Bottom = Notes[0];
-        Selected.Add(Bottom);
     }
 
     public void DrawQuestion()
@@ -266,7 +255,7 @@ public class SeventhChordPractice4 : IPractice
     public List<Pitch> Selected { get; set; } = [];
     public Pitch Bottom { get; }
     public Pitch[]? Playing { get; set; }
-    public Pitch Caret { get; set; } = new(new MusicTheory.Notes.C(), 4);
+    public Pitch Caret { get; set; } = new(new MusicTheory.Notes.D(), 4);
     public (Pitch[] pitches, int durationMS, float amp)[] GetSelectedNotesToPlay()
     {
         List<(Pitch[], int, float)> notes = [];
@@ -283,8 +272,7 @@ public class SeventhChordPractice4 : IPractice
         return [.. notes];
     }
 
-    public string Desc => $"Build a {SeventhChord.Name} {nameof(SeventhChord)}";
-    public string Answer => SeventhChord.Name;
+    public string Desc => $"Build the {SeventhChord.ChordSymbol} Chord";
     public bool PracticeComplete { get; set; }
     public bool HintFlag { get; set; }
     string GetHint()
@@ -304,22 +292,20 @@ public class SeventhChordPractice4 : IPractice
         Bottom = new(
             pitchClass: IPitchClass.Get(letter, accidental),
             octave: letter is MusicTheory.Letters.C && accidental is Flat ? 4 : 3);
+        Selected.Add(Bottom);
 
         I7Chord[] standard = I7Chord.GetAll().ToArray();
         Gamut = standard[random.Next(0, standard.Length)];
 
-        int octave = 3;
         Pitch[] notes = new Pitch[SeventhChord.ChordTones.Length];
         notes[0] = Bottom;
         for (int i = 1; i < notes.Length; i++)
         {
             IPitchClass pc = IPitchClass.GetPitchClassAbove(notes[0].PitchClass, SeventhChord.ChordTones[i], allowEnharmonicWhite: true);
-            notes[i] = new Pitch(pc, octave + (pc.Chromatic.Value < notes[0].Chromatic.Value ? 1 : 0));
+            notes[i] = new Pitch(pc, octave: Bottom.Octave + (Pitch.GetPitchID(pc, Bottom.Octave) < Bottom.PitchID ? 1 : 0));
         }
 
         Notes = notes;
-        Bottom = Notes[0];
-        Selected.Add(Bottom);
     }
 
     public void DrawQuestion()

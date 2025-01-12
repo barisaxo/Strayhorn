@@ -29,9 +29,9 @@ public readonly struct Chromatic(int value) : IEquatable<Chromatic>
 public readonly struct Diatonic(int value)
 {
     /// <summary>Diatonic values are based off of the major scale. </summary>
-    public readonly int Value = ((value - 1) % Gamut) + 1;
+    public readonly int Value = ((value + Gamut - 1) % Gamut) + 1;
 
-    /// <summary> There are 7 notes in the diatonic scale. </summary>
+    /// <summary> There are 7 notes in the diatonic scale (not including octave). </summary>
     public const int Gamut = 7;
 
     /// <summary> When you add the scale degree to its inversion pair, you get 9. </summary>

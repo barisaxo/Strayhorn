@@ -72,15 +72,17 @@ public sealed class IntervalTests
     [TestMethod]
     public void QuantityInvertTest()
     {
-        var Quantities = IQuantity.GetAll();
-
-        foreach (IQuantity quantity in Quantities)
+        foreach (IQuantity quantity in IQuantity.GetAll())
         {
             IQuantity inversion = IQuantity.Invert(quantity);
             IQuantity original = IQuantity.Invert(inversion);
 
             Assert.IsTrue(original.Equals(quantity));
-            Assert.IsTrue(quantity.ScaleDegree.Value + inversion.ScaleDegree.Value == Diatonic.InversionSum);
+            Assert.IsTrue(
+                quantity.ScaleDegree.Value + inversion.ScaleDegree.Value +
+                (original is Octave or Unison ? Diatonic.Gamut : 0)
+                 == Diatonic.InversionSum
+                );
         }
     }
 
@@ -109,7 +111,10 @@ public sealed class IntervalTests
             IInterval original = IInterval.Invert(inversion);
 
             Assert.IsTrue(original.Equals(interval));
-            Assert.IsTrue(interval.Chromatic.Value + inversion.Chromatic.Value == Chromatic.Gamut);
+            Assert.IsTrue(
+                interval.Chromatic.Value + inversion.Chromatic.Value +
+                (original.Quantity is Unison or Octave ? Chromatic.Gamut : 0)
+             == Chromatic.Gamut);
         }
     }
 

@@ -24,7 +24,7 @@ public class NotePractice1 : IPractice
         foreach (var n in Notes) notes.Add(([n], 750, .7f));
         return [.. notes];
     }
-    public Pitch Caret { get; set; } = new(new MusicTheory.Notes.C(), 4);
+    public Pitch Caret { get; set; } = new(new MusicTheory.Notes.D(), 4);
     public Pitch[]? Playing { get; set; } = null;
     public Pitch[] Notes { get; }
     public string Desc => $"Identify the {Note.PitchClass.Name} note";
@@ -72,7 +72,7 @@ public class NotePractice2 : IPractice
     public List<Pitch> Selected { get; set; } = [];
     public Pitch Bottom { get; }
     public Pitch[]? Playing { get; set; } = null;
-    public Pitch Caret { get; set; } = new(new MusicTheory.Notes.C(), 4);
+    public Pitch Caret { get; set; } = new(new MusicTheory.Notes.D(), 4);
     public (Pitch[] pitches, int durationMS, float amp)[] GetSelectedNotesToPlay()
     {
         List<(Pitch[], int, float)> notes = [];
@@ -148,7 +148,7 @@ public class NotePractice3 : IPractice
         return [.. notes];
     }
 
-    public Pitch Caret { get; set; } = new(new MusicTheory.Notes.C(), 4);
+    public Pitch Caret { get; set; } = new(new MusicTheory.Notes.D(), 4);
     public Pitch[] Notes { get; }
     public string Desc => $"Identify the {Note.PitchClass.Name} note";
     public string Answer => Note.PitchClass.Name;
@@ -213,7 +213,7 @@ public class NotePractice4 : IPractice
         return [.. notes];
     }
 
-    public Pitch Caret { get; set; } = new(new MusicTheory.Notes.C(), 4);
+    public Pitch Caret { get; set; } = new(new MusicTheory.Notes.D(), 4);
     public Pitch[]? Playing { get; set; }
     public Pitch[] Notes { get; }
     public string Desc => $"Identify the {Note.PitchClass.Name} note";

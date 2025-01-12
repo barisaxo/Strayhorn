@@ -76,7 +76,7 @@ public readonly struct TonicMinor7 : I7Chord
     public readonly string ChordSymbol => "-∆7";
     public readonly IInterval Third => new mi3();
     public readonly IInterval Fifth => new P5();
-    public readonly IInterval Seventh => new mi7();
+    public readonly IInterval Seventh => new M7();
     public readonly IInterval[] ChordTones => [new P1(), Third, Fifth, Seventh];
     public readonly IInterval[] AvailableTensions => [];
 }
