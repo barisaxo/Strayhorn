@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Strayhorn.Tests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cf52ddfa63bbbe1cfec71e5b4a745feb1ec936bf")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+701efac566ce536ac4e566f5a029ce8d5c62ec96")]
 [assembly: System.Reflection.AssemblyProductAttribute("Strayhorn.Tests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Strayhorn.Tests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

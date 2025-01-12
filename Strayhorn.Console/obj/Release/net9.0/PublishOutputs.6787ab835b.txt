@@ -1,0 +1,13 @@
+/Users/pino/Documents/DEV/CSharp/AuralTechGames/Strayhorn/Strayhorn.Console/bin/Release/net9.0/publish/Strayhorn.Console
+/Users/pino/Documents/DEV/CSharp/AuralTechGames/Strayhorn/Strayhorn.Console/bin/Release/net9.0/publish/Strayhorn.Console.dll
+/Users/pino/Documents/DEV/CSharp/AuralTechGames/Strayhorn/Strayhorn.Console/bin/Release/net9.0/publish/Strayhorn.Console.deps.json
+/Users/pino/Documents/DEV/CSharp/AuralTechGames/Strayhorn/Strayhorn.Console/bin/Release/net9.0/publish/Strayhorn.Console.runtimeconfig.json
+/Users/pino/Documents/DEV/CSharp/AuralTechGames/Strayhorn/Strayhorn.Console/bin/Release/net9.0/publish/Strayhorn.Console.pdb
+/Users/pino/Documents/DEV/CSharp/AuralTechGames/Strayhorn/Strayhorn.Console/bin/Release/net9.0/publish/NAudio.dll
+/Users/pino/Documents/DEV/CSharp/AuralTechGames/Strayhorn/Strayhorn.Console/bin/Release/net9.0/publish/NAudio.Asio.dll
+/Users/pino/Documents/DEV/CSharp/AuralTechGames/Strayhorn/Strayhorn.Console/bin/Release/net9.0/publish/NAudio.Core.dll
+/Users/pino/Documents/DEV/CSharp/AuralTechGames/Strayhorn/Strayhorn.Console/bin/Release/net9.0/publish/NAudio.Midi.dll
+/Users/pino/Documents/DEV/CSharp/AuralTechGames/Strayhorn/Strayhorn.Console/bin/Release/net9.0/publish/NAudio.Wasapi.dll
+/Users/pino/Documents/DEV/CSharp/AuralTechGames/Strayhorn/Strayhorn.Console/bin/Release/net9.0/publish/NAudio.WinMM.dll
+/Users/pino/Documents/DEV/CSharp/AuralTechGames/Strayhorn/Strayhorn.Console/bin/Release/net9.0/publish/Strayhorn.Model.dll
+/Users/pino/Documents/DEV/CSharp/AuralTechGames/Strayhorn/Strayhorn.Console/bin/Release/net9.0/publish/Strayhorn.Model.pdb
