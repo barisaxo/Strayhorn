@@ -2,7 +2,7 @@ using Strayhorn.Systems.State;
 using MusicTheory.Notes;
 namespace Strayhorn.Practice;
 
-public class Practicetate(Func<IPractice> getPractice, Func<IState> getState) : IState
+public class PracticeState(Func<IPractice> getPractice, Func<IState> getState) : IState
 {
     public IState GetState = getState();
     public IPractice Practice = getPractice();

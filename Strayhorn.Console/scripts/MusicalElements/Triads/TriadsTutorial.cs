@@ -24,11 +24,4 @@ public class TriadsTutorial : ITutorial
         "║ Diminished │ Cº           │ mi3 + mi3   │ R b3 b5     │ C Eb Gb  ║".WriteLineCentered();
         "╚════════════╩══════════════╩═════════════╩═════════════╩══════════╝".WriteLineCentered();
     });
-
-
-    // static TutorialPageDisplay P2 => new(() =>
-    // {
-
-    // });
-
 }

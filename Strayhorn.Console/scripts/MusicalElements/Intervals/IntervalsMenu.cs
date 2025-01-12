@@ -16,8 +16,8 @@ public class IntervalsMenu : IMenu
     public IntervalsMenu()
     {
         About = new("About Intervals", () => new TutorialState(new IntervalTutorial(), () => new MenuState(this)));
-        Level1 = new("Common Intervals", () => new Practicetate(() => new IntervalPractice1(), () => new MenuState(this)));
-        Level2 = new("All Intervals", () => new Practicetate(() => new IntervalPractice2(), () => new MenuState(this)));
+        Level1 = new("Common Intervals", () => new PracticeState(() => new IntervalPractice1(), () => new MenuState(this)));
+        Level2 = new("All Intervals", () => new PracticeState(() => new IntervalPractice2(), () => new MenuState(this)));
         Selection = About;
         MenuItems = [About, Level1, Level2, Back];
     }

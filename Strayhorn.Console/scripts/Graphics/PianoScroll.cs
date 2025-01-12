@@ -294,7 +294,7 @@ public static class PianoScroll
                             if (temp == value)
                             {
                                 //Note is selected
-                                Console.BackgroundColor = ConsoleColor.DarkBlue;
+                                Console.BackgroundColor = ConsoleColor.DarkCyan;
                                 Console.Write("   ");
                                 Console.ResetColor();
                                 temp = "";

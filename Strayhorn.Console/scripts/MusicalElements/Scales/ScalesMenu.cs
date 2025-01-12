@@ -18,8 +18,8 @@ public class ScalesMenu : IMenu
     {
         Tutorial = new("About Scales", () => new TutorialState(new ScalesTutorial(), () => new MenuState(this)));
         MoreScales = new("More Common Scales", () => new TutorialState(new MoreScalesTutorial(), () => new MenuState(this)));
-        Level1 = new("Scale practice: Major Scales", () => new Practicetate(() => new ScalePractice1(), () => new MenuState(this)));
-        Level2 = new("Scale practice: All Scales", () => new Practicetate(() => new ScalePractice2(), () => new MenuState(this)));
+        Level1 = new("Scale practice: Major Scales", () => new PracticeState(() => new ScalePractice1(), () => new MenuState(this)));
+        Level2 = new("Scale practice: All Scales", () => new PracticeState(() => new ScalePractice2(), () => new MenuState(this)));
         Selection = Tutorial;
         MenuItems = [Tutorial, MoreScales, Level1, Level2, Back];
     }

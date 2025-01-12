@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Strayhorn.Model")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+747c0c5e788a87dce08fb72fdd9777cc80e32a90")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4b63cd45a11da24871535714663d3ec11780acc0")]
 [assembly: System.Reflection.AssemblyProductAttribute("Strayhorn.Model")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Strayhorn.Model")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

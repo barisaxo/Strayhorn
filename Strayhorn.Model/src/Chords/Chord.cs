@@ -31,22 +31,6 @@ public interface IChord : IMusicalElement
     public static IEnumerable<ITriad> Triads() => [
         new MajorTriad(), new MinorTriad(), new AugmentedTriad(), new DiminishedTriad(),
         ];
-
-    // public static IEnumerable<Chord> Sixths() => [
-    //     Major6, Minor6,
-    //     ];
-
-    // public static IEnumerable<Chord> Sevenths() => [
-    //     Major7, Minor7, Dominant7, SevenSus, TonicMin7, Minor7b5,
-    //     Augmented7, Sevens11, Altered7, Sevenb9Sus, Diminished7,
-    //     ];
-
-    // public static IEnumerable<Chord> GetAll() => [
-    //     Major, Minor, Augmented, Diminished,
-    //     Major6, Minor6,
-    //     Major7, Minor7, Dominant7, SevenSus, TonicMin7, Minor7b5,
-    //     Augmented7, Sevens11, Altered7, Sevenb9Sus, Diminished7,
-    //     ];
 }
 
 public enum ChordInversion { First = 1, Second = 2, Third = 3 }
