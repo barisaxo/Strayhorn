@@ -44,7 +44,7 @@ public class SeventhChordPractice1 : IPractice
     string GetHint()
     {
         string temp = "";
-        foreach (IInterval ct in SeventhChord.ChordTones) temp += $"{ct.IntervalAbbrev} ";
+        foreach (IInterval ct in SeventhChord.ChordTones) temp += $"{ct.ScaleDegree} ";
         return temp;
     }
     public string Hint => GetHint();
@@ -122,7 +122,7 @@ public class SeventhChordPractice2 : IPractice
     string GetHint()
     {
         string temp = "";
-        foreach (IInterval ct in SeventhChord.ChordTones) temp += $"{ct.IntervalAbbrev} ";
+        foreach (IInterval ct in SeventhChord.ChordTones) temp += $"{ct.ScaleDegree} ";
         return temp;
     }
     public string Hint => GetHint();

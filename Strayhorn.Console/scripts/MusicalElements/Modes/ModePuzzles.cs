@@ -153,7 +153,7 @@ public class ModePractice2 : IPractice
         var scales = IScale.GetAll().ToList();
         scales.Remove(new MusicTheory.Scales.Chromatic());
         scales.Remove(new MusicTheory.Scales.WholeTone());
-        IScale scale = scales[rand.Next(0, scales.Count)];//new MusicTheory.Scales.JazzMinor();//
+        IScale scale = scales[rand.Next(0, scales.Count)];
         int scaleLength = scale.ScaleDegrees.Length;
         int mode = rand.Next(1, scale.Modes.Length);
         Pitch[] notes = new Pitch[scale.ScaleDegrees.Length + 1];
@@ -168,8 +168,6 @@ public class ModePractice2 : IPractice
 
         List<IInterval> intervals = [];
 
-        // IPitchClass parent = IPitchClass.GetPitchClassAbove(Bottom.PitchClass, IInterval.Invert(scale.ScaleDegrees[mode]));
-
         for (int i = 0; i < Mode.Parent.ScaleDegrees.Length; i++)
             intervals.Add(IInterval.GetInterval(
                 Mode.Parent.ScaleDegrees[mode],
@@ -180,12 +178,6 @@ public class ModePractice2 : IPractice
             IPitchClass pc = IPitchClass.GetPitchClassAbove(Bottom.PitchClass, intervals[i]);
             notes[i] = new Pitch(pc, octave: Bottom.Octave + (Bottom.PitchID > Pitch.GetPitchID(pc, Bottom.Octave) ? 1 : 0));
         }
-
-        // for (int i = 1; i < notes.Length - 1; i++)
-        // {
-        //     IPitchClass pc = IPitchClass.GetPitchClassAbove(parent, scale.ScaleDegrees[(i + mode) % scaleLength]);
-        //     notes[i] = new Pitch(pc, octave: Bottom.Octave + (Bottom.PitchID > Pitch.GetPitchID(pc, Bottom.Octave) ? 1 : 0));
-        // }
 
         Notes = notes;
     }

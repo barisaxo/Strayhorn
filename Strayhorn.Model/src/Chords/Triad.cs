@@ -59,21 +59,21 @@ public readonly struct DiminishedTriad : ITriad
     public readonly IInterval[] AvailableTensions => [];
 }
 
-public readonly struct Sus4Triad : ITriad
-{
-    public readonly string Name => nameof(Sus4Triad);
-    public readonly string ChordSymbol => "4";
-    public readonly IInterval Third => new P4();
-    public readonly IInterval Fifth => new P5();
-    public readonly IInterval[] ChordTones => [new P1(), Third, Fifth];
-    public readonly IInterval[] AvailableTensions => [];
-}
-
 public readonly struct Sus2Triad : ITriad
 {
     public readonly string Name => nameof(Sus2Triad);
     public readonly string ChordSymbol => "2";
     public readonly IInterval Third => new M2();
+    public readonly IInterval Fifth => new P5();
+    public readonly IInterval[] ChordTones => [new P1(), Third, Fifth];
+    public readonly IInterval[] AvailableTensions => [];
+}
+
+public readonly struct Sus4Triad : ITriad
+{
+    public readonly string Name => nameof(Sus4Triad);
+    public readonly string ChordSymbol => "4";
+    public readonly IInterval Third => new P4();
     public readonly IInterval Fifth => new P5();
     public readonly IInterval[] ChordTones => [new P1(), Third, Fifth];
     public readonly IInterval[] AvailableTensions => [];

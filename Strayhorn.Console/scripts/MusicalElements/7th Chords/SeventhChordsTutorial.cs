@@ -15,7 +15,6 @@ public class SeventhChordsTutorial : ITutorial
 
     });
 
-
     static TutorialPageDisplay P2 => new(() =>
     {
         Console.WriteLine();
@@ -52,7 +51,7 @@ public class SeventhChordsTutorial : ITutorial
         "╚══════════════╩══════════════╩═════════════╩════════════╝".WriteLineCentered();
 
 
-        Console.WriteLine("\nThe above chords are arranged by the tonality they are commonly used in - more on that later.");
+        Console.WriteLine("\nThe above chords are arranged by the tonality they are commonly used in - more on that next time.");
         Console.ForegroundColor = ConsoleColor.Gray;
         Console.WriteLine("*(There are a slew of altered dominant chords, above is just one example).");
         Console.ResetColor();
