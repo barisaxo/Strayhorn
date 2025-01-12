@@ -2,9 +2,9 @@ using MusicTheory.Notes;
 using MusicTheory.Letters;
 using MusicTheory;
 
-namespace Strayhorn.Puzzles;
+namespace Strayhorn.Practice;
 
-public class NotePuzzle1 : IPuzzle
+public class NotePractice1 : IPractice
 {
     public IMusicalElement Gamut { get; }
     public Pitch Note => Gamut is Pitch note ? note : throw new System.ArgumentNullException();
@@ -30,12 +30,12 @@ public class NotePuzzle1 : IPuzzle
     public string Desc => $"Identify the {Note.PitchClass.Name} note";
     public string Answer => Note.PitchClass.Name;
     public bool HintFlag { get; set; }
-    public bool PuzzleComplete { get; set; }
+    public bool PracticeComplete { get; set; }
     public string Hint =>
         "D is always between the group with two black keys." +
         "\nThe notes of the keyboard: C_D_EF_G_A_BC_D_EF_G_A_B";// +
 
-    public NotePuzzle1()
+    public NotePractice1()
     {
         Random random = new();
 
@@ -64,7 +64,7 @@ public class NotePuzzle1 : IPuzzle
 }
 
 
-public class NotePuzzle2 : IPuzzle
+public class NotePractice2 : IPractice
 {
     public IMusicalElement Gamut { get; }
     public Pitch Note => Gamut is Pitch note ? note : throw new System.ArgumentNullException();
@@ -90,14 +90,14 @@ public class NotePuzzle2 : IPuzzle
     public Pitch[] Notes { get; }
     public string Desc => $"Identify the {Note.PitchClass.Name} note";
     public string Answer => Note.PitchClass.Name;
-    public bool PuzzleComplete { get; set; }
+    public bool PracticeComplete { get; set; }
     public bool HintFlag { get; set; }
     public string Hint =>
         "D is always between the group with two black keys." +
         "\nThe notes of the keyboard: C_D_EF_G_A_BC_D_EF_G_A_B" +
         "\nSharp (#) = +1.   Flat (b) = -1.";
 
-    public NotePuzzle2()
+    public NotePractice2()
     {
         Random random = new();
 
@@ -126,7 +126,7 @@ public class NotePuzzle2 : IPuzzle
 }
 
 
-public class NotePuzzle3 : IPuzzle
+public class NotePractice3 : IPractice
 {
     public IMusicalElement Gamut { get; }
     public Pitch Note => Gamut is Pitch note ? note : throw new System.ArgumentNullException();
@@ -152,14 +152,14 @@ public class NotePuzzle3 : IPuzzle
     public Pitch[] Notes { get; }
     public string Desc => $"Identify the {Note.PitchClass.Name} note";
     public string Answer => Note.PitchClass.Name;
-    public bool PuzzleComplete { get; set; }
+    public bool PracticeComplete { get; set; }
     public bool HintFlag { get; set; }
     public string Hint =>
         "D is always between the group with two black keys." +
         "\nThe notes of the keyboard: C_D_EF_G_A_BC_D_EF_G_A_B" +
         "\nSharp (#) = +1.   Flat (b) = -1.";
 
-    public NotePuzzle3()
+    public NotePractice3()
     {
         Random random = new();
 
@@ -190,7 +190,7 @@ public class NotePuzzle3 : IPuzzle
 }
 
 
-public class NotePuzzle4 : IPuzzle
+public class NotePractice4 : IPractice
 {
     public IMusicalElement Gamut { get; }
     public Pitch Note => Gamut is Pitch note ? note : throw new System.ArgumentNullException();
@@ -218,14 +218,14 @@ public class NotePuzzle4 : IPuzzle
     public Pitch[] Notes { get; }
     public string Desc => $"Identify the {Note.PitchClass.Name} note";
     public string Answer => Note.PitchClass.Name;
-    public bool PuzzleComplete { get; set; }
+    public bool PracticeComplete { get; set; }
     public bool HintFlag { get; set; }
     public string Hint =>
         "D is always between the group with two black keys." +
         "\nThe notes of the keyboard: C_D_EF_G_A_BC_D_EF_G_A_B" +
         "\nSharp (#) = +1.   Flat (b) = -1.";
 
-    public NotePuzzle4()
+    public NotePractice4()
     {
         Random random = new();
 

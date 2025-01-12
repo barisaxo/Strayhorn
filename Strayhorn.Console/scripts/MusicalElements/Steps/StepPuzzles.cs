@@ -3,9 +3,9 @@ using MusicTheory.Notes;
 using MusicTheory.Letters;
 using MusicTheory;
 
-namespace Strayhorn.Puzzles;
+namespace Strayhorn.Practice;
 
-public class StepPuzzle1 : IPuzzle
+public class StepPractice1 : IPractice
 {
     public IMusicalElement Gamut { get; }
     public IStep Step => Gamut is IStep step ? step : throw new System.ArgumentNullException();
@@ -34,11 +34,11 @@ public class StepPuzzle1 : IPuzzle
     }
 
     public string Desc => $"Build a {Step.Name} {nameof(Step)}";
-    public bool PuzzleComplete { get; set; }
+    public bool PracticeComplete { get; set; }
     public bool HintFlag { get; set; }
     public string Hint => "H = Half-Step = +1\nW = Whole-Step = +2";
 
-    public StepPuzzle1()
+    public StepPractice1()
     {
         Random random = new();
 
@@ -69,7 +69,7 @@ public class StepPuzzle1 : IPuzzle
 }
 
 
-public class StepPuzzle2 : IPuzzle
+public class StepPractice2 : IPractice
 {
     public IMusicalElement Gamut { get; }
     public IStep Step => Gamut is IStep step ? step : throw new System.ArgumentNullException();
@@ -101,11 +101,11 @@ public class StepPuzzle2 : IPuzzle
     // public string AnswerFormatValidation => "Answer from the following: H, W";
 
     public string Answer => Step.Name;
-    public bool PuzzleComplete { get; set; }
+    public bool PracticeComplete { get; set; }
     public bool HintFlag { get; set; }
     public string Hint => "H = Half-Step = +1\nW = Whole-Step = +2";
 
-    public StepPuzzle2()
+    public StepPractice2()
     {
         Random random = new();
         IAccidental[] accidentals = [new Sharp(), new Flat(), new Natural()];
@@ -139,7 +139,7 @@ public class StepPuzzle2 : IPuzzle
 
 }
 
-public class StepPuzzle3 : IPuzzle
+public class StepPractice3 : IPractice
 {
     public IMusicalElement Gamut { get; }
     public IStep Step => Gamut is IStep step ? step : throw new System.ArgumentNullException();
@@ -171,11 +171,11 @@ public class StepPuzzle3 : IPuzzle
     public string Desc => $"Build a {Step.Name} {nameof(Step)}";
     // public string AnswerFormatValidation => "Answer from the following: H, W, S";
     public string Answer => Step.Name;
-    public bool PuzzleComplete { get; set; }
+    public bool PracticeComplete { get; set; }
     public bool HintFlag { get; set; }
     public string Hint => "H = Half-Step = +1\nW = Whole-Step = +2\nS = Skip-Step = +3";
 
-    public StepPuzzle3()
+    public StepPractice3()
     {
         Random random = new();
         IAccidental[] accidentals = [new Flat(), new Sharp(), new Natural()];

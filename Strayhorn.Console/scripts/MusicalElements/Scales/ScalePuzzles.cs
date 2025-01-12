@@ -3,9 +3,9 @@ using MusicTheory.Notes;
 using MusicTheory.Scales;
 using MusicTheory;
 
-namespace Strayhorn.Puzzles;
+namespace Strayhorn.Practice;
 
-public class ScalePuzzle1 : IPuzzle
+public class ScalePractice1 : IPractice
 {
     public IMusicalElement Gamut { get; }
     public IScale Scale => Gamut is IScale Scale ? Scale : throw new System.ArgumentNullException();
@@ -29,14 +29,14 @@ public class ScalePuzzle1 : IPuzzle
         return [.. notes];
     }
     public string Desc => $"Build the {Scale.Name} Scale";
-    public bool PuzzleComplete { get; set; }
+    public bool PracticeComplete { get; set; }
     public bool HintFlag { get; set; }
     public string Hint =>
         @"1   2   3 4   5   6   7 1" + "\n" +
         @" \ / \ / ‾ \ / \ / \ / ‾ " + "\n" +
         @"  W   W  H  W   W   W  H " + "\n" + "\n";
 
-    public ScalePuzzle1()
+    public ScalePractice1()
     {
         Gamut = new MusicTheory.Scales.Major();
 
@@ -74,7 +74,7 @@ public class ScalePuzzle1 : IPuzzle
 
 }
 
-public class ScalePuzzle2 : IPuzzle
+public class ScalePractice2 : IPractice
 {
     public IMusicalElement Gamut { get; }
     public IScale Scale => Gamut is IScale Scale ? Scale : throw new System.ArgumentNullException();
@@ -98,7 +98,7 @@ public class ScalePuzzle2 : IPuzzle
         return [.. notes];
     }
     public string Desc => $"Build the {Scale.Name} Scale";
-    public bool PuzzleComplete { get; set; }
+    public bool PracticeComplete { get; set; }
     public bool HintFlag { get; set; }
     string GetHint()
     {
@@ -108,7 +108,7 @@ public class ScalePuzzle2 : IPuzzle
     }
     public string Hint => GetHint();
 
-    public ScalePuzzle2()
+    public ScalePractice2()
     {
         Random rand = new();
         var scales = IScale.GetAll().ToArray();

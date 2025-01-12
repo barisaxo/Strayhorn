@@ -1,39 +1,39 @@
 using Strayhorn.Systems.State;
 using MusicTheory.Notes;
-namespace Strayhorn.Puzzles;
+namespace Strayhorn.Practice;
 
-public class PuzzleState(Func<IPuzzle> getPuzzle, Func<IState> getState) : IState
+public class Practicetate(Func<IPractice> getPractice, Func<IState> getState) : IState
 {
     public IState GetState = getState();
-    public IPuzzle Puzzle = getPuzzle();
+    public IPractice Practice = getPractice();
 
     public IState Engage()
     {
-        Puzzle.PrintDesc();
+        Practice.PrintDesc();
 
         switch (Console.ReadKey().Key)
         {
             case ConsoleKey.LeftArrow:
-                if (Puzzle.Caret.PitchID - 1 == Puzzle.Bottom.PitchID ||
-                    Puzzle.Caret.PitchID - 1 < Pitch.GetPitchID(new C(), 3))
+                if (Practice.Caret.PitchID - 1 == Practice.Bottom.PitchID ||
+                    Practice.Caret.PitchID - 1 < Pitch.GetPitchID(new C(), 3))
                     return this;
 
-                int newChromaticValue = (Puzzle.Caret.Chromatic.Value == 0) ? 11 : (Puzzle.Caret.Chromatic.Value - 1);
-                Puzzle.Caret = new(IPitchClass.GetAll().First(p => p.Chromatic.Value == newChromaticValue),
-                            Puzzle.Caret.Octave + (newChromaticValue > Puzzle.Caret.Chromatic.Value ? -1 : 0));
+                int newChromaticValue = (Practice.Caret.Chromatic.Value == 0) ? 11 : (Practice.Caret.Chromatic.Value - 1);
+                Practice.Caret = new(IPitchClass.GetAll().First(p => p.Chromatic.Value == newChromaticValue),
+                            Practice.Caret.Octave + (newChromaticValue > Practice.Caret.Chromatic.Value ? -1 : 0));
                 return this;
 
             case ConsoleKey.RightArrow:
-                if (Puzzle.Caret.PitchID + 1 > Pitch.GetPitchID(new B(), 4))
+                if (Practice.Caret.PitchID + 1 > Pitch.GetPitchID(new B(), 4))
                     return this;
 
-                newChromaticValue = (Puzzle.Caret.Chromatic.Value + 1) % MusicTheory.Chromatic.Gamut;
-                Puzzle.Caret = new(IPitchClass.GetAll().First(p => p.Chromatic.Value == newChromaticValue),
-                            Puzzle.Caret.Octave + (newChromaticValue < Puzzle.Caret.Chromatic.Value ? 1 : 0));
+                newChromaticValue = (Practice.Caret.Chromatic.Value + 1) % MusicTheory.Chromatic.Gamut;
+                Practice.Caret = new(IPitchClass.GetAll().First(p => p.Chromatic.Value == newChromaticValue),
+                            Practice.Caret.Octave + (newChromaticValue < Practice.Caret.Chromatic.Value ? 1 : 0));
                 return this;
 
             case ConsoleKey.Spacebar:
-                if (Puzzle.Selected.Count > 0) PlayAll();
+                if (Practice.Selected.Count > 0) PlayAll();
                 return this;
 
             case ConsoleKey.UpArrow:
@@ -41,19 +41,19 @@ public class PuzzleState(Func<IPuzzle> getPuzzle, Func<IState> getState) : IStat
                 return this;
 
             case ConsoleKey.DownArrow:
-                foreach (var p in Puzzle.Selected)
+                foreach (var p in Practice.Selected)
                 {
-                    if (p.PitchID == Puzzle.Caret.PitchID)
+                    if (p.PitchID == Practice.Caret.PitchID)
                     {
-                        Puzzle.Selected.Remove(p);
+                        Practice.Selected.Remove(p);
                         return this;
                     }
                 }
-                if (Puzzle.Selected.Count < Puzzle.NumOfNotes) Puzzle.Selected.Add(Puzzle.Caret);
+                if (Practice.Selected.Count < Practice.NumOfNotes) Practice.Selected.Add(Practice.Caret);
                 return this;
 
             case ConsoleKey.H:
-                Puzzle.HintFlag = !Puzzle.HintFlag;
+                Practice.HintFlag = !Practice.HintFlag;
                 break;
 
             case ConsoleKey.Tab:
@@ -64,15 +64,15 @@ public class PuzzleState(Func<IPuzzle> getPuzzle, Func<IState> getState) : IStat
                 return GetState;
 
             case ConsoleKey.Enter:
-                if (!Puzzle.ValidateAnswer())
+                if (!Practice.ValidateAnswer())
                 {
                     Console.Beep();
                     return this;
                 }
 
-                Puzzle.PuzzleComplete = true;
+                Practice.PracticeComplete = true;
                 PlayAnswer();
-                Puzzle.PrintDesc();
+                Practice.PrintDesc();
                 Logos.PressAnyKeyToContinue();
                 return GetState;
         }
@@ -83,13 +83,13 @@ public class PuzzleState(Func<IPuzzle> getPuzzle, Func<IState> getState) : IStat
     void PlayCaret()
     {
         StateMachine.BlockInput = true;
-        Puzzle.Playing = [Puzzle.Caret];
-        AudioGenerator.PlayAudio([([Puzzle.Caret], 750, .5f)],
+        Practice.Playing = [Practice.Caret];
+        AudioGenerator.PlayAudio([([Practice.Caret], 750, .5f)],
           async () =>
           {
-              Puzzle.PrintDesc();
+              Practice.PrintDesc();
               await Task.Delay(750);
-              Puzzle.Playing = null;
+              Practice.Playing = null;
           });
         StateMachine.BlockInput = false;
     }
@@ -97,16 +97,16 @@ public class PuzzleState(Func<IPuzzle> getPuzzle, Func<IState> getState) : IStat
     void PlayAll()
     {
         StateMachine.BlockInput = true;
-        var notes = Puzzle.GetSelectedNotesToPlay();
+        var notes = Practice.GetSelectedNotesToPlay();
         AudioGenerator.PlayAudio(notes, async () =>
         {
             foreach (var (pitches, durationMS, amp) in notes)
             {
-                Puzzle.Playing = pitches;
-                Puzzle.PrintDesc();
+                Practice.Playing = pitches;
+                Practice.PrintDesc();
                 await Task.Delay(durationMS);
             }
-            Puzzle.Playing = null;
+            Practice.Playing = null;
         });
         StateMachine.BlockInput = false;
     }
@@ -114,9 +114,9 @@ public class PuzzleState(Func<IPuzzle> getPuzzle, Func<IState> getState) : IStat
     void PlayQuestion()
     {
         StateMachine.BlockInput = true;
-        AudioGenerator.PlayAudio(Puzzle.GetAnswerNotesToPlay(), () =>
+        AudioGenerator.PlayAudio(Practice.GetAnswerNotesToPlay(), () =>
         {
-            Puzzle.Playing = null;
+            Practice.Playing = null;
         });
         StateMachine.BlockInput = false;
     }
@@ -124,16 +124,16 @@ public class PuzzleState(Func<IPuzzle> getPuzzle, Func<IState> getState) : IStat
     void PlayAnswer()
     {
         StateMachine.BlockInput = true;
-        var notes = Puzzle.GetAnswerNotesToPlay();
+        var notes = Practice.GetAnswerNotesToPlay();
         AudioGenerator.PlayAudio(notes, async () =>
         {
             foreach (var (pitches, durationMS, amp) in notes)
             {
-                Puzzle.Playing = pitches;
-                Puzzle.PrintDesc();
+                Practice.Playing = pitches;
+                Practice.PrintDesc();
                 await Task.Delay(durationMS);
             }
-            Puzzle.Playing = null;
+            Practice.Playing = null;
         });
         StateMachine.BlockInput = false;
     }

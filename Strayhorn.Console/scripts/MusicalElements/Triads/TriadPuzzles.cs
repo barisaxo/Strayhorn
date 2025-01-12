@@ -4,9 +4,9 @@ using MusicTheory.Intervals;
 using MusicTheory.Chords;
 using MusicTheory;
 
-namespace Strayhorn.Puzzles;
+namespace Strayhorn.Practice;
 
-public class TriadPuzzle1 : IPuzzle
+public class TriadPractice1 : IPractice
 {
     public IMusicalElement Gamut { get; }
     public ITriad Triad => Gamut is ITriad Triad ? Triad : throw new System.ArgumentNullException();
@@ -35,7 +35,7 @@ public class TriadPuzzle1 : IPuzzle
 
     public string Desc => $"Build a {Triad.Name} {nameof(Triad)}";
     public string Answer => Triad.Name;
-    public bool PuzzleComplete { get; set; }
+    public bool PracticeComplete { get; set; }
     public bool HintFlag { get; set; }
     string GetHint()
     {
@@ -45,7 +45,7 @@ public class TriadPuzzle1 : IPuzzle
     }
     public string Hint => GetHint();
 
-    public TriadPuzzle1()
+    public TriadPractice1()
     {
         Random random = new();
         IAccidental[] accidentals = [new Flat(), new Sharp(), new Natural()];
@@ -87,7 +87,7 @@ public class TriadPuzzle1 : IPuzzle
 
 }
 
-public class TriadPuzzle2 : IPuzzle
+public class TriadPractice2 : IPractice
 {
     public IMusicalElement Gamut { get; }
     public ITriad Triad => Gamut is ITriad Triad ? Triad : throw new System.ArgumentNullException();
@@ -116,7 +116,7 @@ public class TriadPuzzle2 : IPuzzle
 
     public string Desc => $"Build a {Triad.Name} {nameof(Triad)}";
     public string Answer => Triad.Name;
-    public bool PuzzleComplete { get; set; }
+    public bool PracticeComplete { get; set; }
     public bool HintFlag { get; set; }
     string GetHint()
     {
@@ -126,7 +126,7 @@ public class TriadPuzzle2 : IPuzzle
     }
     public string Hint => GetHint();
 
-    public TriadPuzzle2()
+    public TriadPractice2()
     {
         Random random = new();
         IAccidental[] accidentals = [new Flat(), new Sharp(), new Natural()];
@@ -168,7 +168,7 @@ public class TriadPuzzle2 : IPuzzle
 
 }
 
-public class TriadPuzzle3 : IPuzzle
+public class TriadPractice3 : IPractice
 {
     public IMusicalElement Gamut { get; }
     public ITriad Triad => Gamut is ITriad Triad ? Triad : throw new System.ArgumentNullException();
@@ -197,7 +197,7 @@ public class TriadPuzzle3 : IPuzzle
 
     public string Desc => $"Build a {Triad.Name} {nameof(Triad)}";
     public string Answer => Triad.Name;
-    public bool PuzzleComplete { get; set; }
+    public bool PracticeComplete { get; set; }
     public bool HintFlag { get; set; }
     string GetHint()
     {
@@ -207,7 +207,7 @@ public class TriadPuzzle3 : IPuzzle
     }
     public string Hint => GetHint();
 
-    public TriadPuzzle3()
+    public TriadPractice3()
     {
         Random random = new();
         IAccidental[] accidentals = [new Flat(), new Sharp(), new Natural()];

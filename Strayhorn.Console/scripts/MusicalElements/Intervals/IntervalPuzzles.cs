@@ -3,9 +3,9 @@ using MusicTheory.Letters;
 using MusicTheory.Intervals;
 using MusicTheory;
 
-namespace Strayhorn.Puzzles;
+namespace Strayhorn.Practice;
 
-public class IntervalPuzzle1 : IPuzzle
+public class IntervalPractice1 : IPractice
 {
     public IMusicalElement Gamut { get; }
     public IInterval Interval => Gamut is IInterval Interval ? Interval : throw new System.ArgumentNullException();
@@ -35,11 +35,11 @@ public class IntervalPuzzle1 : IPuzzle
 
     public string Desc => $"Build a {Interval.Name} {nameof(Interval)}";
     public string Answer => Interval.Name;
-    public bool PuzzleComplete { get; set; }
+    public bool PracticeComplete { get; set; }
     public bool HintFlag { get; set; }
     public string Hint => "P1 mi2 M2 mi3 M3 P4 TT P5 mi6 M6 mi7 M7 P8";
 
-    public IntervalPuzzle1()
+    public IntervalPractice1()
     {
         Random random = new();
         IAccidental[] accidentals = [new Flat(), new Sharp(), new Natural()];
@@ -75,7 +75,7 @@ public class IntervalPuzzle1 : IPuzzle
 
 }
 
-public class IntervalPuzzle2 : IPuzzle
+public class IntervalPractice2 : IPractice
 {
     public IMusicalElement Gamut { get; }
     public IInterval Interval => Gamut is IInterval Interval ? Interval : throw new System.ArgumentNullException();
@@ -106,11 +106,11 @@ public class IntervalPuzzle2 : IPuzzle
     public string Desc => $"Build a {Interval.Name} {nameof(Interval)}";
     // public string AnswerFormatValidation => "Answer from the following: H, W, S";
     public string Answer => Interval.Name;
-    public bool PuzzleComplete { get; set; }
+    public bool PracticeComplete { get; set; }
     public bool HintFlag { get; set; }
     public string Hint => "P1 mi2 M2 mi3 M3 P4 TT P5 mi6 M6 mi7 M7 P8";
 
-    public IntervalPuzzle2()
+    public IntervalPractice2()
     {
         Random random = new();
         IAccidental[] accidentals = [new Flat(), new Sharp(), new Natural()];

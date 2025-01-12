@@ -3,9 +3,9 @@ using MusicTheory;
 using MusicTheory.Notes;
 using Strayhorn.Utility;
 
-namespace Strayhorn.Puzzles;
+namespace Strayhorn.Practice;
 
-public interface IPuzzle
+public interface IPractice
 {
     public int NumOfNotes { get; }
     /// <summary>
@@ -23,7 +23,7 @@ public interface IPuzzle
     public string Desc { get; }
     public string Hint { get; }
     public bool HintFlag { get; set; }
-    public bool PuzzleComplete { get; set; }
+    public bool PracticeComplete { get; set; }
     public bool ValidateAnswer() => Selected.Count == NumOfNotes;
     public bool CheckAnswer();
     public void DrawQuestion();
@@ -45,7 +45,7 @@ public interface IPuzzle
         Console.WriteLine("press 'space' to play selected notes");
         Console.WriteLine("press 'tab' to listen to the question");
         Console.WriteLine("press 'h' for a hint");
-        Console.WriteLine("press 'q' to quit puzzle");
+        Console.WriteLine("press 'q' to quit Practice");
         if (ValidateAnswer()) Console.WriteLine("press 'enter' to submit answer");
 
         if (HintFlag)
@@ -54,7 +54,7 @@ public interface IPuzzle
             Console.WriteLine("Hint:\n" + Hint);
         }
 
-        if (PuzzleComplete)
+        if (PracticeComplete)
         {
             if (CheckAnswer())//TODO
             {
