@@ -48,11 +48,22 @@ public interface IInterval : IMusicalElement
         [new P1(), new mi2(), new M2(), new A2(), new mi3(), new M3(),
          new d4(), new P4(), new A4(), new d5(), new P5(), new A5(),
          new mi6(), new M6(), new d7(), new mi7(), new M7(), new P8()];
+
+
+    public static IEnumerable<IInterval> GetCommonNoP1() =>
+        [new mi2(), new M2(), new mi3(), new M3(),
+          new P4(), new A4(), new d5(), new P5(),
+          new mi6(), new M6(), new mi7(), new M7(), new P8()];
+
+    public static IEnumerable<IInterval> GetAllNoP1() =>
+        [new mi2(), new M2(), new A2(), new mi3(), new M3(),
+         new d4(), new P4(), new A4(), new d5(), new P5(), new A5(),
+         new mi6(), new M6(), new d7(), new mi7(), new M7(), new P8()];
 }
 
 #pragma warning disable IDE1006 // Naming Styles
 
-[System.Serializable]
+
 public readonly struct P1 : IInterval
 {
     public IQuality Quality => new Perfect();
@@ -60,7 +71,7 @@ public readonly struct P1 : IInterval
     public string Name => Quality.Name + " " + Quantity.Name;
 }
 
-[System.Serializable]
+
 public readonly struct mi2 : IInterval
 {
     public IQuality Quality => new Minor();
@@ -68,7 +79,7 @@ public readonly struct mi2 : IInterval
     public string Name => Quality.Name + " " + Quantity.Name;
 }
 
-[System.Serializable]
+
 public readonly struct M2 : IInterval
 {
     public IQuality Quality => new Major();
@@ -76,7 +87,7 @@ public readonly struct M2 : IInterval
     public string Name => Quality.Name + " " + Quantity.Name;
 }
 
-[System.Serializable]
+
 public readonly struct A2 : IInterval
 {
     public IQuality Quality => new Augmented();
@@ -84,7 +95,7 @@ public readonly struct A2 : IInterval
     public string Name => Quality.Name + " " + Quantity.Name;
 }
 
-[System.Serializable]
+
 public readonly struct mi3 : IInterval
 {
     public IQuality Quality => new Minor();
@@ -92,7 +103,7 @@ public readonly struct mi3 : IInterval
     public string Name => Quality.Name + " " + Quantity.Name;
 }
 
-[System.Serializable]
+
 public readonly struct M3 : IInterval
 {
     public IQuality Quality => new Major();
@@ -100,7 +111,7 @@ public readonly struct M3 : IInterval
     public string Name => Quality.Name + " " + Quantity.Name;
 }
 
-[System.Serializable]
+
 public readonly struct d4 : IInterval
 {
     public IQuality Quality => new Diminished();
@@ -108,7 +119,7 @@ public readonly struct d4 : IInterval
     public string Name => Quality.Name + " " + Quantity.Name;
 }
 
-[System.Serializable]
+
 public readonly struct P4 : IInterval
 {
     public IQuality Quality => new Perfect();
@@ -116,7 +127,7 @@ public readonly struct P4 : IInterval
     public string Name => Quality.Name + " " + Quantity.Name;
 }
 
-[System.Serializable]
+
 public readonly struct A4 : IInterval
 {
     public IQuality Quality => new Augmented();
@@ -124,7 +135,7 @@ public readonly struct A4 : IInterval
     public string Name => Quality.Name + " " + Quantity.Name;
 }
 
-[System.Serializable]
+
 public readonly struct d5 : IInterval
 {
     public IQuality Quality => new Diminished();
@@ -132,7 +143,7 @@ public readonly struct d5 : IInterval
     public string Name => Quality.Name + " " + Quantity.Name;
 }
 
-[System.Serializable]
+
 public readonly struct P5 : IInterval
 {
     public IQuality Quality => new Perfect();
@@ -140,7 +151,7 @@ public readonly struct P5 : IInterval
     public string Name => Quality.Name + " " + Quantity.Name;
 }
 
-[System.Serializable]
+
 public readonly struct A5 : IInterval
 {
     public IQuality Quality => new Augmented();
@@ -148,7 +159,7 @@ public readonly struct A5 : IInterval
     public string Name => Quality.Name + " " + Quantity.Name;
 }
 
-[System.Serializable]
+
 public readonly struct mi6 : IInterval
 {
     public IQuality Quality => new Minor();
@@ -156,7 +167,7 @@ public readonly struct mi6 : IInterval
     public string Name => Quality.Name + " " + Quantity.Name;
 }
 
-[System.Serializable]
+
 public readonly struct M6 : IInterval
 {
     public IQuality Quality => new Major();
@@ -164,7 +175,7 @@ public readonly struct M6 : IInterval
     public string Name => Quality.Name + " " + Quantity.Name;
 }
 
-[System.Serializable]
+
 public readonly struct d7 : IInterval
 {
     public IQuality Quality => new Diminished();
@@ -172,7 +183,7 @@ public readonly struct d7 : IInterval
     public string Name => Quality.Name + " " + Quantity.Name;
 }
 
-[System.Serializable]
+
 public readonly struct mi7 : IInterval
 {
     public IQuality Quality => new Minor();
@@ -180,7 +191,7 @@ public readonly struct mi7 : IInterval
     public string Name => Quality.Name + " " + Quantity.Name;
 }
 
-[System.Serializable]
+
 public readonly struct M7 : IInterval
 {
     public IQuality Quality => new Major();
@@ -188,7 +199,10 @@ public readonly struct M7 : IInterval
     public string Name => Quality.Name + " " + Quantity.Name;
 }
 
-[System.Serializable]
+/// <summary>
+/// Octaves need to be handled manually, the arithmetic does a modulo wrap. 
+/// P8 is essentially the same as P1, except by name (they both have chromatic value of 0).
+/// </summary>
 public readonly struct P8 : IInterval
 {
     public IQuality Quality => new Perfect();

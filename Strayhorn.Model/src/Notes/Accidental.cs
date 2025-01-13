@@ -3,18 +3,21 @@ using System;
 namespace MusicTheory.Notes;
 
 // https://barisaxo.github.io/pages/arithmetic/notes.html
-public interface IAccidental
+public interface IAccidental : IMusicalElement
 {
     public Chromatic Chromatic { get; }
-    public string Name { get; }
+    // public string Name { get; }
     public string Unicode { get; }
     public string Ascii { get; }
 
     public static IEnumerable<IAccidental> GetAll() =>
         [new DoubleFlat(), new Flat(), new Natural(), new Sharp(), new DoubleSharp(),];
+
+    public static IEnumerable<IAccidental> GetAllExceptDoubles() =>
+        [new Flat(), new Natural(), new Sharp(),];
 }
 
-[System.Serializable]
+
 public readonly struct DoubleSharp : IAccidental
 {
     public readonly string Name => nameof(DoubleSharp);
@@ -23,7 +26,7 @@ public readonly struct DoubleSharp : IAccidental
     public readonly string Ascii => "x";
 }
 
-[System.Serializable]
+
 public readonly struct Sharp : IAccidental
 {
     public readonly string Name => nameof(Sharp);
@@ -32,7 +35,7 @@ public readonly struct Sharp : IAccidental
     public readonly string Ascii => "#";
 }
 
-[System.Serializable]
+
 public readonly struct Natural : IAccidental
 {
     public readonly string Name => nameof(Natural);
@@ -42,7 +45,7 @@ public readonly struct Natural : IAccidental
     public static string Actual => "♮";
 }
 
-[System.Serializable]
+
 public readonly struct Flat : IAccidental
 {
     public readonly string Name => nameof(Flat);
@@ -51,7 +54,7 @@ public readonly struct Flat : IAccidental
     public readonly string Ascii => "b";
 }
 
-[System.Serializable]
+
 public readonly struct DoubleFlat : IAccidental
 {
     public readonly string Name => nameof(DoubleFlat);

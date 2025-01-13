@@ -2,7 +2,6 @@
 
 namespace MusicTheory.Intervals;
 
-
 //https://barisaxo.github.io/pages/arithmetic/inversions.html 
 
 /// <summary>https://barisaxo.github.io/pages/arithmetic/intervals.html </summary>
@@ -28,7 +27,7 @@ public interface IQuality
         [new Major(), new Minor(), new Augmented(), new Diminished(), new Perfect()];
 }
 
-[System.Serializable]
+
 public readonly struct Major : IQuality
 {
     public string Name => nameof(Major);
@@ -38,7 +37,7 @@ public readonly struct Major : IQuality
     public Chromatic Chromatic(IQuantity quantity) => new(0);
 }
 
-[System.Serializable]
+
 public readonly struct Minor : IQuality
 {
     public string Name => nameof(Minor);
@@ -48,7 +47,7 @@ public readonly struct Minor : IQuality
     public Chromatic Chromatic(IQuantity quantity) => new(-1);
 }
 
-[System.Serializable]
+
 public readonly struct Augmented : IQuality
 {
     public string Name => nameof(Augmented);
@@ -58,7 +57,7 @@ public readonly struct Augmented : IQuality
     public Chromatic Chromatic(IQuantity quantity) => new(1);
 }
 
-[System.Serializable]
+
 public readonly struct Diminished : IQuality
 {
     public string Name => nameof(Diminished);
@@ -73,7 +72,7 @@ public readonly struct Diminished : IQuality
     };
 }
 
-[System.Serializable]
+
 public readonly struct Perfect : IQuality
 {
     public string Name => nameof(Perfect);

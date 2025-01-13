@@ -20,6 +20,27 @@ public interface IMode : IMusicalElement
     // {
     //     return scale.Modes.Single(m => m.ModeDegree == modeDegree);
     // }
+    public static Notes.Pitch[] Build(Notes.Pitch key, IMode mode, bool allowEnharmonicWhite = false, bool preferDoubles = false)
+    {
+        var scale = mode.Parent;
+        int scaleLength = scale.ScaleDegrees.Length;
+        int modeNo = mode.ModeNumber();
+
+        Notes.Pitch[] notes = new Notes.Pitch[scale.ScaleDegrees.Length + 1];
+        IInterval[] intervals = new IInterval[scaleLength];
+
+        for (int i = 0; i < scaleLength; i++)
+            intervals[i] = IInterval.GetInterval(mode.Parent.ScaleDegrees[modeNo],
+                mode.Parent.ScaleDegrees[(modeNo + i) % mode.Parent.ScaleDegrees.Length]);
+
+        notes[0] = key;
+        notes[^1] = new Notes.Pitch(key.PitchClass, key.Octave + 1);
+
+        for (int i = 1; i < notes.Length - 1; i++)
+            notes[i] = Notes.Pitch.GetPitchAbove(key, intervals[i]);
+
+        return notes;
+    }
 }
 
 #region  Major Modes

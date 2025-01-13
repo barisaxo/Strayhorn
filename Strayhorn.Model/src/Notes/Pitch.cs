@@ -1,4 +1,5 @@
 using System;
+using MusicTheory.Intervals;
 
 namespace MusicTheory.Notes;
 
@@ -48,6 +49,18 @@ public readonly struct Pitch : IComparable<Pitch>, IComparer<Pitch>, IEquatable<
 
         Octave = octave;
         PitchClass = pitchClass;
+    }
+
+    public static Pitch GetPitchAbove(Pitch bottom, IInterval interval, bool allowEnharmonicWhite = false, bool preferDoubles = false)
+    {
+        IPitchClass topPC = IPitchClass.GetPitchClassAbove(bottom.PitchClass, interval, allowEnharmonicWhite, preferDoubles);
+        return new(pitchClass: topPC, bottom.Octave + (GetPitchID(topPC, bottom.Octave) < bottom.PitchID ? 1 : 0));
+    }
+
+    public static Pitch GetPitchAbove(Pitch bottom, IStep step, bool allowEnharmonicWhite = false, bool preferDoubles = false)
+    {
+        IPitchClass topPC = IPitchClass.GetPitchClassAbove(bottom.PitchClass, step, allowEnharmonicWhite, preferDoubles);
+        return new(pitchClass: topPC, bottom.Octave + (GetPitchID(topPC, bottom.Octave) < bottom.PitchID ? 1 : 0));
     }
 
     /// <summary>Checks enharmonic equivalency, ignoring octave designation.</summary>

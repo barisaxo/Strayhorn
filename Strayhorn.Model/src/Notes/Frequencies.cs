@@ -12,21 +12,6 @@ public static class Frequencies
         return A440 * Math.Pow(2, offset / 12.0);
     }
 
-    // public static Dictionary<int, double> NoteFrequencies => new(){
-    //     {0,C0},
-    //     {1,Cs0},
-    //     {2,D0},
-    //     {3,Eb0},
-    //     {4,E0},
-    //     {5,F0},
-    //     {6,Gb0},
-    //     {7,G0},
-    //     {8,Ab0},
-    //     {9,A0},
-    //     {10,Bb0},
-    //     {11,B0},
-    // };
-
     public const double C0 = 16.35;
     public const double Cs0 = 17.32;
     public const double Db0 = 17.32;

@@ -1,5 +1,8 @@
 using Strayhorn.Tutorials;
 using Strayhorn.Practice;
+using MusicTheory.Notes;
+using Strayhorn.Utility;
+using MusicTheory.Intervals;
 
 namespace Strayhorn.Menus;
 
@@ -9,19 +12,25 @@ public class StepsMenu : IMenu
     public IMenuItem[] MenuItems { get; }
 
     readonly MenuItem Tutorial;
-    readonly MenuItem Level1;
-    readonly MenuItem Level2;
-    readonly MenuItem Level3;
     readonly MenuItem Back = new("Main Menu", () => new MenuState(new MainMenu()));
 
     public StepsMenu()
     {
         Tutorial = new("About Steps", () => new TutorialState(new StepsTutorial(), () => new MenuState(this)));
-        Level1 = new("Step practice: H & W, White Keys", () => new PracticeState(() => new StepPractice1(), () => new MenuState(this)));
-        Level2 = new("Step practice: H & W, All Keys", () => new PracticeState(() => new StepPractice2(), () => new MenuState(this)));
-        Level3 = new("Step practice: H, W, & S, All Keys", () => new PracticeState(() => new StepPractice3(), () => new MenuState(this)));
         Selection = Tutorial;
-        MenuItems = [Tutorial, Level1, Level2, Level3, Back];
+
+        MenuItems = [
+            Tutorial,
+            new MenuItem("Step Theory practice: Half", () => new PracticeState(() => new StepPuzzle(PuzzleType.Theory, new H()), () => new MenuState(this))),
+            new MenuItem("Step Theory practice: Whole", () => new PracticeState(() => new StepPuzzle(PuzzleType.Theory, new W()), () => new MenuState(this))),
+            new MenuItem("Step Theory practice: Half & Whole", () => new PracticeState(() => new StepPuzzle(PuzzleType.Theory, IStep.GetHW().GetRandom()), () => new MenuState(this))),
+            new MenuItem("Step Theory practice: Skip", () => new PracticeState(() => new StepPuzzle(PuzzleType.Theory, new S()), () => new MenuState(this))),
+            new MenuItem("Step Theory practice: Half, Whole, & Skip", () => new PracticeState(() => new StepPuzzle(PuzzleType.Theory, IStep.GetAll().GetRandom()), () => new MenuState(this))),
+
+            new MenuItem("Step Aural practice: Half & Whole", () => new PracticeState(() => new StepPuzzle(PuzzleType.Aural, IStep.GetHW().GetRandom()), () => new MenuState(this))),
+            new MenuItem("Step Aural practice: Half, Whole, & Skip", () => new PracticeState(() => new StepPuzzle(PuzzleType.Aural, IStep.GetAll().GetRandom()), () => new MenuState(this))),
+            Back
+            ];
     }
 
 }

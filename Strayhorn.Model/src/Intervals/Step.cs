@@ -20,6 +20,9 @@ public interface IStep : IMusicalElement
     public static IEnumerable<IStep> GetAll() =>
         [new H(), new W(), new S()];
 
+    public static IEnumerable<IStep> GetHW() =>
+        [new H(), new W(), new S()];
+
     public static IStep GetStep(Chromatic chromatic) => chromatic.Value switch
     {
         1 => new H(),
@@ -36,7 +39,7 @@ public interface IStep : IMusicalElement
 
 }
 
-[System.Serializable]
+
 /// <summary> Half Step = +1 </summary>
 public readonly struct H : IStep
 {
@@ -45,7 +48,7 @@ public readonly struct H : IStep
     public readonly Chromatic Chromatic => new(1);
 }
 
-[System.Serializable]
+
 /// <summary> Whole Step = +2 </summary>
 public readonly struct W : IStep
 {
@@ -54,7 +57,7 @@ public readonly struct W : IStep
     public readonly Chromatic Chromatic => new(2);
 }
 
-[System.Serializable]
+
 /// <summary> Skip = +3 </summary>
 public readonly struct S : IStep
 {

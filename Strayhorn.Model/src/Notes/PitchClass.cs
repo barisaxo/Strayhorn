@@ -4,35 +4,6 @@ using MusicTheory.Letters;
 namespace MusicTheory.Notes;
 
 /// <summary> https://barisaxo.github.io/pages/arithmetic/notes.html </summary> 
-// public readonly struct PitchClass(ILetter letter, IAccidental accidental) :
-//     IEquatable<PitchClass>, IComparable<PitchClass>
-// {
-//     public readonly ILetter Letter { get; } = letter;
-//     public readonly IAccidental Accidental { get; } = accidental;
-
-//     public string Name => Letter.Name + Accidental.Symbol;
-//     public Chromatic Chromatic => new(Letter.Chromatic.Value + Accidental.Chromatic.Value);
-
-//     public static PitchClass GetStepAbove(PitchClass pitchClass, IStep step)
-//     {
-//         var letter = ILetter.GetNextLetter(pitchClass.Letter);
-
-//         int chromaticDiff = letter.Chromatic.Value - pitchClass.Chromatic.Value - step.Chromatic.Value
-//             + (pitchClass.Chromatic.Value > letter.Chromatic.Value ? Chromatic.Gamut : 0);
-
-//         var accidental = IAccidental.GetAll().First(a => a.Chromatic.Value == chromaticDiff);
-
-//         return new PitchClass(letter, accidental);
-//     }
-
-//     public static bool operator ==(PitchClass left, PitchClass right) => Equals(left, right);
-//     public static bool operator !=(PitchClass left, PitchClass right) => !Equals(left, right);
-//     public readonly int CompareTo(PitchClass other) => Chromatic.Value.CompareTo(other.Chromatic.Value);
-//     public readonly bool Equals(PitchClass other) => Name == other.Name;
-//     public readonly override bool Equals(object? obj) => obj is PitchClass other && Equals(other);
-//     public readonly override int GetHashCode() => HashCode.Combine(Chromatic, Name);
-// }
-
 public interface IPitchClass
 {
     public ILetter Letter { get; }
@@ -49,10 +20,38 @@ public interface IPitchClass
         new Abb(), new Bbb(), new Cbb(), new Dbb(), new Ebb(), new Fbb(), new Gbb()
     ];
 
+    public static IEnumerable<IPitchClass> GetNatural() => [
+     new A(), new B(), new C(), new D(), new E(), new F(), new G(),
+    ];
+
+    public static IEnumerable<IPitchClass> GetBlack() => [
+         new Ab(), new Bb(),  new Db(), new Eb(),  new Gb(),
+         new As(),  new Cs(), new Ds(),  new Fs(), new Gs(),
+    ];
+
+    public static IEnumerable<IPitchClass> GetEnharmonicWhite() => [
+        new Cb(), new Fb(), new Bs(), new Es(),
+    ];
+
+    public static IEnumerable<IPitchClass> GetAllNoEnharmonic() => [
+        new A(), new B(), new C(), new D(), new E(), new F(), new G(),
+        new Ab(), new Bb(), new Db(), new Eb(),  new Gb(),
+        new As(), new Cs(), new Ds(), new Fs(), new Gs(),
+    ];
+
+    public static IEnumerable<IPitchClass> GetDoubles() => [
+        new Ax(), new Bx(), new Cx(), new Dx(), new Ex(), new Fx(), new Gx(),
+        new Abb(), new Bbb(), new Cbb(), new Dbb(), new Ebb(), new Fbb(), new Gbb()
+    ];
+
+    public static IEnumerable<IPitchClass> Get12KeySignatures() =>
+        [new C(), new F(), new Bb(), new Eb(), new Ab(), new Db(),
+         new Fs(), new B(), new E(), new A(), new D(), new G()];
+
     public static IPitchClass Get(ILetter letter, IAccidental accidental) =>
         GetAll().Single(pc => pc.Letter.Equals(letter) && pc.Accidental.Equals(accidental));
 
-    public static IPitchClass GetPitchClassAbove(IPitchClass pitchClass, IStep step, bool AllowEnharmonicWhite = false, bool preferDoubles = false)
+    public static IPitchClass GetPitchClassAbove(IPitchClass pitchClass, IStep step, bool allowEnharmonicWhite = false, bool preferDoubles = false)
     {
         var letter = ILetter.GetNextLetter(pitchClass.Letter);
 
@@ -62,7 +61,7 @@ public interface IPitchClass
         {
             var getPC = GetAll().Single(pc => pc.Letter.Equals(letter) && pc.Chromatic.Value == chromaticSum);
             if (!preferDoubles && getPC.Accidental is DoubleFlat or DoubleSharp) throw new Exception();
-            if (!AllowEnharmonicWhite && (getPC is Cb or Fb or Bs or Es)) throw new Exception();
+            if (!allowEnharmonicWhite && (getPC is Cb or Fb or Bs or Es)) throw new Exception();
             else return getPC;
         }
         catch

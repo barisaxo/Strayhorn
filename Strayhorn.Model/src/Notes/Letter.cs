@@ -15,15 +15,18 @@ public interface ILetter : IMusicalElement
 
     public static ILetter GetNextLetter(ILetter letter) =>
         GetAll().Single(l => l.Diatonic.Value == (letter.Diatonic.Value % Diatonic.Gamut) + 1);
+    // GetAll().ToList()[letter.Diatonic.Value % Diatonic.Gamut]; //just a different way to do it
 
     public static ILetter GetLetterAbove(ILetter letter, IInterval interval)
     {
         return GetAll().Single(l => l.Diatonic.Value == ((letter.Diatonic.Value - 2 + interval.Quantity.ChordTone.Value) % Diatonic.Gamut) + 1);
     }
-    // GetAll().ToList()[letter.Diatonic.Value % Diatonic.Gamut]; //just a different way to do it
+
+    public static ILetter GetRandomLetter() => new Random().Next(0, 7) switch
+    { 0 => new C(), 1 => new D(), 2 => new E(), 3 => new F(), 4 => new G(), 5 => new A(), _ => new B() };
 }
 
-[System.Serializable]
+
 public readonly struct C : ILetter
 {
     public string Name => nameof(C);
@@ -31,7 +34,7 @@ public readonly struct C : ILetter
     public Diatonic Diatonic => new(1);
 }
 
-[System.Serializable]
+
 public readonly struct D : ILetter
 {
     public string Name => nameof(D);
@@ -39,7 +42,7 @@ public readonly struct D : ILetter
     public Diatonic Diatonic => new(2);
 }
 
-[System.Serializable]
+
 public readonly struct E : ILetter
 {
     public string Name => nameof(E);
@@ -47,7 +50,7 @@ public readonly struct E : ILetter
     public Diatonic Diatonic => new(3);
 }
 
-[System.Serializable]
+
 public readonly struct F : ILetter
 {
     public string Name => nameof(F);
@@ -55,7 +58,7 @@ public readonly struct F : ILetter
     public Diatonic Diatonic => new(4);
 }
 
-[System.Serializable]
+
 public readonly struct G : ILetter
 {
     public string Name => nameof(G);
@@ -63,7 +66,7 @@ public readonly struct G : ILetter
     public Diatonic Diatonic => new(5);
 }
 
-[System.Serializable]
+
 public readonly struct A : ILetter
 {
     public string Name => nameof(A);
@@ -71,7 +74,7 @@ public readonly struct A : ILetter
     public Diatonic Diatonic => new(6);
 }
 
-[System.Serializable]
+
 public readonly struct B : ILetter
 {
     public string Name => nameof(B);

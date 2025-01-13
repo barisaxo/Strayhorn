@@ -1,5 +1,7 @@
 using Strayhorn.Tutorials;
 using Strayhorn.Practice;
+using MusicTheory.Notes;
+using Strayhorn.Utility;
 
 namespace Strayhorn.Menus;
 
@@ -9,20 +11,22 @@ public class NotesMenu : IMenu
     public IMenuItem[] MenuItems { get; }
 
     readonly MenuItem About;
-    readonly MenuItem Level1;
-    readonly MenuItem Level2;
-    readonly MenuItem Level3;
-    readonly MenuItem Level4;
     readonly MenuItem Back = new("Main Menu", () => new MenuState(new MainMenu()));
 
     public NotesMenu()
     {
         About = new("Notes Tutorial", () => new TutorialState(new NotesTutorial(), () => new MenuState(this)));
-        Level1 = new("Note practice: White Keys", () => new PracticeState(() => new NotePractice1(), () => new MenuState(this)));
-        Level2 = new("Note practice: Black Keys", () => new PracticeState(() => new NotePractice2(), () => new MenuState(this)));
-        Level3 = new("Note practice: Enharmonic White Keys", () => new PracticeState(() => new NotePractice3(), () => new MenuState(this)));
-        Level4 = new("Note practice: All Keys", () => new PracticeState(() => new NotePractice4(), () => new MenuState(this)));
         Selection = About;
-        MenuItems = [About, Level1, Level2, Level3, Level4, Back];
+
+        MenuItems = [About,
+            new MenuItem("Note Theory practice: Natural Notes", () => new PracticeState( () => new NotePuzzle(PuzzleType.Theory, IPitchClass.GetNatural().GetRandom()), () => new MenuState(this))),
+            new MenuItem("Note Theory practice: Black Keys", () => new PracticeState(() => new NotePuzzle(PuzzleType.Theory, IPitchClass.GetBlack().GetRandom()), () => new MenuState(this))),
+            new MenuItem("Note Theory practice: Enharmonic White Keys", () => new PracticeState(() => new NotePuzzle(PuzzleType.Theory, IPitchClass.GetEnharmonicWhite().GetRandom()), () => new MenuState(this))),
+            new MenuItem("Note Theory practice: Double Accidentals (x & bb)", () => new PracticeState(() => new NotePuzzle(PuzzleType.Theory, IPitchClass.GetDoubles().GetRandom()), () => new MenuState(this))),
+            new MenuItem("Note Theory practice: All Keys (no enharmonic)", () => new PracticeState(() => new NotePuzzle(PuzzleType.Theory, IPitchClass.GetAllNoEnharmonic().GetRandom()), () => new MenuState(this))),
+            new MenuItem("Note Theory practice: All Keys (w/ doubles)", () => new PracticeState(() => new NotePuzzle(PuzzleType.Theory, IPitchClass.GetAll().GetRandom()), () => new MenuState(this))),
+
+            new MenuItem("Note Aural practice: All Keys", () => new PracticeState( () => new NotePuzzle(PuzzleType.Aural, IPitchClass.GetAllNoEnharmonic().GetRandom()), () => new MenuState(this))),
+            Back];
     }
 }

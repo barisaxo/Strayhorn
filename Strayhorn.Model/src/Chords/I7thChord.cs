@@ -35,6 +35,7 @@ public interface I7Chord : IChord
         new Minor6(), new Minor7Flat5(),  new Augmented7(), new TonicMinor7(),
         new SevenSharp11(),new Diminished7(),
     ];
+
 }
 
 public readonly struct Major7 : I7Chord

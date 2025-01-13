@@ -13,6 +13,23 @@ public interface IScale : IMusicalElement
     public static IEnumerable<IScale> GetAll() =>
         [new Major(), new JazzMinor(), new HarmonicMinor(), new WholeTone(), new Diminished(),
          new SixthDiminished(), new Chromatic(), new Pentatonic(), new  Blues()];
+
+    public static IEnumerable<IScale> GetAllModal() =>
+        [new Major(), new JazzMinor(), new HarmonicMinor(),  new Diminished(),
+         new SixthDiminished(),  new Pentatonic(), new  Blues()];
+
+
+    public static Notes.Pitch[] Build(Notes.Pitch key, IScale scale, bool allowEnharmonicWhite = false, bool preferDoubles = false)
+    {
+        Notes.Pitch[] notes = new Notes.Pitch[scale.ScaleDegrees.Length + 1];
+        notes[0] = key;
+        notes[^1] = new(key.PitchClass, key.Octave + 1);
+
+        for (int i = 1; i < notes.Length - 1; i++)
+            notes[i] = Notes.Pitch.GetPitchAbove(key, scale.ScaleDegrees[i], allowEnharmonicWhite, preferDoubles);
+
+        return notes;
+    }
 }
 
 public readonly struct Major : IScale

@@ -13,6 +13,6 @@ public class MainMenu : IMenu
     readonly static MenuItem I6 = new("7th Chords", () => new MenuState(new SeventhChordsMenu()));
     readonly static MenuItem I7 = new("Inversions", () => new MenuState(new InversionsMenu()));
     readonly static MenuItem I8 = new("Modes", () => new MenuState(new ModesMenu()));
-    readonly static MenuItem I9 = new("InvertedChords", () => new MenuState(new InvertedChordsMenu()));
+    readonly static MenuItem I9 = new("Inverted Chords", () => new MenuState(new InvertedChordsMenu()));
     readonly static MenuItem IX = new("Quit", () => new QuitState());
 }

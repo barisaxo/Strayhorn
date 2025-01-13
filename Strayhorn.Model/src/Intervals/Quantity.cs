@@ -33,7 +33,7 @@ public interface IQuantity
          new Fifth(), new Sixth(), new Seventh(), new Octave()];
 }
 
-[System.Serializable]
+
 public readonly struct Unison : IQuantity
 {
     public readonly string Name => nameof(Unison);
@@ -45,7 +45,7 @@ public readonly struct Unison : IQuantity
     public readonly string Ordinal => "1st";
 }
 
-[System.Serializable]
+
 public readonly struct Second : IQuantity
 {
     public readonly string Name => nameof(Second);
@@ -57,7 +57,7 @@ public readonly struct Second : IQuantity
     public readonly string Ordinal => "2nd";
 }
 
-[System.Serializable]
+
 public readonly struct Third : IQuantity
 {
     public readonly string Name => nameof(Third);
@@ -69,7 +69,7 @@ public readonly struct Third : IQuantity
     public readonly string Ordinal => "3rd";
 }
 
-[System.Serializable]
+
 public readonly struct Fourth : IQuantity
 {
     public readonly string Name => nameof(Fourth);
@@ -81,7 +81,7 @@ public readonly struct Fourth : IQuantity
     public readonly string Ordinal => "4th";
 }
 
-[System.Serializable]
+
 public readonly struct Fifth : IQuantity
 {
     public readonly string Name => nameof(Fifth);
@@ -93,7 +93,7 @@ public readonly struct Fifth : IQuantity
     public readonly string Ordinal => "5th";
 }
 
-[System.Serializable]
+
 public readonly struct Sixth : IQuantity
 {
     public readonly string Name => nameof(Sixth);
@@ -105,7 +105,7 @@ public readonly struct Sixth : IQuantity
     public readonly string Ordinal => "6th";
 }
 
-[System.Serializable]
+
 public readonly struct Seventh : IQuantity
 {
     public readonly string Name => nameof(Seventh);
@@ -117,7 +117,11 @@ public readonly struct Seventh : IQuantity
     public readonly string Ordinal => "7th";
 }
 
-[System.Serializable]
+
+/// <summary>
+/// Octaves need to be handled manually, the arithmetic does a modulo wrap.
+/// P8 is essentially the same as P1, except by name (they both have chromatic value of 0).
+/// </summary>
 public readonly struct Octave : IQuantity
 {
     public readonly string Name => nameof(Octave);

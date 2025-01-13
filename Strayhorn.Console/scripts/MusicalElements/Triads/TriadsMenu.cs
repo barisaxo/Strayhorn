@@ -1,5 +1,7 @@
 using Strayhorn.Practice;
 using Strayhorn.Tutorials;
+using MusicTheory.Chords;
+using Strayhorn.Utility;
 
 namespace Strayhorn.Menus;
 
@@ -9,21 +11,25 @@ public class TriadsMenu : IMenu
     public IMenuItem[] MenuItems { get; }
 
     readonly MenuItem Tutorial;
-    readonly MenuItem Level1;
-    readonly MenuItem Level2;
-    readonly MenuItem Level3;
-    readonly MenuItem Level4;
     readonly MenuItem Back = new("Main Menu", () => new MenuState(new MainMenu()));
 
     public TriadsMenu()
     {
         Tutorial = new("Triads Tutorial", () => new TutorialState(new TriadsTutorial(), () => new MenuState(this)));
-        Level1 = new("Triad practice: Major and Minor Triads", () => new PracticeState(() => new TriadPractice1(), () => new MenuState(this)));
-        Level2 = new("Triad practice: Augmented and Diminished Triads", () => new PracticeState(() => new TriadPractice2(), () => new MenuState(this)));
-        Level3 = new("Triad practice: Theoretical Triads", () => new PracticeState(() => new TriadPractice3(), () => new MenuState(this)));
-        Level4 = new("Triad practice: All Triads", () => new PracticeState(() => new TriadPractice4(), () => new MenuState(this)));
         Selection = Tutorial;
-        MenuItems = [Tutorial, Level1, Level2, Level3, Level4, Back];
+
+        MenuItems = [Tutorial,
+            new MenuItem("Triad Theory practice: Common Triads", () => new PracticeState(() => new TriadPuzzle(PuzzleType.Theory, ITriad.GetCommon().GetRandom()), () => new MenuState(this))),
+            new MenuItem("Triad Theory practice: Theoretical Triads", () => new PracticeState(() => new TriadPuzzle(PuzzleType.Theory, ITriad.GetTheoretical().GetRandom()), () => new MenuState(this))),
+            new MenuItem("Triad Theory practice: All Triads", () => new PracticeState(() => new TriadPuzzle(PuzzleType.Theory, ITriad.GetAll().GetRandom()), () => new MenuState(this))),
+
+            new MenuItem("Triad Aural practice: Common Triads", () => new PracticeState(() => new TriadPuzzle(PuzzleType.Aural, ITriad.GetCommon().GetRandom()), () => new MenuState(this))),
+            new MenuItem("Triad Aural practice: Theoretical Triads", () => new PracticeState(() => new TriadPuzzle(PuzzleType.Aural, ITriad.GetTheoretical().GetRandom()), () => new MenuState(this))),
+            new MenuItem("Triad Aural practice: All Triads", () => new PracticeState(() => new TriadPuzzle(PuzzleType.Aural, ITriad.GetAll().GetRandom()), () => new MenuState(this))),
+
+            Back];
     }
 
 }
+
+
