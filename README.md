@@ -7,6 +7,7 @@ Strayhorn is a C# music theory model.
 - [Installation](#installation)
 - [Usage](#usage)
 - [App Features](#features)
+- [ToDo](#features)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -36,13 +37,22 @@ To install and run the Strayhorn console app, follow these steps:
 
 ## Usage
 
-Once the application is running, you will be presented with a main menu. Use the arrow keys to navigate through the menu options and press `Enter` to select an option. The application includes various tutorials and practice exercises to help you learn music theory.
+The console application is a robust tool to build music theory arithmetic and train your aural(ear) capacities.
+It is also a demonstration on how to use the music theory library.
 
 ## Features
 
 - **Tutorials**: Clear and concise definitions of musics most fundamental elements.
 
-- **Practice Puzzles**: Solve music theory puzzles to reinforce your learning.
+- **Practice Puzzles**: Theory & aural puzzles to train  arithmetic and aural capacity.
+
+- **Robust Music Theory API**: Data and arithmetic ready to go.
+
+## ToDo
+    
+- **Chord Progressions**: Roman numerals, functional harmony, advanced voicings. 
+
+- **Rhythm Theory**: Fully scoped rhythm theory for both playback and user input (ie make rhythm games).
 
 ## Contributing
 
