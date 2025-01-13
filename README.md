@@ -54,6 +54,8 @@ It is also a demonstration on how to use the music theory library.
 
 - **Rhythm Theory**: Fully scoped rhythm theory for both playback and user input (ie make rhythm games).
 
+- **Documentation**: Don't we all...
+
 ## Contributing
 
 Contributions are welcome! If you would like to contribute to Strayhorn, please follow these steps:
