@@ -56,13 +56,15 @@ Here are a few things to know about using the console app:
 
 - **Practice Puzzles**: Theory & aural puzzles to train  arithmetic and aural capacity.
 
-- **Robust Music Theory API**: Data and arithmetic ready to go.
+- **Robust Music Theory API**: Music theory knowledge and arithmetic ready to go.
 
 ## ToDo
     
 - **Chord Progressions**: Roman numerals, functional harmony, advanced voicings. 
 
-- **Rhythm Theory**: Fully scoped rhythm theory for both playback and user input (ie make rhythm games).
+- **Sheet Music**: Sheet music tutorials for reading sheet music on staffs.
+
+- **Rhythm Theory**: Fully scoped rhythm theory for playback, sheet music scribing, and user input (ie make rhythm games!).
 
 - **Documentation**: Don't we all...
 
