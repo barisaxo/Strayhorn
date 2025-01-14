@@ -1,11 +1,6 @@
-﻿using NAudio.Wave;
-using NAudio.Wave.SampleProviders;
-using System;
-using Strayhorn.Systems.State;
+﻿using Strayhorn.Systems.State;
 using Strayhorn.Menus;
-// using MusicTheory.Letters;
 using MusicTheory.Notes;
-using MusicTheory.Intervals;
 
 namespace Strayhorn;
 
@@ -13,7 +8,6 @@ class Program
 {
     static void Main()
     {
-        // TestPitchID(); return;
         Console.Title = "Strayhorn";
         Console.CursorVisible = false;
         Console.ResetColor();

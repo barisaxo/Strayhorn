@@ -100,7 +100,7 @@ public class PracticeState : IState
         AudioGenerator.PlayAudio([([Puzzle.Caret], 750, .5f)],
           async () =>
           {
-              if (Puzzle.PuzzleType == PuzzleType.Theory) Puzzle.PrintDesc();
+              Puzzle.PrintDesc();
               await Task.Delay(750);
               Puzzle.ActiveNotes = null;
           });
@@ -116,7 +116,7 @@ public class PracticeState : IState
             foreach (var (pitches, durationMS, amp) in notes)
             {
                 Puzzle.ActiveNotes = pitches;
-                if (Puzzle.PuzzleType == PuzzleType.Theory) Puzzle.PrintDesc();
+                Puzzle.PrintDesc();
                 await Task.Delay(durationMS);
             }
             Puzzle.ActiveNotes = null;

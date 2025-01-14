@@ -16,10 +16,4 @@
 /Users/pino/Documents/DEV/CSharp/AuralTechGames/Strayhorn/Strayhorn.Console/bin/Debug/net9.0/Strayhorn.Model.pdb
 /Users/pino/Documents/DEV/CSharp/AuralTechGames/Strayhorn/Strayhorn.Console/obj/Debug/net9.0/Strayhorn.Console.csproj.AssemblyReference.cache
 /Users/pino/Documents/DEV/CSharp/AuralTechGames/Strayhorn/Strayhorn.Console/obj/Debug/net9.0/Strayhor.3E0450E1.Up2Date
-/Users/pino/Documents/DEV/CSharp/AuralTechGames/Strayhorn/Strayhorn.Console/bin/Debug/net9.0/NAudio.dll
-/Users/pino/Documents/DEV/CSharp/AuralTechGames/Strayhorn/Strayhorn.Console/bin/Debug/net9.0/NAudio.Asio.dll
-/Users/pino/Documents/DEV/CSharp/AuralTechGames/Strayhorn/Strayhorn.Console/bin/Debug/net9.0/NAudio.Core.dll
-/Users/pino/Documents/DEV/CSharp/AuralTechGames/Strayhorn/Strayhorn.Console/bin/Debug/net9.0/NAudio.Midi.dll
-/Users/pino/Documents/DEV/CSharp/AuralTechGames/Strayhorn/Strayhorn.Console/bin/Debug/net9.0/NAudio.Wasapi.dll
-/Users/pino/Documents/DEV/CSharp/AuralTechGames/Strayhorn/Strayhorn.Console/bin/Debug/net9.0/NAudio.WinMM.dll
 /Users/pino/Documents/DEV/CSharp/AuralTechGames/Strayhorn/Strayhorn.Console/obj/Debug/net9.0/Strayhorn.Console.sourcelink.json
