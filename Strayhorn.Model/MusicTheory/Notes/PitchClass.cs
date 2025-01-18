@@ -53,28 +53,7 @@ public interface IPitchClass
 
     public static IPitchClass GetPitchClassAbove(IPitchClass pitchClass, IStep step, bool allowEnharmonicWhite = false, bool preferDoubles = false)
     {
-        var letter = ILetter.GetNextLetter(pitchClass.Letter);
-
-        int chromaticSum = (pitchClass.Chromatic.Value + step.Chromatic.Value) % Chromatic.Gamut;
-
-        try
-        {
-            var getPC = GetAll().Single(pc => pc.Letter.Equals(letter) && pc.Chromatic.Value == chromaticSum);
-            if (!preferDoubles && getPC.Accidental is DoubleFlat or DoubleSharp) throw new Exception();
-            if (!allowEnharmonicWhite && (getPC is Cb or Fb or Bs or Es)) throw new Exception();
-            else return getPC;
-        }
-        catch
-        {
-            try
-            {
-                return GetAll().First(pc => pc.Accidental is Natural && pc.Chromatic.Value == chromaticSum);
-            }
-            catch
-            {
-                return GetAll().First(pc => pc.Accidental is Sharp or Flat && pc.Chromatic.Value == chromaticSum);
-            }
-        }
+        return GetPitchClassAbove(pitchClass, IStep.AsInterval(step), allowEnharmonicWhite, preferDoubles);
     }
 
     public static IPitchClass GetPitchClassAbove(IPitchClass pitchClass, IInterval interval, bool allowEnharmonicWhite = false, bool preferDoubles = false)

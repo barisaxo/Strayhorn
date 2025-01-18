@@ -16,10 +16,7 @@ public interface IMode : IMusicalElement
                 return i;
         throw new Exception(Parent.Name + " does not contain " + Name + " ??");
     }
-    // public static IMode GetMode(IScale scale, IInterval modeDegree)
-    // {
-    //     return scale.Modes.Single(m => m.ModeDegree == modeDegree);
-    // }
+
     public static Notes.Pitch[] Build(Notes.Pitch key, IMode mode, bool allowEnharmonicWhite = false, bool preferDoubles = false)
     {
         var scale = mode.Parent;

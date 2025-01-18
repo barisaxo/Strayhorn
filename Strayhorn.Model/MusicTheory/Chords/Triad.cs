@@ -17,7 +17,6 @@ public interface ITriad : IChord
 
     public static IEnumerable<ITriad> GetTheoretical() =>
     [new Sus4(), new Sus2(), new Power()];
-
 }
 
 public readonly struct Major : ITriad

@@ -1,0 +1,24 @@
+namespace MusicTheory.Rhythms;
+
+public class RhythmSpecs
+{
+    public float Tempo = 90;
+    public int NumberOfMeasures = 4;
+    public Meter Meter = Meter.SimpleQuadruple;
+    public MetricLevel Min = MetricLevel.Beat;
+    public MetricLevel Max = MetricLevel.Beat;
+    public Time Time = new FourFour();
+    public bool HasTies = false;
+    public bool HasRests = false;
+    public bool HasTriplets = false;
+
+    public RhythmSpecs SetTempo(float tempo) { Tempo = tempo; return this; }
+    public RhythmSpecs SetNumberOfMeasures(int numberOfMeasures) { NumberOfMeasures = numberOfMeasures; return this; }
+    public RhythmSpecs SetSubDivision(SubDivisionTier tier) { SubDivisionTier = tier; return this; }
+    public RhythmSpecs SetMeter(Meter meter) { Meter = meter; return this; }
+    public RhythmSpecs SetMetricLevel(MetricLevel min, MetricLevel max) { Min = min; Max = max; return this; }
+    public RhythmSpecs SetTime(Time time) { Time = time; return this; }
+    public RhythmSpecs SetTies(bool tf) { HasTies = tf; return this; }
+    public RhythmSpecs SetRests(bool tf) { HasRests = tf; return this; }
+    public RhythmSpecs SetTrips(bool tf) { HasTriplets = tf; return this; }
+}

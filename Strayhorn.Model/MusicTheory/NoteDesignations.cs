@@ -37,3 +37,12 @@ public readonly struct Diatonic(int value)
     /// <summary> When you add the scale degree to its inversion pair, you get 9. </summary>
     public const int InversionSum = 9;
 }
+
+
+
+
+
+
+
+
+

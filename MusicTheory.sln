@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Strayhorn.Tests", "Strayhor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Strayhorn.Console", "Strayhorn.Console\Strayhorn.Console.csproj", "{DBD166E9-0C85-41D9-96F0-DC97B8EBDB18}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Strayhorn.WebApp", "Strayhorn.WebApp\Strayhorn.WebApp.csproj", "{B2CE8507-BC45-4973-8846-E5CB90DC44D2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{DBD166E9-0C85-41D9-96F0-DC97B8EBDB18}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DBD166E9-0C85-41D9-96F0-DC97B8EBDB18}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DBD166E9-0C85-41D9-96F0-DC97B8EBDB18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2CE8507-BC45-4973-8846-E5CB90DC44D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2CE8507-BC45-4973-8846-E5CB90DC44D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2CE8507-BC45-4973-8846-E5CB90DC44D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2CE8507-BC45-4973-8846-E5CB90DC44D2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -6,7 +6,6 @@ namespace MusicTheory.Notes;
 public interface IAccidental : IMusicalElement
 {
     public Chromatic Chromatic { get; }
-    // public string Name { get; }
     public string Unicode { get; }
     public string Ascii { get; }
 

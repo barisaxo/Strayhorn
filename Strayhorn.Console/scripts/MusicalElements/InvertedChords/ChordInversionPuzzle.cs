@@ -70,7 +70,6 @@ public class ChordInversionPuzzle : IPuzzle
         PuzzleNotes = IChord.Invert(chord, root, Inversion);
         BottomNote = PuzzleNotes[0];
         SelectedNotes.Add(BottomNote);
-
     }
 
 
