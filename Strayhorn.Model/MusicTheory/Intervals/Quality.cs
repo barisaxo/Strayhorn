@@ -23,7 +23,7 @@ public interface IQuality
         _ => throw new System.NotSupportedException(),
     };
 
-    public static IEnumerable<IQuality> GetAll() =>
+    public static IQuality[] GetAll() =>
         [new Major(), new Minor(), new Augmented(), new Diminished(), new Perfect()];
 }
 

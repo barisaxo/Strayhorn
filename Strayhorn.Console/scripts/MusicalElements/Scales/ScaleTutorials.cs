@@ -25,10 +25,9 @@ public class ScalesTutorial : ITutorial
     static TutorialPageDisplay P2 => new(() =>
     {
         int octave = 3;
-        IPitchClass C = new MusicTheory.Notes.C();
         MusicTheory.Scales.Major Scale = new();
         Pitch[] notes = new Pitch[Scale.ScaleDegrees.Length];
-        notes[0] = new Pitch(C, octave);
+        notes[0] = new Pitch(new C(), octave);
 
         for (int i = 1; i < notes.Length; i++)
         {
@@ -62,10 +61,9 @@ public class MoreScalesTutorial : ITutorial
     static TutorialPageDisplay P1 => new(() =>
     {
         MusicTheory.Scales.Chromatic Scale = new();
-        IPitchClass C = new MusicTheory.Notes.C();
         int octave = 3;
         Pitch[] notes = new Pitch[Scale.ScaleDegrees.Length];
-        notes[0] = new Pitch(C, octave);
+        notes[0] = new Pitch(new C(), octave);
         for (int i = 1; i < notes.Length; i++)
         {
             IPitchClass pc = IPitchClass.GetPitchClassAbove(notes[0].PitchClass, Scale.ScaleDegrees[i]);
@@ -84,10 +82,9 @@ public class MoreScalesTutorial : ITutorial
     static TutorialPageDisplay P2 => new(() =>
     {
         int octave = 3;
-        IPitchClass C = new MusicTheory.Notes.C();
         MusicTheory.Scales.Minor Scale = new();
         Pitch[] notes = new Pitch[Scale.ScaleDegrees.Length];
-        notes[0] = new Pitch(C, octave);
+        notes[0] = new Pitch(new C(), octave);
 
         for (int i = 1; i < notes.Length; i++)
         {
@@ -107,10 +104,9 @@ public class MoreScalesTutorial : ITutorial
     static TutorialPageDisplay P3 => new(() =>
     {
         int octave = 3;
-        IPitchClass C = new MusicTheory.Notes.C();
         MusicTheory.Scales.JazzMinor Scale = new();
         Pitch[] notes = new Pitch[Scale.ScaleDegrees.Length];
-        notes[0] = new Pitch(C, octave);
+        notes[0] = new Pitch(new C(), octave);
 
         for (int i = 1; i < notes.Length; i++)
         {
@@ -130,10 +126,9 @@ public class MoreScalesTutorial : ITutorial
     static TutorialPageDisplay P4 => new(() =>
     {
         int octave = 3;
-        IPitchClass C = new MusicTheory.Notes.C();
         MusicTheory.Scales.HarmonicMinor Scale = new();
         Pitch[] notes = new Pitch[Scale.ScaleDegrees.Length];
-        notes[0] = new Pitch(C, octave);
+        notes[0] = new Pitch(new C(), octave);
 
         for (int i = 1; i < notes.Length; i++)
         {
@@ -153,10 +148,10 @@ public class MoreScalesTutorial : ITutorial
     static TutorialPageDisplay P5 => new(() =>
     {
         int octave = 3;
-        IPitchClass C = new MusicTheory.Notes.C();
+
         MusicTheory.Scales.Diminished Scale = new();
         Pitch[] notes = new Pitch[Scale.ScaleDegrees.Length];
-        notes[0] = new Pitch(C, octave);
+        notes[0] = new Pitch(new C(), octave);
 
         for (int i = 1; i < notes.Length; i++)
         {
@@ -177,10 +172,10 @@ public class MoreScalesTutorial : ITutorial
     static TutorialPageDisplay P6 => new(() =>
     {
         int octave = 3;
-        IPitchClass C = new MusicTheory.Notes.C();
+
         MusicTheory.Scales.WholeTone Scale = new();
         Pitch[] notes = new Pitch[Scale.ScaleDegrees.Length];
-        notes[0] = new Pitch(C, octave);
+        notes[0] = new Pitch(new C(), octave);
 
         for (int i = 1; i < notes.Length; i++)
         {
@@ -215,10 +210,10 @@ public class MoreScalesTutorial : ITutorial
     static TutorialPageDisplay P8 => new(() =>
     {
         int octave = 3;
-        IPitchClass C = new MusicTheory.Notes.C();
+
         MusicTheory.Scales.Pentatonic Scale = new();
         Pitch[] notes = new Pitch[Scale.ScaleDegrees.Length];
-        notes[0] = new Pitch(C, octave);
+        notes[0] = new Pitch(new C(), octave);
 
         for (int i = 1; i < notes.Length; i++)
         {
@@ -241,10 +236,10 @@ public class MoreScalesTutorial : ITutorial
     static TutorialPageDisplay P9 => new(() =>
     {
         int octave = 3;
-        IPitchClass C = new MusicTheory.Notes.C();
+
         MusicTheory.Scales.MinorPentatonic Scale = new();
         Pitch[] notes = new Pitch[Scale.ScaleDegrees.Length];
-        notes[0] = new Pitch(C, octave);
+        notes[0] = new Pitch(new C(), octave);
 
         for (int i = 1; i < notes.Length; i++)
         {
@@ -266,10 +261,10 @@ public class MoreScalesTutorial : ITutorial
     static TutorialPageDisplay P10 => new(() =>
     {
         int octave = 3;
-        IPitchClass C = new MusicTheory.Notes.C();
+
         MusicTheory.Scales.Blues Scale = new();
         Pitch[] notes = new Pitch[Scale.ScaleDegrees.Length];
-        notes[0] = new Pitch(C, octave);
+        notes[0] = new Pitch(new C(), octave);
 
         for (int i = 1; i < notes.Length; i++)
         {
@@ -289,10 +284,10 @@ public class MoreScalesTutorial : ITutorial
     static TutorialPageDisplay P11 => new(() =>
     {
         int octave = 3;
-        IPitchClass C = new MusicTheory.Notes.C();
+
         MusicTheory.Scales.MajorBlues Scale = new();
         Pitch[] notes = new Pitch[Scale.ScaleDegrees.Length];
-        notes[0] = new Pitch(C, octave);
+        notes[0] = new Pitch(new C(), octave);
 
         for (int i = 1; i < notes.Length; i++)
         {

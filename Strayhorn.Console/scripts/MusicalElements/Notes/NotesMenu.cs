@@ -25,7 +25,6 @@ public class NotesMenu : IMenu
             new MenuItem("Note Theory practice: Double Accidentals (x & bb)", () => new PracticeState(() => new NotePuzzle(PuzzleType.Theory, IPitchClass.GetDoubles().GetRandom()), () => new MenuState(this))),
             new MenuItem("Note Theory practice: All Keys (no enharmonic)", () => new PracticeState(() => new NotePuzzle(PuzzleType.Theory, IPitchClass.GetAllNoEnharmonic().GetRandom()), () => new MenuState(this))),
             new MenuItem("Note Theory practice: All Keys (w/ doubles)", () => new PracticeState(() => new NotePuzzle(PuzzleType.Theory, IPitchClass.GetAll().GetRandom()), () => new MenuState(this))),
-
             new MenuItem("Note Aural practice: All Keys", () => new PracticeState( () => new NotePuzzle(PuzzleType.Aural, IPitchClass.GetAllNoEnharmonic().GetRandom()), () => new MenuState(this))),
             Back];
     }

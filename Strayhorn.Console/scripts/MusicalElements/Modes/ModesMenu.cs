@@ -2,7 +2,6 @@ using Strayhorn.Practice;
 using Strayhorn.Tutorials;
 using Strayhorn.Utility;
 using MusicTheory.Scales;
-// using MusicTheory.Modes;
 
 namespace Strayhorn.Menus;
 

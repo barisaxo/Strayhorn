@@ -12,21 +12,21 @@ public interface I7Chord : IChord
     /// <summary>
     /// Technically not 7th chords, but they belong here more than anywhere else.
     /// </summary>
-    public static IEnumerable<I7Chord> Sixths() => [
+    public static I7Chord[] Sixths() => [
         new Major6(), new Minor6(),
     ];
 
     /// <summary>
     /// Chords often found in major tonality : 
     /// </summary><remarks>II-7 │ V7 │ I∆7</remarks>
-    public static IEnumerable<I7Chord> MajorTonality() => [
+    public static I7Chord[] MajorTonality() => [
        new Major6(), new Major7(), new Minor7(), new Dominant7(), new SevenSus(),
     ];
 
     /// <summary>
     /// Chords often found in minor tonality 
     /// </summary><remarks>II-7(b5) │ V7(alt) │ I-6 </remarks>
-    public static IEnumerable<I7Chord> MinorTonality() => [
+    public static I7Chord[] MinorTonality() => [
         new Minor6(), new Minor7Flat5(),  new Augmented7(), new TonicMinor7(),
        ];
 
@@ -35,19 +35,19 @@ public interface I7Chord : IChord
     /// Chords often used as passing chords: 
     /// </summary>
     /// <remarks> I∆ │ bIIº7 │ II-7 :: II-7 │ bII7(#11) │ I∆7</remarks>
-    public static IEnumerable<I7Chord> PassingChordDominants() => [
+    public static I7Chord[] PassingChordDominants() => [
         new SevenSharp11(),new Diminished7(),
        ];
 
     /// <summary>
     /// Collection sans 6ths
     /// </summary>
-    public static IEnumerable<I7Chord> Sevenths() => [
+    public static I7Chord[] Sevenths() => [
         new Major7(), new Minor7(), new Dominant7(), new SevenSus(),
         new Minor7Flat5(), new Diminished7(), new Augmented7(), new TonicMinor7(), new SevenSharp11(),
     ];
 
-    public static IEnumerable<I7Chord> GetAll() => [
+    public static I7Chord[] GetAll() => [
         new Major6(), new Major7(), new Minor7(), new Dominant7(), new SevenSus(),
         new Minor6(), new Minor7Flat5(),  new Augmented7(), new TonicMinor7(),
         new SevenSharp11(),new Diminished7(),

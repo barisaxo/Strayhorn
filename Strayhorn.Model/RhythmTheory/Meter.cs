@@ -6,7 +6,7 @@ public interface IMeter
     public BeatDivisor Divisor { get; }
     public PulseStress[] Pulses { get; }
 
-    public static IEnumerable<IMeter> GetAllRegular() => [
+    public static IMeter[] GetAllRegular() => [
         new SimpleDuple(), new SimpleTriple(), new SimpleQuadruple(),
         new CompoundDuple(), new CompoundTriple(), new CompoundQuadruple(),
     ];

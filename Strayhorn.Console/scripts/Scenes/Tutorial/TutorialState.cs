@@ -1,6 +1,4 @@
-using Strayhorn.Menus;
 using Strayhorn.Systems.State;
-using Strayhorn.Systems.Display;
 
 namespace Strayhorn;
 

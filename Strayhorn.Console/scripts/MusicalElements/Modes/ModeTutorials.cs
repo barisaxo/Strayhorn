@@ -1,4 +1,3 @@
-using MusicTheory.Notes;
 using Strayhorn.Utility;
 using Strayhorn.Systems.Display;
 
@@ -12,8 +11,8 @@ public class ModesTutorial : ITutorial
     {
         Console.WriteLine("\nMODES\n");
         Console.WriteLine("Modes are essentially inverted scales.");
-        Console.WriteLine("You can think a mode as relative to its parent scale,");
-        Console.WriteLine("however it is generally better to treat each as their own scale with stepwise makeup,");
+        Console.WriteLine("You can think a mode as relative to its parent scale.");
+        Console.WriteLine("However, it is generally better to treat each as their own scale with a unique stepwise makeup");
         Console.WriteLine("starting from their respective scale degree 1 (parallel).");
         Console.WriteLine("Below are the modes of the major scale.");
         Console.WriteLine("Major modes are also known as 'Gregorian modes' or 'Church modes'.");

@@ -1,5 +1,4 @@
 namespace Strayhorn.Utility;
-using MusicTheory;
 
 public static class Utils
 {

@@ -1,6 +1,6 @@
 ﻿using Strayhorn.Systems.State;
 using Strayhorn.Menus;
-using MusicTheory.Notes;
+// using MusicTheory.Notes;
 
 namespace Strayhorn;
 
@@ -47,87 +47,87 @@ class Program
         Environment.Exit(0);
     }
 
-    static void TestPianoAnimation()
-    {
-        Pitch bottom = new(new Cs(), 3);
-        List<Pitch> selected = [new(new E(), 3), new(new Gs(), 3)];
-        Pitch Caret = new(new Cs(), 4);
+    // static void TestPianoAnimation()
+    // {
+    //     Pitch bottom = new(new Cs(), 3);
+    //     List<Pitch> selected = [new(new E(), 3), new(new Gs(), 3)];
+    //     Pitch Caret = new(new Cs(), 4);
 
-        while (true)
-        {
-            Console.Clear();
-            PianoScroll.DrawTwoOctavePianoQuestionWithCarat(bottom, [.. selected], Caret);
-            // Console.WriteLine(Caret.PitchID);
-            switch (Console.ReadKey().Key)
-            {
-                case ConsoleKey.LeftArrow:
-                    Pitch lowest = new(new C(), 3);
-                    if (Caret.PitchID - 1 == bottom.PitchID || Caret.PitchID - 1 < lowest.PitchID) { continue; }
-                    int newChromaticValue = (Caret.Chromatic.Value == 0) ? 11 : (Caret.Chromatic.Value - 1);
+    //     while (true)
+    //     {
+    //         Console.Clear();
+    //         PianoScroll.DrawTwoOctavePianoQuestionWithCarat(bottom, [.. selected], Caret);
+    //         // Console.WriteLine(Caret.PitchID);
+    //         switch (Console.ReadKey().Key)
+    //         {
+    //             case ConsoleKey.LeftArrow:
+    //                 Pitch lowest = new(new C(), 3);
+    //                 if (Caret.PitchID - 1 == bottom.PitchID || Caret.PitchID - 1 < lowest.PitchID) { continue; }
+    //                 int newChromaticValue = (Caret.Chromatic.Value == 0) ? 11 : (Caret.Chromatic.Value - 1);
 
-                    Caret = new(IPitchClass.GetAll().First(p => p.Chromatic.Value == newChromaticValue),
-                                Caret.Octave + (newChromaticValue > Caret.Chromatic.Value ? -1 : 0));
-                    break;
+    //                 Caret = new(IPitchClass.GetAll().First(p => p.Chromatic.Value == newChromaticValue),
+    //                             Caret.Octave + (newChromaticValue > Caret.Chromatic.Value ? -1 : 0));
+    //                 break;
 
-                case ConsoleKey.RightArrow:
-                    Pitch highest = new(new B(), 4);
-                    if (Caret.PitchID + 1 > highest.PitchID) { continue; }
-                    newChromaticValue = (Caret.Chromatic.Value + 1) % MusicTheory.Chromatic.Gamut;
-                    Caret = new(IPitchClass.GetAll().First(p => p.Chromatic.Value == newChromaticValue),
-                                Caret.Octave + (newChromaticValue < Caret.Chromatic.Value ? 1 : 0));
-                    break;
+    //             case ConsoleKey.RightArrow:
+    //                 Pitch highest = new(new B(), 4);
+    //                 if (Caret.PitchID + 1 > highest.PitchID) { continue; }
+    //                 newChromaticValue = (Caret.Chromatic.Value + 1) % MusicTheory.Chromatic.Gamut;
+    //                 Caret = new(IPitchClass.GetAll().First(p => p.Chromatic.Value == newChromaticValue),
+    //                             Caret.Octave + (newChromaticValue < Caret.Chromatic.Value ? 1 : 0));
+    //                 break;
 
-                case ConsoleKey.Enter:
-                    bool contains = false;
-                    foreach (var p in selected)
-                    {
-                        if (p.PitchID == Caret.PitchID)
-                        {
-                            selected.Remove(p);
-                            contains = true;
-                            break;
-                        }
-                    }
-                    if (!contains) selected.Add(Caret);
-                    break;
+    //             case ConsoleKey.Enter:
+    //                 bool contains = false;
+    //                 foreach (var p in selected)
+    //                 {
+    //                     if (p.PitchID == Caret.PitchID)
+    //                     {
+    //                         selected.Remove(p);
+    //                         contains = true;
+    //                         break;
+    //                     }
+    //                 }
+    //                 if (!contains) selected.Add(Caret);
+    //                 break;
 
-                default: break;
-            }
-            Console.WriteLine(Caret.PitchID);
-        }
+    //             default: break;
+    //         }
+    //         Console.WriteLine(Caret.PitchID);
+    //     }
 
-        // foreach (var l in MusicTheory.Notes.IPitchClass.GetAll())
-        //     Console.WriteLine(l.Name + " " + l.Chromatic.Value);
+    //     // foreach (var l in MusicTheory.Notes.IPitchClass.GetAll())
+    //     //     Console.WriteLine(l.Name + " " + l.Chromatic.Value);
 
-        // foreach (ILetter letter in ILetter.GetAll())
-        // {
-        //     foreach (IInterval interval in IInterval.GetAll())
-        //     {
-        //         var nextLetter = ILetter.GetLetterAbove(letter, interval);
-        //         Console.WriteLine(letter.Name + " + " + interval.IntervalAbbrev + " = " + nextLetter.Name);
-        //     }
-        // }
-    }
+    //     // foreach (ILetter letter in ILetter.GetAll())
+    //     // {
+    //     //     foreach (IInterval interval in IInterval.GetAll())
+    //     //     {
+    //     //         var nextLetter = ILetter.GetLetterAbove(letter, interval);
+    //     //         Console.WriteLine(letter.Name + " + " + interval.IntervalAbbrev + " = " + nextLetter.Name);
+    //     //     }
+    //     // }
+    // }
 
-    static void TestPitchID()
-    {
-        for (int octave = 3; octave < 5; octave++)
-        {
-            foreach (MusicTheory.Letters.ILetter letter in MusicTheory.Letters.ILetter.GetAll())
-            {
-                foreach (IAccidental accidental in IAccidental.GetAll())
-                {
-                    IPitchClass pitchClass = IPitchClass.GetAll().Single(pc => pc.Accidental.Equals(accidental) && pc.Letter.Equals(letter));
-                    Pitch pitch = new(pitchClass, octave);
-                    Console.WriteLine(pitch.Name + ", " + pitch.PitchID);
-                    // foreach (IStep step in IStep.GetAll())
-                    // {
-                    //     IPitchClass topPC = IPitchClass.GetPitchClassAbove(pitch.PitchClass, step);
-                    //     Pitch top = new(pitchClass: topPC,
-                    //         octave: pitch.Octave + (Pitch.GetPitchID(topPC, pitch.Octave) < pitch.PitchID ? 1 : 0));
-                    // }
-                }
-            }
-        }
-    }
+    // static void TestPitchID()
+    // {
+    //     for (int octave = 3; octave < 5; octave++)
+    //     {
+    //         foreach (MusicTheory.Letters.ILetter letter in MusicTheory.Letters.ILetter.GetAll())
+    //         {
+    //             foreach (IAccidental accidental in IAccidental.GetAll())
+    //             {
+    //                 IPitchClass pitchClass = IPitchClass.GetAll().Single(pc => pc.Accidental.Equals(accidental) && pc.Letter.Equals(letter));
+    //                 Pitch pitch = new(pitchClass, octave);
+    //                 Console.WriteLine(pitch.Name + ", " + pitch.PitchID);
+    //                 // foreach (IStep step in IStep.GetAll())
+    //                 // {
+    //                 //     IPitchClass topPC = IPitchClass.GetPitchClassAbove(pitch.PitchClass, step);
+    //                 //     Pitch top = new(pitchClass: topPC,
+    //                 //         octave: pitch.Octave + (Pitch.GetPitchID(topPC, pitch.Octave) < pitch.PitchID ? 1 : 0));
+    //                 // }
+    //             }
+    //         }
+    //     }
+    // }
 }

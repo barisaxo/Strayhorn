@@ -17,10 +17,10 @@ public interface IStep : IMusicalElement
         _ => throw new SystemException()
     };
 
-    public static IEnumerable<IStep> GetAll() =>
+    public static IStep[] GetAll() =>
         [new H(), new W(), new S()];
 
-    public static IEnumerable<IStep> GetHW() =>
+    public static IStep[] GetHW() =>
         [new H(), new W(), new S()];
 
     public static IStep GetStep(Chromatic chromatic) => chromatic.Value switch

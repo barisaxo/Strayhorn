@@ -6,7 +6,7 @@ public interface IDurationSymbol : IMusicalElement
 {
     public int Value { get; }
 
-    public static IEnumerable<IDurationSymbol> GetAll() =>
+    public static IDurationSymbol[] GetAll() =>
     [new Whole(),
      new DotHalf(), new Half(), new TripHalf(),
      new DotQuarter(), new Quarter(), new TripQuarter(),

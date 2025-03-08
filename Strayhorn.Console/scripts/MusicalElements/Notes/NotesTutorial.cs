@@ -22,7 +22,7 @@ public class NotesTutorial : ITutorial
         Console.WriteLine("There are 5 'black keys', which repeat in groups of two and three.");
 
         Console.WriteLine("\nThe letters 'B & C', and 'E & F' don't have black keys between them.");
-        Console.WriteLine("In between the group of the two black keys is always the note D.");
+        Console.WriteLine("Between the group of the two black keys is always the note D.");
     });
 
     static TutorialPageDisplay P2 => new(() =>

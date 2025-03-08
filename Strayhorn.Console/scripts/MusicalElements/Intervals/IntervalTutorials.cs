@@ -11,7 +11,7 @@ public class IntervalTutorial : ITutorial
         Console.WriteLine("\nINTERVALS:");
         Console.WriteLine("An interval is the distance between two notes.\n");
         Console.WriteLine("Intervals have two elements:");
-        Console.WriteLine("\n    • QUANTITY: The letter to letter distance:");
+        Console.WriteLine("\n    • QUANTITY: The diatonic (letter to letter) distance:");
         Console.WriteLine("          - Unison (1sts)");
         Console.WriteLine("          - 2nds");
         Console.WriteLine("          - 3rds");
@@ -20,7 +20,7 @@ public class IntervalTutorial : ITutorial
         Console.WriteLine("          - 6ths");
         Console.WriteLine("          - 7ths");
         Console.WriteLine("          - Octaves (8ths)");
-        Console.WriteLine("\n    • QUALITY: The overall distance in half steps, in combination with the Quantity:");
+        Console.WriteLine("\n    • QUALITY: The overall chromatic distance, in combination with the Quantity:");
         Console.WriteLine("          - Major");
         Console.WriteLine("          - Minor");
         Console.WriteLine("          - Augmented");
@@ -34,8 +34,8 @@ public class IntervalTutorial : ITutorial
        Console.WriteLine("\n    • 2nds, 3rds, 6ths, and 7ths cannot be perfect.");
        Console.WriteLine("    • Unisons and Octaves should only be perfect.");
        Console.WriteLine("    • 4ths and 5ths cannot be major or minor.");
-       Console.WriteLine("    • 5ths, and 7ths are the common diminished intervals.");
-       Console.WriteLine("    • 4ths, 5ths, and 2nds are the common augmented intervals.");
+       Console.WriteLine("    • 5ths and 7ths are the common diminished intervals.");
+       Console.WriteLine("    • 2nds, 4ths, and 5ths are the common augmented intervals.");
    });
 
     static TutorialPageDisplay P3 => new(() =>
@@ -87,9 +87,6 @@ public class IntervalTutorial : ITutorial
 }
 
 /*
-
-    "╠──────────┼────────┼───────────┼───────────┼─────────┼──────────╣".WriteLineCentered();
-    "┌──────────┬────────┬───────────┬───────────┬─────────┬──────────┐".WriteLineCentered();
 ╔  ╗  ║  ╚  ╝  ╦  ╩  ╠  ╣  ╬
  ┌─┬─┐
  │ │ │

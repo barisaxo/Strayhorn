@@ -1,7 +1,7 @@
 using Strayhorn.Utility;
 using Strayhorn.Systems.State;
-using static System.Console;
 using MusicTheory.Notes;
+using static System.Console;
 
 namespace Strayhorn;
 
@@ -95,7 +95,8 @@ public static class Logos
                 for (int ii = i; ii < logo.Length; ii++)
                 {
                     logo[ii].WriteLineCentered();
-                };
+                }
+                ;
                 Thread.Sleep(timers[i]);
             }
             Clear();

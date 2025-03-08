@@ -9,8 +9,8 @@ public class InversionTutorial : ITutorial
     static TutorialPageDisplay P1 => new(() =>
     {
         Console.WriteLine("\nINVERSIONS:");
-        Console.WriteLine("To invert means to go inside-out, or upside-down.");
-        Console.WriteLine("Simply said, you move another note to the bottom of the stack.\n");
+        Console.WriteLine("To invert is to be inside-out, or upside-down.");
+        Console.WriteLine("With music, you move another note to the bottom of the stack.\n");
         Console.WriteLine("You can invert an interval by swapping the quality and quantity:");
         Console.WriteLine("\n    • Quantity:");
         Console.WriteLine("          - Unison <──> Octave");

@@ -12,7 +12,7 @@ public interface IPitchClass
     public string Name => Letter.Name + Accidental.Unicode;
     public Chromatic Chromatic => new(Letter.Chromatic.Value + Accidental.Chromatic.Value);
 
-    public static IEnumerable<IPitchClass> GetAll() => [
+    public static IPitchClass[] GetAll() => [
         new A(), new B(), new C(), new D(), new E(), new F(), new G(),
         new Ab(), new Bb(), new Cb(), new Db(), new Eb(), new Fb(), new Gb(),
         new As(), new Bs(), new Cs(), new Ds(), new Es(), new Fs(), new Gs(),
@@ -20,31 +20,31 @@ public interface IPitchClass
         new Abb(), new Bbb(), new Cbb(), new Dbb(), new Ebb(), new Fbb(), new Gbb()
     ];
 
-    public static IEnumerable<IPitchClass> GetNatural() => [
+    public static IPitchClass[] GetNatural() => [
      new A(), new B(), new C(), new D(), new E(), new F(), new G(),
     ];
 
-    public static IEnumerable<IPitchClass> GetBlack() => [
+    public static IPitchClass[] GetBlack() => [
          new Ab(), new Bb(),  new Db(), new Eb(),  new Gb(),
          new As(),  new Cs(), new Ds(),  new Fs(), new Gs(),
     ];
 
-    public static IEnumerable<IPitchClass> GetEnharmonicWhite() => [
+    public static IPitchClass[] GetEnharmonicWhite() => [
         new Cb(), new Fb(), new Bs(), new Es(),
     ];
 
-    public static IEnumerable<IPitchClass> GetAllNoEnharmonic() => [
+    public static IPitchClass[] GetAllNoEnharmonic() => [
         new A(), new B(), new C(), new D(), new E(), new F(), new G(),
         new Ab(), new Bb(), new Db(), new Eb(),  new Gb(),
         new As(), new Cs(), new Ds(), new Fs(), new Gs(),
     ];
 
-    public static IEnumerable<IPitchClass> GetDoubles() => [
+    public static IPitchClass[] GetDoubles() => [
         new Ax(), new Bx(), new Cx(), new Dx(), new Ex(), new Fx(), new Gx(),
         new Abb(), new Bbb(), new Cbb(), new Dbb(), new Ebb(), new Fbb(), new Gbb()
     ];
 
-    public static IEnumerable<IPitchClass> Get12KeySignatures() =>
+    public static IPitchClass[] Get12KeySignatures() =>
         [new C(), new F(), new Bb(), new Eb(), new Ab(), new Db(),
          new Fs(), new B(), new E(), new A(), new D(), new G()];
 

@@ -44,18 +44,18 @@ public interface IInterval : IMusicalElement
         return newInterval;
     }
 
-    public static IEnumerable<IInterval> GetAll() =>
+    public static IInterval[] GetAll() =>
         [new P1(), new mi2(), new M2(), new A2(), new mi3(), new M3(),
          new d4(), new P4(), new A4(), new d5(), new P5(), new A5(),
          new mi6(), new M6(), new d7(), new mi7(), new M7(), new P8()];
 
 
-    public static IEnumerable<IInterval> GetCommonNoP1() =>
+    public static IInterval[] GetCommonNoP1() =>
         [new mi2(), new M2(), new mi3(), new M3(),
           new P4(), new A4(), new d5(), new P5(),
           new mi6(), new M6(), new mi7(), new M7(), new P8()];
 
-    public static IEnumerable<IInterval> GetAllNoP1() =>
+    public static IInterval[] GetAllNoP1() =>
         [new mi2(), new M2(), new A2(), new mi3(), new M3(),
          new d4(), new P4(), new A4(), new d5(), new P5(), new A5(),
          new mi6(), new M6(), new d7(), new mi7(), new M7(), new P8()];

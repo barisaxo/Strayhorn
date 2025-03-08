@@ -1,7 +1,5 @@
-using System;
 using MusicTheory;
 using MusicTheory.Notes;
-using Strayhorn.Utility;
 
 namespace Strayhorn.Practice;
 
@@ -12,14 +10,14 @@ public interface IPuzzle
     /// <summary> The <c>IMusicalElement</c> puzzle-type, ie <c>Note</c>, <c>Interval</c>, <c>Chord</c>, <c>Scale</c>, etc.</summary>
     /// <remarks>
     /// Gamut: a complete scale of musical notes; the compass or range of a voice or instrument. 
-    /// (From Latin: gamma ut (later 'Do'). Low G (gamma), lowest note to the highest note (ut / Do) in the medieval musical scale - devised by Guido d'Arezzo.)
+    /// From Latin: [Gamma](low G) + [Ut](later 'Do'). Lowest to highest notes in the medieval musical scale - devised by Guido d'Arezzo.
     /// </remarks>
     public IMusicalElement Gamut { get; }
 
     /// <summary>Theory or Aural puzzle types. Aural types you have to solve by ear.</summary>
     public PuzzleType PuzzleType { get; }
 
-    /// <summary>How many notes must be selected to have a valid answer.</summary> 
+    /// <summary>How many notes must be selected in order to submit a valid answer.</summary> 
     public int NumOfNotes { get; }
 
     /// <summary>The question/answer notes of the puzzle.</summary>
@@ -31,7 +29,7 @@ public interface IPuzzle
     /// <summary>Most puzzles need a bottom note to provide context.</summary>
     public Pitch BottomNote { get; }
 
-    /// <summary>Notes that are currently being audibly played, and animated on the piano.</summary>
+    /// <summary>Notes that are currently being audibly sounded, and possibly animated on the piano.</summary>
     public Pitch[]? ActiveNotes { get; set; }
 
     /// <summary>Formats currently selected notes for the audio generator and piano animations.</summary>

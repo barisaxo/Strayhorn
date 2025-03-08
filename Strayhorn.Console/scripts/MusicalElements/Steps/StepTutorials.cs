@@ -12,16 +12,16 @@ public class StepsTutorial : ITutorial
         PianoScroll.DrawTwoOctavePiano();
         Console.WriteLine();
 
-        Console.WriteLine("A Step is a type of interval for adjacent letters.");
-        Console.WriteLine("Stepwise motion is defined as moving melodically up or down by letter.");
-        Console.WriteLine("The type of step is determined by the distance of the two notes");
+        Console.WriteLine("A Step is a type of interval for adjacent letters and/or scale degrees.");
+        Console.WriteLine("Stepwise motion is defined as moving melodically up or down the scale.");
+        Console.WriteLine("The type of step is determined by the chromatic distance of the two notes");
         Console.WriteLine();
         Console.WriteLine("There are three types of steps: ");
         Console.WriteLine("Half-Step (+1),");
         Console.WriteLine("Whole-Step (+2),");
         Console.WriteLine("Skip-Step (+3).");
         Console.WriteLine();
-        Console.WriteLine("To abbreviate, we use 'H', 'W', and 'S' - respectively.");
+        Console.WriteLine("To abbreviate, we'll use 'H', 'W', and 'S' - respectively.");
         Console.WriteLine();
     });
 
@@ -33,7 +33,7 @@ public class StepsTutorial : ITutorial
         Console.WriteLine();
 
         Console.WriteLine("The letters 'B & C', and 'E & F' make Half-Steps.");
-        Console.WriteLine("You should remember from the Notes lesson that 'B & C', and 'E & F' are not separated by keys.");
+        Console.WriteLine("You should remember from the Notes lesson that 'B & C', and 'E & F' are not separated by black keys.");
         Console.WriteLine("All other adjacent letters make Whole-Steps.");
         Console.WriteLine();
         Console.WriteLine("Steps are used in succession to make up scales like this:");

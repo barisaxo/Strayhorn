@@ -1,6 +1,5 @@
 using Strayhorn.Tutorials;
 using Strayhorn.Practice;
-using MusicTheory.Notes;
 using Strayhorn.Utility;
 using MusicTheory.Intervals;
 

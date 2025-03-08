@@ -10,11 +10,11 @@ public interface IScale : IMusicalElement
     public IInterval[] ScaleDegrees { get; }
     public string[] Drawing { get; }
 
-    public static IEnumerable<IScale> GetAll() =>
+    public static IScale[] GetAll() =>
         [new Major(), new JazzMinor(), new HarmonicMinor(), new WholeTone(), new Diminished(),
          new SixthDiminished(), new Chromatic(), new Pentatonic(), new  Blues()];
 
-    public static IEnumerable<IScale> GetAllModal() =>
+    public static IScale[] GetAllModal() =>
         [new Major(), new JazzMinor(), new HarmonicMinor(),  new Diminished(),
          new SixthDiminished(),  new Pentatonic(), new  Blues()];
 

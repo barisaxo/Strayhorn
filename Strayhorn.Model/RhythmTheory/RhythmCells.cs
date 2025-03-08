@@ -18,7 +18,7 @@ public interface IRhythmCell
 
     public IRhythmCell SetMetricLevel(MetricLevel ml) { MetricLevel = ml; return this; }
     /// <summary>Collection of all 14 rhythmic shapes</summary>
-    public static IEnumerable<IRhythmCell> GetAll() =>
+    public static IRhythmCell[] GetAll() =>
         [new DL(), new DSS(),
          new TL(), new TLS(), new TSL(), new TSSS(),
          new L(), new LL(), new SSSS(),
@@ -26,26 +26,26 @@ public interface IRhythmCell
          new LS(), new SL()];
 
     /// <summary>Collection of 11 rhythmic shapes from quadruple time with triplets</summary>
-    public static IEnumerable<IRhythmCell> Get11() =>
+    public static IRhythmCell[] Get11() =>
         [ new TLS(), new TSL(), new TSSS(),
          new L(), new LL(), new SSSS(),
          new SSL(), new LSS(), new SLS(),
          new LS(), new SL()];
 
     /// <summary>Collection of both 2 count figures</summary>
-    public static IEnumerable<IRhythmCell> Get2Counts() =>
+    public static IRhythmCell[] Get2Counts() =>
         [new DL(), new DSS()];
 
     /// <summary>Collection of all four 3 count figures (includes TL shape)  </summary>
-    public static IEnumerable<IRhythmCell> Get3Counts() =>
+    public static IRhythmCell[] Get3Counts() =>
         [new TL(), new TLS(), new TSL(), new TSSS()];
 
     /// <summary>Collection of three Triplet figures (No TL shape in triplets)  </summary>
-    public static IEnumerable<IRhythmCell> GetTriplets() =>
+    public static IRhythmCell[] GetTriplets() =>
         [new TLS(), new TSL(), new TSSS()];
 
     /// <summary>Collection of all eight 4 count figures</summary>
-    public static IEnumerable<IRhythmCell> Get4Counts() =>
+    public static IRhythmCell[] Get4Counts() =>
         [new L(), new LL(), new SSSS(),
          new SSL(), new LSS(), new SLS(),
          new LS(), new SL()];

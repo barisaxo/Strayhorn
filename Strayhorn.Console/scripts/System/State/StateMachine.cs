@@ -1,7 +1,5 @@
 namespace Strayhorn.Systems.State;
 
-using System.Threading;
-
 public interface IState
 {
     public IState Engage();

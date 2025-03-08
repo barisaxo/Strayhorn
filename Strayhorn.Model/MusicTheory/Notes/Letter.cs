@@ -10,7 +10,7 @@ public interface ILetter : IMusicalElement
     public Chromatic Chromatic { get; }
     public Diatonic Diatonic { get; }
 
-    public static IEnumerable<ILetter> GetAll() =>
+    public static ILetter[] GetAll() =>
         [new C(), new D(), new E(), new F(), new G(), new A(), new B()];
 
     public static ILetter GetNextLetter(ILetter letter) =>

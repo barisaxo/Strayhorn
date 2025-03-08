@@ -1,7 +1,5 @@
 using Strayhorn.Systems.Display;
-using Strayhorn.Utility;
 namespace Strayhorn.Tutorials;
-
 
 public class InvertedChordsTutorial : ITutorial
 {

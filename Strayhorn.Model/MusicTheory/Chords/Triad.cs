@@ -8,14 +8,14 @@ public interface ITriad : IChord
     public IInterval Third { get; }
     public IInterval Fifth { get; }
 
-    public static IEnumerable<ITriad> GetAll() =>
+    public static ITriad[] GetAll() =>
     [new Major(), new Minor(), new Augmented(), new Diminished(),
      new Sus4(), new Sus2(), new Power()];
 
-    public static IEnumerable<ITriad> GetCommon() =>
+    public static ITriad[] GetCommon() =>
     [new Major(), new Minor(), new Augmented(), new Diminished()];
 
-    public static IEnumerable<ITriad> GetTheoretical() =>
+    public static ITriad[] GetTheoretical() =>
     [new Sus4(), new Sus2(), new Power()];
 }
 

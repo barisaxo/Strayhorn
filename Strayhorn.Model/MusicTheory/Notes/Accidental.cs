@@ -9,10 +9,10 @@ public interface IAccidental : IMusicalElement
     public string Unicode { get; }
     public string Ascii { get; }
 
-    public static IEnumerable<IAccidental> GetAll() =>
+    public static IAccidental[] GetAll() =>
         [new DoubleFlat(), new Flat(), new Natural(), new Sharp(), new DoubleSharp(),];
 
-    public static IEnumerable<IAccidental> GetAllExceptDoubles() =>
+    public static IAccidental[] GetAllExceptDoubles() =>
         [new Flat(), new Natural(), new Sharp(),];
 }
 

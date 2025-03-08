@@ -28,7 +28,7 @@ public interface IQuantity
        ((right.Quantity.ScaleDegree.Value - left.Quantity.ScaleDegree.Value + Diatonic.Gamut)
         % Diatonic.Gamut) + 1);
 
-    public static IEnumerable<IQuantity> GetAll() =>
+    public static IQuantity[] GetAll() =>
         [new Unison(), new Second(), new Third(), new Fourth(),
          new Fifth(), new Sixth(), new Seventh(), new Octave()];
 }
