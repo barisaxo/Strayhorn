@@ -44,49 +44,49 @@ public interface IMode : IMusicalElement
 
 public readonly struct Ionian : IMode
 {
-    public readonly string Name => nameof(Ionian);
+    public readonly string Name => "Ionian Scale (Prime Mode of the Major Scale)";
     public readonly IScale Parent => new Scales.Major();
     public readonly IInterval ModeDegree => new P1();
 }
 
 public readonly struct Dorian : IMode
 {
-    public readonly string Name => nameof(Dorian);
+    public readonly string Name => "Dorian Scale (2nd Mode of the Major Scale)";
     public readonly IScale Parent => new Scales.Major();
     public readonly IInterval ModeDegree => new M2();
 }
 
 public readonly struct Phrygian : IMode
 {
-    public readonly string Name => nameof(Phrygian);
+    public readonly string Name => "Phrygian Scale (3rd Mode of the Major Scale)";
     public readonly IScale Parent => new Scales.Major();
     public readonly IInterval ModeDegree => new M3();
 }
 
 public readonly struct Lydian : IMode
 {
-    public readonly string Name => nameof(Lydian);
+    public readonly string Name => "Lydian Scale (4th Mode of the Major Scale)";
     public readonly IScale Parent => new Scales.Major();
     public readonly IInterval ModeDegree => new P4();
 }
 
 public readonly struct Mixolydian : IMode
 {
-    public readonly string Name => nameof(Mixolydian);
+    public readonly string Name => "Mixolydian Scale (5th Mode of the Major Scale)";
     public readonly IScale Parent => new Scales.Major();
     public readonly IInterval ModeDegree => new P5();
 }
 
 public readonly struct Aeolian : IMode
 {
-    public readonly string Name => nameof(Aeolian);
+    public readonly string Name => "Aeolian Scale (6th Mode of the Major Scale)";
     public readonly IScale Parent => new Scales.Major();
     public readonly IInterval ModeDegree => new M6();
 }
 
 public readonly struct Locrian : IMode
 {
-    public readonly string Name => nameof(Locrian);
+    public readonly string Name => "Locrian Scale (7th Mode of the Major Scale)";
     public readonly IScale Parent => new Scales.Major();
     public readonly IInterval ModeDegree => new M7();
 }
@@ -98,35 +98,35 @@ public readonly struct Locrian : IMode
 
 public readonly struct Pentatonic : IMode
 {
-    public readonly string Name => nameof(Pentatonic);
+    public readonly string Name => "Pentatonic Scale";
     public readonly IScale Parent => new Scales.Pentatonic();
     public readonly IInterval ModeDegree => new P1();
 }
 
 public readonly struct PentatonicII : IMode
 {
-    public readonly string Name => nameof(PentatonicII);
+    public readonly string Name => "Second Mode of the Pentatonic Scale";
     public readonly IScale Parent => new Scales.Pentatonic();
     public readonly IInterval ModeDegree => new M2();
 }
 
 public readonly struct PentatonicIII : IMode
 {
-    public readonly string Name => nameof(PentatonicIII);
+    public readonly string Name => "Third Mode of the Pentatonic Scale";
     public readonly IScale Parent => new Scales.Pentatonic();
     public readonly IInterval ModeDegree => new M3();
 }
 
 public readonly struct PentatonicIV : IMode
 {
-    public readonly string Name => nameof(PentatonicIV);
+    public readonly string Name => "Fourth Mode of the Pentatonic Scale";
     public readonly IScale Parent => new Scales.Pentatonic();
     public readonly IInterval ModeDegree => new P5();
 }
 
 public readonly struct PentatonicMinor : IMode
 {
-    public readonly string Name => nameof(PentatonicMinor);
+    public readonly string Name => "Pentatonic Minor Scale (5th Mode of the Pentatonic Scale)";
     public readonly IScale Parent => new Scales.Pentatonic();
     public readonly IInterval ModeDegree => new M6();
 }
@@ -138,14 +138,14 @@ public readonly struct PentatonicMinor : IMode
 
 public readonly struct Blues : IMode
 {
-    public readonly string Name => nameof(Blues);
+    public readonly string Name => "Blues Scale";
     public readonly IScale Parent => new Scales.Blues();
     public readonly IInterval ModeDegree => new P1();
 }
 
 public readonly struct BluesMajor : IMode
 {
-    public readonly string Name => nameof(BluesMajor);
+    public readonly string Name => "Blues Major Scale (2nd Mode of the Blues Scale)";
     public readonly IScale Parent => new Scales.Blues();
     public readonly IInterval ModeDegree => new mi3();
 }
@@ -157,7 +157,7 @@ public readonly struct BluesMajor : IMode
 
 public readonly struct WholeTone : IMode
 {
-    public readonly string Name => nameof(WholeTone);
+    public readonly string Name => "Whole Tone Scale";
     public readonly IScale Parent => new Scales.WholeTone();
     public readonly IInterval ModeDegree => new P1();
 }
@@ -169,49 +169,49 @@ public readonly struct WholeTone : IMode
 
 public readonly struct JazzMinor : IMode
 {
-    public readonly string Name => nameof(JazzMinor);
+    public readonly string Name => "Jazz Minor Scale";
     public readonly IScale Parent => new Scales.JazzMinor();
     public readonly IInterval ModeDegree => new P1();
 }
 
 public readonly struct PhrygianS6 : IMode
 {
-    public readonly string Name => "Phrygian ♮6";
+    public readonly string Name => "Phrygian ♮6 Scale (2nd Mode of Jazz Minor)";
     public readonly IScale Parent => new Scales.JazzMinor();
     public readonly IInterval ModeDegree => new M2();
 }
 
 public readonly struct LydianS5 : IMode
 {
-    public readonly string Name => "Lydian ♯5";
+    public readonly string Name => "Lydian ♯5 Scale (3rd Mode of Jazz Minor)";
     public readonly IScale Parent => new Scales.JazzMinor();
     public readonly IInterval ModeDegree => new mi3();
 }
 
 public readonly struct LydianDom : IMode
 {
-    public readonly string Name => nameof(LydianDom);
+    public readonly string Name => "Lydian Dominant Scale (4th Mode of Jazz Minor)";
     public readonly IScale Parent => new Scales.JazzMinor();
     public readonly IInterval ModeDegree => new P4();
 }
 
 public readonly struct Mixolydianb6 : IMode
 {
-    public readonly string Name => "Mixolydian ♭6";
+    public readonly string Name => "Mixolydian ♭6 Scale (5th Mode of Jazz Minor)";
     public readonly IScale Parent => new Scales.JazzMinor();
     public readonly IInterval ModeDegree => new P5();
 }
 
 public readonly struct LocrianS9 : IMode
 {
-    public readonly string Name => "Locrian ♮9";
+    public readonly string Name => "Locrian ♮9 Scale (6th Mode of Jazz Minor)";
     public readonly IScale Parent => new Scales.JazzMinor();
     public readonly IInterval ModeDegree => new M6();
 }
 
 public readonly struct Altered : IMode
 {
-    public readonly string Name => nameof(Altered);
+    public readonly string Name => "Altered Scale (7th Mode of Jazz Minor)";
     public readonly IScale Parent => new Scales.JazzMinor();
     public readonly IInterval ModeDegree => new M7();
 }
@@ -223,49 +223,49 @@ public readonly struct Altered : IMode
 
 public readonly struct HarmonicMinor : IMode
 {
-    public readonly string Name => nameof(HarmonicMinor);
+    public readonly string Name => "Harmonic Minor";
     public readonly IScale Parent => new Scales.HarmonicMinor();
     public readonly IInterval ModeDegree => new P1();
 }
 
 public readonly struct LocrianS6 : IMode
 {
-    public readonly string Name => "Locrian ♮6";
+    public readonly string Name => "Locrian ♮6 Scale (2nd Mode of Harmonic Minor)";
     public readonly IScale Parent => new Scales.HarmonicMinor();
     public readonly IInterval ModeDegree => new M2();
 }
 
 public readonly struct IonianS5 : IMode
 {
-    public readonly string Name => "Ionian +5";
+    public readonly string Name => "Ionian +5 Scale (3rd Mode of Harmonic Minor)";
     public readonly IScale Parent => new Scales.HarmonicMinor();
     public readonly IInterval ModeDegree => new mi3();
 }
 
 public readonly struct DorianS11 : IMode
 {
-    public readonly string Name => "Dorian #11";
+    public readonly string Name => "Dorian #11 Scale (4th Mode of Harmonic Minor)";
     public readonly IScale Parent => new Scales.HarmonicMinor();
     public readonly IInterval ModeDegree => new P4();
 }
 
 public readonly struct PhrygianDominant : IMode
 {
-    public readonly string Name => nameof(PhrygianDominant);
+    public readonly string Name => "Phrygian Dominant Scale (5th Mode of Harmonic Minor)";
     public readonly IScale Parent => new Scales.HarmonicMinor();
     public readonly IInterval ModeDegree => new P5();
 }
 
 public readonly struct LydianS2 : IMode
 {
-    public readonly string Name => "Lydian #2";
+    public readonly string Name => "Lydian #2 (6th Mode of Harmonic Minor)";
     public readonly IScale Parent => new Scales.HarmonicMinor();
     public readonly IInterval ModeDegree => new mi6();
 }
 
 public readonly struct SuperLocrian : IMode
 {
-    public readonly string Name => nameof(SuperLocrian);
+    public readonly string Name => "Super Locrian Scale (7th Mode of the Harmonic Minor)";
     public readonly IScale Parent => new Scales.HarmonicMinor();
     public readonly IInterval ModeDegree => new M7();
 }
@@ -277,14 +277,14 @@ public readonly struct SuperLocrian : IMode
 
 public readonly struct SixthDiminished : IMode
 {
-    public readonly string Name => nameof(SixthDiminished);
+    public readonly string Name => "Sixth Diminished Scale(Barry Harris Scale)";
     public readonly IScale Parent => new Scales.SixthDiminished();
     public readonly IInterval ModeDegree => new P1();
 }
 
 public readonly struct SixthDiminishedII : IMode
 {
-    public readonly string Name => nameof(SixthDiminishedII);
+    public readonly string Name => "Sixth Diminished II Scale (2nd Mode of the Sixth Diminished Scale)";
     public readonly IScale Parent => new Scales.SixthDiminished();
     public readonly IInterval ModeDegree => new M2();
 }
@@ -296,7 +296,7 @@ public readonly struct SixthDiminishedII : IMode
 
 public readonly struct Chromatic : IMode
 {
-    public readonly string Name => nameof(Chromatic);
+    public readonly string Name => "Chromatic Scale";
     public readonly IScale Parent => new Scales.Chromatic();
     public readonly IInterval ModeDegree => new P1();
 }
@@ -307,14 +307,14 @@ public readonly struct Chromatic : IMode
 
 public readonly struct WholeHalf : IMode
 {
-    public readonly string Name => nameof(WholeHalf);
+    public readonly string Name => "Diminished Scale (Whole-Half Diminished)";
     public readonly IScale Parent => new Scales.Diminished();
     public readonly IInterval ModeDegree => new P1();
 }
 
 public readonly struct HalfWhole : IMode
 {
-    public readonly string Name => nameof(HalfWhole);
+    public readonly string Name => "Half-Whole Diminished Scale (2nd Mode of the Diminished Scale)";
     public readonly IScale Parent => new Scales.Diminished();
     public readonly IInterval ModeDegree => new M2();
 }
