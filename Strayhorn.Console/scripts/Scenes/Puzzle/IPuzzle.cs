@@ -48,14 +48,17 @@ public interface IPuzzle
     /// <summary>Provide the user with a puzzle hint.</summary>
     public string Hint { get; }
 
+    /// <summary>Provide the user with the correct answer.</summary>
+    public string Answer { get; }
+
     /// <summary>When true, the hint is displayed.</summary>
     public bool ShouldHintDisplay { get; set; }
 
     /// <summary>Flags the state that the puzzle is complete.</summary>
     public bool PuzzleIsComplete { get; set; }
 
-    /// <summary>Must be true for user to submit their answer. </summary>
-    public bool AnswerIsValid => SelectedNotes.Count == NumOfNotes;
+    /// <summary>Answer must be in a valid format for user to submit. </summary>
+    public bool AnswerIsValidFormat => SelectedNotes.Count == NumOfNotes;
 
     /// <summary>Checks the users submitted answer.</summary>
     public bool CheckAnswer();
@@ -83,7 +86,7 @@ public interface IPuzzle
         Console.WriteLine("press 'h' for a hint");
         Console.WriteLine("press 'q' to quit Practice");
 
-        if (AnswerIsValid)
+        if (AnswerIsValidFormat)
         {
             Console.ForegroundColor = ConsoleColor.DarkYellow;
             Console.WriteLine("press 'enter' to submit answer");
@@ -100,12 +103,12 @@ public interface IPuzzle
             if (CheckAnswer())
             {
                 Console.ForegroundColor = ConsoleColor.DarkGreen;
-                Console.Write("That is correct!");
+                Console.Write($"{Answer}\nThat is correct!");
             }
             else
             {
                 Console.ForegroundColor = ConsoleColor.DarkRed;
-                Console.Write($"That is incorrect.");
+                Console.Write($"That was incorrect.\nThe correct answer is: {Answer}");
             }
         }
         Console.ResetColor();

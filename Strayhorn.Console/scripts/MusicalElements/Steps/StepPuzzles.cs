@@ -22,6 +22,7 @@ public class StepPuzzle : IPuzzle
     public bool PuzzleIsComplete { get; set; }
     public bool ShouldHintDisplay { get; set; }
     public string Hint => "H = Half-Step = +1\nW = Whole-Step = +2\nS = Skip-Step = +3";
+    public string Answer => $"{Gamut.Name}-{nameof(Step)}";
 
     public bool CheckAnswer()
     {

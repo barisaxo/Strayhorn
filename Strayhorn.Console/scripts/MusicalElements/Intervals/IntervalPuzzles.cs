@@ -24,7 +24,7 @@ public class IntervalPuzzle : IPuzzle
     public bool PuzzleIsComplete { get; set; }
     public bool ShouldHintDisplay { get; set; }
     public string Hint => "P1 mi2 M2 mi3 M3 P4 TT P5 mi6 M6 mi7 M7 P8";
-
+    public string Answer => $"{Interval.Name} {nameof(Interval)}";
     public bool CheckAnswer()
     {
         return SelectedNotes[^1].PitchID == PuzzleNotes[^1].PitchID;

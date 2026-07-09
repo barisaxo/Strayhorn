@@ -33,6 +33,7 @@ public class ChordInversionPuzzle : IPuzzle
         return temp;
     }
     public string Hint => GetHint();
+    public string Answer => $"{(Chord is ITriad ? Chord.Name : Chord.ChordSymbol)} Chord in {((int)Inversion).ToOrdinal()} inversion: ";
 
     public bool CheckAnswer()
     {

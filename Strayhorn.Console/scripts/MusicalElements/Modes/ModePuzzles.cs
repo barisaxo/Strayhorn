@@ -20,12 +20,12 @@ public class ModePuzzle : IPuzzle
     public Pitch[]? ActiveNotes { get; set; }
     public Pitch Caret { get; set; } = new(new MusicTheory.Notes.D(), 4);
 
-    public string Desc => $"Build the{(PuzzleType is PuzzleType.Theory ? " " + Gamut.Name + " " : " ")}Mode.";
+    public string Desc => $"Build the {(PuzzleType is PuzzleType.Theory ? Gamut.Name : "Mode")}";
     public bool PuzzleIsComplete { get; set; }
     public bool ShouldHintDisplay { get; set; }
     string GetHint()
     {
-        string temp = string.Empty;
+        string temp = "";
         int mode = Mode.ModeNumber();
 
         for (int i = 0; i < Mode.Parent.Steps.Length; i++)
@@ -43,7 +43,7 @@ public class ModePuzzle : IPuzzle
     }
     private string? _hint = null;
     public string Hint => _hint ??= GetHint();
-
+    public string Answer => $"{Mode.Name}";
     public bool CheckAnswer()
     {
         foreach (var p in PuzzleNotes)

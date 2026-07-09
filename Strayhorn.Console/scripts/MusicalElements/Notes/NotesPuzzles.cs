@@ -36,6 +36,7 @@ public class NotePuzzle : IPuzzle
     public string Hint => "D is always between the group with two black keys." +
                         "\nThe notes of the keyboard: C_D_EF_G_A_BC_D_EF_G_A_B" +
                         "\nSharp (#) = +1.   Flat (b) = -1.";
+    public string Answer => $"{Note.PitchClass.Name} {nameof(Note)}";
 
     public bool CheckAnswer()
     {

@@ -26,6 +26,7 @@ public class SeventhChordPuzzle : IPuzzle
     public bool ShouldHintDisplay { get; set; }
     private string? _hint;
     public string Hint => _hint ??= GetHint();
+    public string Answer => $"{SeventhChord.ChordSymbol} Chord";
     string GetHint()
     {
         string temp = "";

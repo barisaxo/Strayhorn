@@ -77,7 +77,7 @@ public class PracticeState : IState
                 return GetState;
 
             case ConsoleKey.Enter:
-                if (!Puzzle.AnswerIsValid)
+                if (!Puzzle.AnswerIsValidFormat)
                 {
                     Console.Beep();
                     return this;

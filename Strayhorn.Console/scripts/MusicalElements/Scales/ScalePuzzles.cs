@@ -28,7 +28,7 @@ public class ScalePuzzle : IPuzzle
         return temp;
     }
     public string Hint => GetHint();
-
+    public string Answer => $"{Gamut.Name} {nameof(Scale)}";
     public bool CheckAnswer()
     {
         foreach (var p in PuzzleNotes)

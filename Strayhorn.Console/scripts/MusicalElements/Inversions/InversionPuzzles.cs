@@ -23,7 +23,9 @@ public class InversionPuzzle : IPuzzle
     public bool PuzzleIsComplete { get; set; }
     public bool ShouldHintDisplay { get; set; }
     public string Hint => "1st <──> 8th   :   2nd <──> 7th   :   3rd <──> 6th   :   4th <──> 5th\n" +
-                          "Major <──> Minor   :   Augmented <──> Diminished    :   Perfect <──> Perfect";
+                        "Major <──> Minor   :   Augmented <──> Diminished    :   Perfect <──> Perfect";
+
+    public string Answer => $"Inverted {Interval.IntervalAbbrev}";
 
     public bool CheckAnswer()
     {
