@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Strayhorn.WebApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8cc2612edc5c683e98c2e5d5ac7bb6751b83e0a6")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+58a5805732fba05571e47f6b60e25752fe78bcc3")]
 [assembly: System.Reflection.AssemblyProductAttribute("Strayhorn.WebApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Strayhorn.WebApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

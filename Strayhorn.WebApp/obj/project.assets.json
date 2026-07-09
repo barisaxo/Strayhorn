@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/pino/Documents/DEV/CSharp/AuralTechGames/Strayhorn/Strayhorn.WebApp/Strayhorn.WebApp.csproj",
+      "projectUniqueName": "/Users/pino/Documents/Strayhorn/Strayhorn.WebApp/Strayhorn.WebApp.csproj",
       "projectName": "Strayhorn.WebApp",
-      "projectPath": "/Users/pino/Documents/DEV/CSharp/AuralTechGames/Strayhorn/Strayhorn.WebApp/Strayhorn.WebApp.csproj",
+      "projectPath": "/Users/pino/Documents/Strayhorn/Strayhorn.WebApp/Strayhorn.WebApp.csproj",
       "packagesPath": "/Users/pino/.nuget/packages/",
-      "outputPath": "/Users/pino/Documents/DEV/CSharp/AuralTechGames/Strayhorn/Strayhorn.WebApp/obj/",
+      "outputPath": "/Users/pino/Documents/Strayhorn/Strayhorn.WebApp/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/pino/.nuget/NuGet/NuGet.Config"
@@ -26,6 +26,7 @@
         "net9.0"
       ],
       "sources": {
+        "/usr/local/share/dotnet/library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -44,7 +45,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.100"
+      "SdkAnalysisLevel": "9.0.300"
     },
     "frameworks": {
       "net9.0": {
@@ -68,7 +69,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.102/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.305/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

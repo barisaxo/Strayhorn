@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/pino/Documents/DEV/CSharp/AuralTechGames/Strayhorn/Strayhorn.Tests/Strayhorn.Tests.csproj": {}
+    "/Users/pino/Documents/Strayhorn/Strayhorn.Tests/Strayhorn.Tests.csproj": {}
   },
   "projects": {
-    "/Users/pino/Documents/DEV/CSharp/AuralTechGames/Strayhorn/Strayhorn.Model/Strayhorn.Model.csproj": {
+    "/Users/pino/Documents/Strayhorn/Strayhorn.Model/Strayhorn.Model.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/pino/Documents/DEV/CSharp/AuralTechGames/Strayhorn/Strayhorn.Model/Strayhorn.Model.csproj",
+        "projectUniqueName": "/Users/pino/Documents/Strayhorn/Strayhorn.Model/Strayhorn.Model.csproj",
         "projectName": "Strayhorn.Model",
-        "projectPath": "/Users/pino/Documents/DEV/CSharp/AuralTechGames/Strayhorn/Strayhorn.Model/Strayhorn.Model.csproj",
+        "projectPath": "/Users/pino/Documents/Strayhorn/Strayhorn.Model/Strayhorn.Model.csproj",
         "packagesPath": "/Users/pino/.nuget/packages/",
-        "outputPath": "/Users/pino/Documents/DEV/CSharp/AuralTechGames/Strayhorn/Strayhorn.Model/obj/",
+        "outputPath": "/Users/pino/Documents/Strayhorn/Strayhorn.Model/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/pino/.nuget/NuGet/NuGet.Config"
@@ -20,6 +20,7 @@
           "net9.0"
         ],
         "sources": {
+          "/usr/local/share/dotnet/library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -38,7 +39,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.100"
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net9.0": {
@@ -59,18 +60,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.102/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.305/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/pino/Documents/DEV/CSharp/AuralTechGames/Strayhorn/Strayhorn.Tests/Strayhorn.Tests.csproj": {
+    "/Users/pino/Documents/Strayhorn/Strayhorn.Tests/Strayhorn.Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/pino/Documents/DEV/CSharp/AuralTechGames/Strayhorn/Strayhorn.Tests/Strayhorn.Tests.csproj",
+        "projectUniqueName": "/Users/pino/Documents/Strayhorn/Strayhorn.Tests/Strayhorn.Tests.csproj",
         "projectName": "Strayhorn.Tests",
-        "projectPath": "/Users/pino/Documents/DEV/CSharp/AuralTechGames/Strayhorn/Strayhorn.Tests/Strayhorn.Tests.csproj",
+        "projectPath": "/Users/pino/Documents/Strayhorn/Strayhorn.Tests/Strayhorn.Tests.csproj",
         "packagesPath": "/Users/pino/.nuget/packages/",
-        "outputPath": "/Users/pino/Documents/DEV/CSharp/AuralTechGames/Strayhorn/Strayhorn.Tests/obj/",
+        "outputPath": "/Users/pino/Documents/Strayhorn/Strayhorn.Tests/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/pino/.nuget/NuGet/NuGet.Config"
@@ -79,14 +80,15 @@
           "net9.0"
         ],
         "sources": {
+          "/usr/local/share/dotnet/library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "/Users/pino/Documents/DEV/CSharp/AuralTechGames/Strayhorn/Strayhorn.Model/Strayhorn.Model.csproj": {
-                "projectPath": "/Users/pino/Documents/DEV/CSharp/AuralTechGames/Strayhorn/Strayhorn.Model/Strayhorn.Model.csproj"
+              "/Users/pino/Documents/Strayhorn/Strayhorn.Model/Strayhorn.Model.csproj": {
+                "projectPath": "/Users/pino/Documents/Strayhorn/Strayhorn.Model/Strayhorn.Model.csproj"
               }
             }
           }
@@ -101,7 +103,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.100"
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net9.0": {
@@ -132,7 +134,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.102/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.305/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

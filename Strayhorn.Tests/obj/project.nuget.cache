@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Uok//pb4Kug=",
+  "dgSpecHash": "eyUMQMReg/g=",
   "success": true,
-  "projectFilePath": "/Users/pino/Documents/DEV/CSharp/AuralTechGames/Strayhorn/Strayhorn.Tests/Strayhorn.Tests.csproj",
+  "projectFilePath": "/Users/pino/Documents/Strayhorn/Strayhorn.Tests/Strayhorn.Tests.csproj",
   "expectedPackageFiles": [
     "/Users/pino/.nuget/packages/microsoft.applicationinsights/2.22.0/microsoft.applicationinsights.2.22.0.nupkg.sha512",
     "/Users/pino/.nuget/packages/microsoft.codecoverage/17.11.1/microsoft.codecoverage.17.11.1.nupkg.sha512",
