@@ -31,7 +31,7 @@ class Program
         Console.WriteLine(
             "WARNING: your console window is too small to properly display graphics.\n" +
             $"Your window is currently {Console.WindowWidth} columns wide, and {Console.WindowHeight} rows tall.\n" +
-            $"Resize your window width to at least {PianoScroll.TwoOctaveBlank[0].Length + 4} to avoid this error." +
+            $"Resize your window width to at least {PianoScroll.TwoOctaveBlank[0].Length + 4} to avoid this error. " +
             "Preferable minimum size is 100 x 35.\n" +
             $"If the window is already full screen, try changing the console resolution with 'cmd' + '-' or '+'.\n" +
             "These options can also be set in the Settings -> Profiles -> Windows tab from the Terminal app menu.");
