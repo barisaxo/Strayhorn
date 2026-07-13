@@ -237,7 +237,7 @@ public readonly struct LocrianS6 : IMode
 
 public readonly struct IonianS5 : IMode
 {
-    public readonly string Name => "Ionian +5 Scale (3rd Mode of Harmonic Minor)";
+    public readonly string Name => "Ionian #5 Scale (3rd Mode of Harmonic Minor)";
     public readonly IScale Parent => new Scales.HarmonicMinor();
     public readonly IInterval ModeDegree => new mi3();
 }
